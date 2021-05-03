@@ -49,5 +49,10 @@ namespace PVCWindowsStudio.UI
         {
             openChildForm(new BlindsForm());
         }
+
+        private void radMenuItem2_Click(object sender, EventArgs e)
+        {
+            openChildForm(new WindowPanesForm());
+        }
     }
 }

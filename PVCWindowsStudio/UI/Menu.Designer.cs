@@ -64,7 +64,8 @@
             // radMenuItem2
             // 
             this.radMenuItem2.Name = "radMenuItem2";
-            this.radMenuItem2.Text = "Products";
+            this.radMenuItem2.Text = "Window Panes";
+            this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
             // 
             // radMenuItem3
             // 
