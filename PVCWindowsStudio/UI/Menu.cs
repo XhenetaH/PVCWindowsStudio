@@ -25,15 +25,15 @@ namespace PVCWindowsStudio.UI
 
             }
             activeForm = chilForm;
-            chilForm.TopLevel = false;
-            chilForm.FormBorderStyle = FormBorderStyle.None;
-            chilForm.Dock = DockStyle.Fill;
-            panelChildForm.Controls.Add(chilForm);
-            panelChildForm.Tag = chilForm;
-            chilForm.BringToFront();
-            chilForm.Left = (this.ClientSize.Width - chilForm.Width) / 2;
-            chilForm.Top = (this.ClientSize.Height - chilForm.Height) / 2;
-            chilForm.Show();
+            activeForm.TopLevel = false;
+            activeForm.FormBorderStyle = FormBorderStyle.None;
+            activeForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(activeForm);
+            panelChildForm.Tag = activeForm;
+            activeForm.BringToFront();
+            activeForm.Left = (this.ClientSize.Width - activeForm.Width) / 2;
+            activeForm.Top = (this.ClientSize.Height - activeForm.Height) / 2;
+            activeForm.Show();
         }
         private void Menu_Load(object sender, EventArgs e)
         {
@@ -58,6 +58,11 @@ namespace PVCWindowsStudio.UI
         private void radMenuItem3_Click(object sender, EventArgs e)
         {
             openChildForm(new ProfilesForm());
+        }
+
+        private void radMenuItem4_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProductsForm());
         }
     }
 }

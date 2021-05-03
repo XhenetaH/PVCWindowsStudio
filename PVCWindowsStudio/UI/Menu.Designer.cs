@@ -76,7 +76,8 @@
             // radMenuItem4
             // 
             this.radMenuItem4.Name = "radMenuItem4";
-            this.radMenuItem4.Text = "Calculator";
+            this.radMenuItem4.Text = "Products";
+            this.radMenuItem4.Click += new System.EventHandler(this.radMenuItem4_Click);
             // 
             // panelChildForm
             // 
