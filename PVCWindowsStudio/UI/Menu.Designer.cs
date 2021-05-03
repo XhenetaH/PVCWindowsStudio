@@ -35,6 +35,7 @@
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
             this.panelChildForm = new Telerik.WinControls.UI.RadPanel();
+            this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChildForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -46,7 +47,8 @@
             this.radMenuItem1,
             this.radMenuItem2,
             this.radMenuItem3,
-            this.radMenuItem4});
+            this.radMenuItem4,
+            this.radMenuItem5});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
             this.radMenu1.Size = new System.Drawing.Size(960, 37);
@@ -83,6 +85,12 @@
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // radMenuItem5
+            // 
+            this.radMenuItem5.Name = "radMenuItem5";
+            this.radMenuItem5.Text = "Blind";
+            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -116,5 +124,6 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
         private Telerik.WinControls.UI.RadPanel panelChildForm;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
     }
 }

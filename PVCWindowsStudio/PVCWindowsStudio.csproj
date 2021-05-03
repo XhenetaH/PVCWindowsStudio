@@ -66,6 +66,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\BlindsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BlindsForm.Designer.cs">
+      <DependentUpon>BlindsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BlindsForm.resx">
+      <DependentUpon>BlindsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
