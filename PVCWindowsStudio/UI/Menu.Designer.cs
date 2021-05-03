@@ -70,7 +70,8 @@
             // radMenuItem3
             // 
             this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "Price List";
+            this.radMenuItem3.Text = "Profiles";
+            this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
             // 
             // radMenuItem4
             // 
