@@ -59,25 +59,5 @@ namespace PVCWindowsStudio.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap constructor_with_hard_hat_protection_on_his_head__1_ {
-            get {
-                object obj = ResourceManager.GetObject("constructor-with-hard-hat-protection-on-his-head (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap constructor_with_hard_hat_protection_on_his_head__2_ {
-            get {
-                object obj = ResourceManager.GetObject("constructor-with-hard-hat-protection-on-his-head (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
