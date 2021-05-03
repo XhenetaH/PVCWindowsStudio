@@ -33,6 +33,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.usersGridView = new Telerik.WinControls.UI.RadGridView();
             this.materialBlueGreyTheme2 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
@@ -51,7 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new Telerik.WinControls.UI.RadTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dropdownRole = new Telerik.WinControls.UI.RadFontDropDownList();
+            this.cmbRole = new Telerik.WinControls.UI.RadMultiColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
@@ -70,7 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownRole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole.EditorControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole.EditorControl.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,7 +130,7 @@
             // 
             // radPanel5
             // 
-            this.radPanel5.Controls.Add(this.dropdownRole);
+            this.radPanel5.Controls.Add(this.cmbRole);
             this.radPanel5.Controls.Add(this.label3);
             this.radPanel5.Controls.Add(this.label2);
             this.radPanel5.Controls.Add(this.txtPassword);
@@ -308,16 +311,41 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "User Role";
             // 
-            // dropdownRole
+            // cmbRole
             // 
-            this.dropdownRole.Location = new System.Drawing.Point(30, 262);
-            this.dropdownRole.Name = "dropdownRole";
-            this.dropdownRole.SelectOnHover = false;
-            this.dropdownRole.ShowTextBox = false;
-            this.dropdownRole.Size = new System.Drawing.Size(223, 36);
-            this.dropdownRole.TabIndex = 8;
-            this.dropdownRole.Text = "Choose Role";
-            this.dropdownRole.ThemeName = "MaterialBlueGrey";
+            // 
+            // cmbRole.NestedRadGridView
+            // 
+            this.cmbRole.EditorControl.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbRole.EditorControl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbRole.EditorControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.cmbRole.EditorControl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmbRole.EditorControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cmbRole.EditorControl.Location = new System.Drawing.Point(0, 0);
+            this.cmbRole.EditorControl.Margin = new System.Windows.Forms.Padding(4);
+            // 
+            // 
+            // 
+            this.cmbRole.EditorControl.MasterTemplate.AllowAddNewRow = false;
+            this.cmbRole.EditorControl.MasterTemplate.AllowCellContextMenu = false;
+            this.cmbRole.EditorControl.MasterTemplate.AllowColumnChooser = false;
+            this.cmbRole.EditorControl.MasterTemplate.DataMember = "Admin";
+            this.cmbRole.EditorControl.MasterTemplate.EnableGrouping = false;
+            this.cmbRole.EditorControl.MasterTemplate.ShowFilteringRow = false;
+            this.cmbRole.EditorControl.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.cmbRole.EditorControl.Name = "NestedRadGridView";
+            this.cmbRole.EditorControl.ReadOnly = true;
+            this.cmbRole.EditorControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbRole.EditorControl.ShowGroupPanel = false;
+            this.cmbRole.EditorControl.Size = new System.Drawing.Size(300, 187);
+            this.cmbRole.EditorControl.TabIndex = 0;
+            this.cmbRole.Location = new System.Drawing.Point(30, 259);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(223, 36);
+            this.cmbRole.TabIndex = 9;
+            this.cmbRole.TabStop = false;
+            this.cmbRole.Text = "Select Role";
+            this.cmbRole.ThemeName = "MaterialBlueGrey";
             // 
             // UsersForm
             // 
@@ -353,7 +381,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownRole)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole.EditorControl.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole.EditorControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbRole)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -367,7 +397,6 @@
         private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadPanel radPanel5;
-        private Telerik.WinControls.UI.RadFontDropDownList dropdownRole;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private Telerik.WinControls.UI.RadTextBox txtPassword;
@@ -380,5 +409,6 @@
         private Telerik.WinControls.UI.RadButton btnSave;
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private System.Windows.Forms.Label label1;
+        private Telerik.WinControls.UI.RadMultiColumnComboBox cmbRole;
     }
 }
