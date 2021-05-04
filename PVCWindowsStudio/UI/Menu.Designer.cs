@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
-            this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
@@ -37,25 +36,11 @@
             this.panelChildForm = new Telerik.WinControls.UI.RadPanel();
             this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
+            this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
             ((System.ComponentModel.ISupportInitialize)(this.panelChildForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // radMenu1
-            // 
-            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem1,
-            this.radMenuItem2,
-            this.radMenuItem3,
-            this.radMenuItem4,
-            this.radMenuItem5,
-            this.radMenuItem6});
-            this.radMenu1.Location = new System.Drawing.Point(0, 0);
-            this.radMenu1.Name = "radMenu1";
-            this.radMenu1.Size = new System.Drawing.Size(960, 37);
-            this.radMenu1.TabIndex = 0;
-            this.radMenu1.ThemeName = "MaterialBlueGrey";
             // 
             // radMenuItem1
             // 
@@ -107,6 +92,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 657);
+            // 
+            // radMenu1
+            // 
+            this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem1,
+            this.radMenuItem2,
+            this.radMenuItem3,
+            this.radMenuItem4,
+            this.radMenuItem5,
+            this.radMenuItem6});
+            this.radMenu1.Location = new System.Drawing.Point(0, 0);
+            this.radMenu1.Name = "radMenu1";
+            this.radMenu1.Size = new System.Drawing.Size(960, 37);
+            this.radMenu1.TabIndex = 0;
+            this.radMenu1.ThemeName = "MaterialBlueGrey";
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.radMenu1);
             this.Name = "Menu";
@@ -118,8 +118,8 @@
             this.ThemeName = "MaterialBlueGrey";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Menu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelChildForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,7 +129,6 @@
         #endregion
 
         private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
-        private Telerik.WinControls.UI.RadMenu radMenu1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
@@ -137,5 +136,6 @@
         private Telerik.WinControls.UI.RadPanel panelChildForm;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
+        private Telerik.WinControls.UI.RadMenu radMenu1;
     }
 }
