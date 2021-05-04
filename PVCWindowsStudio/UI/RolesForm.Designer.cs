@@ -33,7 +33,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            this.materialGridView = new Telerik.WinControls.UI.RadGridView();
+            this.roleGridView = new Telerik.WinControls.UI.RadGridView();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
@@ -47,8 +47,8 @@
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.materialGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialGridView.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
@@ -67,14 +67,14 @@
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // materialGridView
+            // roleGridView
             // 
-            this.materialGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialGridView.Location = new System.Drawing.Point(0, 0);
+            this.roleGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roleGridView.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
-            this.materialGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.roleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewTextBoxColumn1.HeaderText = "column1";
             gridViewTextBoxColumn1.Name = "column1";
             gridViewTextBoxColumn1.Width = 273;
@@ -87,16 +87,16 @@
             gridViewTextBoxColumn4.HeaderText = "column4";
             gridViewTextBoxColumn4.Name = "column4";
             gridViewTextBoxColumn4.Width = 274;
-            this.materialGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            this.roleGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
             gridViewTextBoxColumn3,
             gridViewTextBoxColumn4});
-            this.materialGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.materialGridView.Name = "materialGridView";
-            this.materialGridView.Size = new System.Drawing.Size(1141, 704);
-            this.materialGridView.TabIndex = 0;
-            this.materialGridView.ThemeName = "MaterialBlueGrey";
+            this.roleGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.roleGridView.Name = "roleGridView";
+            this.roleGridView.Size = new System.Drawing.Size(1141, 704);
+            this.roleGridView.TabIndex = 0;
+            this.roleGridView.ThemeName = "MaterialBlueGrey";
             // 
             // radPanel1
             // 
@@ -262,7 +262,7 @@
             // 
             // radPanel2
             // 
-            this.radPanel2.Controls.Add(this.materialGridView);
+            this.radPanel2.Controls.Add(this.roleGridView);
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel2.Location = new System.Drawing.Point(0, 0);
             this.radPanel2.Name = "radPanel2";
@@ -284,8 +284,8 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "RolesForm";
             this.ThemeName = "MaterialBlueGrey";
-            ((System.ComponentModel.ISupportInitialize)(this.materialGridView.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleGridView.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roleGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
@@ -309,7 +309,7 @@
 
         #endregion
 
-        private Telerik.WinControls.UI.RadGridView materialGridView;
+        private Telerik.WinControls.UI.RadGridView roleGridView;
         private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadPanel radPanel5;
