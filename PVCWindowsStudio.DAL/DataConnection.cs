@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PVCWindowsStudio.DAL
 {
     public class DataConnection
     {
-        readonly static string _connectionString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
+        readonly static string _connectionString = ConfigurationManager.ConnectionStrings["PVCWindowsStudio"].ConnectionString;
 
         public static SqlConnection GetConnection()
         {
