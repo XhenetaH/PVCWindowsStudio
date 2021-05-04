@@ -8,7 +8,7 @@ namespace PVCWindowsStudio.DAL
 {
     public class DataConnection
     {
-        readonly static string _connectionString = ConfigurationManager.ConnectionStrings["PVCWindowsStudio"].ConnectionString;
+        private readonly static string _connectionString = ConfigurationManager.ConnectionStrings["PVCWindowsStudio"].ConnectionString;
 
         public static SqlConnection GetConnection()
         {

@@ -12,6 +12,6 @@ namespace PVCWindowsStudio.BO.Interfaces
         T Get(int id);
         T Get(T model);
         List<T> GetAll();
-        T ToObject(SqlDataReader reader);
+       
     }
 }

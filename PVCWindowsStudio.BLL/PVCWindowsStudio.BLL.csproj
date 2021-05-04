@@ -42,7 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MaterialBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PVCWindowsStudio.BO\PVCWindowsStudio.BO.csproj">
+      <Project>{91D18322-6D21-43D0-A719-D39779E7B75B}</Project>
+      <Name>PVCWindowsStudio.BO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PVCWindowsStudio.DAL\PVCWindowsStudio.DAL.csproj">
+      <Project>{4725C3D3-0B05-42ED-A485-2DD2DCE5173A}</Project>
+      <Name>PVCWindowsStudio.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

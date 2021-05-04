@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace PVCWindowsStudio.DAL
 {
-    public class MaterialDAL : IRepository<Materials>
+    public class MaterialDAL : IRepository<Materials> , IConvertToObject<Materials>
     {
         public bool Delete(int id)
         {
@@ -116,7 +116,20 @@ namespace PVCWindowsStudio.DAL
 
         public Materials ToObject(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Materials mat = new Materials
+            {
+                MaterialID = int.Parse(reader["MaterialID"].ToString()),
+                Name = reader["Name"].ToString(),
+                Other = reader["Other"].ToString(),
+                InsertBy = int.Parse(reader["InsertBy"].ToString())
+            };
+            if (reader["LUB"] != DBNull.Value)
+                mat.LUB = int.Parse(reader["LUB"].ToString());
+            if (reader["LUD"] != DBNull.Value)
+                mat.LUD = Convert.ToDateTime(reader["LUD"].ToString());
+            mat.LUN = int.Parse(reader["LUN"].ToString());
+
+            return mat;
         }
 
         public bool Update(Materials model)
