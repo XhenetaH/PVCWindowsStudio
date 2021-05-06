@@ -11,8 +11,24 @@ namespace PVCWindowsStudio.BO
         public int InsertBy { get; set; }
         public DateTime InsertDate { get; set; }
         public int LUB { get; set; }
-        public DateTime LUD { get; set; }
         public int LUN { get; set; }
+
+        private DateTime _LUD;
+
+        public DateTime LUD
+        {
+            get
+            {
+                return _LUD;
+            }
+            set
+            {
+                if (LUN == 0)
+                    _LUD = DateTime.MinValue;
+                else
+                    _LUD = value;
+            }
+        }
 
     }
 }

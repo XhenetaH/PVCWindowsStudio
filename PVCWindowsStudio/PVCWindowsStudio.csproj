@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Session\UserSession.cs" />
     <Compile Include="UI\BlindsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +211,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minus %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PVCWindowsStudio.BLL\PVCWindowsStudio.BLL.csproj">
+      <Project>{84D02FA1-2027-438B-BB41-58874D29ED4C}</Project>
+      <Name>PVCWindowsStudio.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PVCWindowsStudio.BO\PVCWindowsStudio.BO.csproj">
+      <Project>{91D18322-6D21-43D0-A719-D39779E7B75B}</Project>
+      <Name>PVCWindowsStudio.BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

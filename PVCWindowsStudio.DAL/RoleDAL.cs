@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 
 namespace PVCWindowsStudio.DAL
@@ -101,7 +104,11 @@ namespace PVCWindowsStudio.DAL
                 RoleID = int.Parse(reader["RoleID"].ToString()),
                 Name = reader["Name"].ToString(),
                 InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString())
+                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
+                LUB = int.Parse(reader["LUB"].ToString()),                
+                LUN = int.Parse(reader["LUN"].ToString()),
+                LUD = Convert.ToDateTime(reader["LUD"].ToString())
+
             };
             return role;
         }

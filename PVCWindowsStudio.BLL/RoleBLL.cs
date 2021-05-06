@@ -11,7 +11,7 @@ namespace PVCWindowsStudio.BLL
 {
     public class RoleBLL : IRepository<Roles>
     {
-        private readonly RoleDAL dal = new RoleDAL();
+        private RoleDAL dal = new RoleDAL();
         public bool Delete(int id)
         {
             return dal.Delete(id);
