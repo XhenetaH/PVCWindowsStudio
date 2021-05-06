@@ -30,11 +30,10 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtName.Text))
             {
                 materialBll.Insert(material);
-                InitiateData();
-
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
         private void Clear()
         {
@@ -72,10 +71,10 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtName.Text))
             {
                 materialBll.Update(material);
-                InitiateData();
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
 
         private void materialGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)

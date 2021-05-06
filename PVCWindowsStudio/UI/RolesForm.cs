@@ -47,12 +47,11 @@ namespace PVCWindowsStudio.UI
             role.InsertBy = 1;                   
             if(!String.IsNullOrEmpty(txtName.Text))
             {
-                roleBll.Insert(role);
-                InitiateData();
-                
+                roleBll.Insert(role);                
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
 
         private void RolesForm_Load(object sender, EventArgs e)
@@ -67,11 +66,11 @@ namespace PVCWindowsStudio.UI
             role.LUB = 1;
             if(!String.IsNullOrEmpty(txtName.Text))
             {
-                roleBll.Update(role);
-                InitiateData();
+                roleBll.Update(role);                
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
 
         private void roleGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)

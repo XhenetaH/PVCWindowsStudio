@@ -52,12 +52,11 @@ namespace PVCWindowsStudio.UI
             windowpane.InsertBy = 1;
             if (!String.IsNullOrEmpty(txtName.Text))
             {
-                windowpaneBll.Insert(windowpane);
-                InitiateData();
-
+                windowpaneBll.Insert(windowpane);                
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
         private void Clear()
         {
@@ -74,10 +73,10 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtName.Text))
             {
                 windowpaneBll.Update(windowpane);
-                InitiateData();
             }
             this.radValidationProvider1.Validate(txtName);
             Clear();
+            InitiateData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

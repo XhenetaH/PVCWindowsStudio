@@ -51,13 +51,12 @@ namespace PVCWindowsStudio.UI
             profile.InsertBy = 1;
             if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtColor.Text))
             {
-                profileBll.Insert(profile);
-                InitiateData();
-
+                profileBll.Insert(profile);               
             }
             this.radValidationProvider1.Validate(txtName);
             this.radValidationProvider1.Validate(txtColor);
             Clear();
+            InitiateData();
         }
         private void Clear()
         {
@@ -76,11 +75,11 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtDescription.Text))
             {
                 profileBll.Update(profile);
-                InitiateData();
             }
             this.radValidationProvider1.Validate(txtName);
             this.radValidationProvider1.Validate(txtColor);
             Clear();
+            InitiateData();
         }
 
         private void profileGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
