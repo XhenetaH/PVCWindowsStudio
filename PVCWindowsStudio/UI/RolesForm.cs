@@ -28,7 +28,7 @@ namespace PVCWindowsStudio.UI
         {
             var list = roleBll.GetAll();
             roleGridView.DataSource = list;
-            roleGridView.AllowSearchRow = true;
+  
             roleGridView.Columns[0].IsVisible = false;
             roleGridView.Columns[2].IsVisible = false;
             roleGridView.Columns[0].TextAlignment = ContentAlignment.MiddleCenter;

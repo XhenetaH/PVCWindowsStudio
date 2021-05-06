@@ -77,7 +77,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(30, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 41);
+            this.txtName.Size = new System.Drawing.Size(223, 36);
             this.txtName.TabIndex = 0;
             this.txtName.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
@@ -93,6 +93,7 @@
             this.roleGridView.MasterTemplate.AllowAddNewRow = false;
             this.roleGridView.MasterTemplate.AllowDeleteRow = false;
             this.roleGridView.MasterTemplate.AllowEditRow = false;
+            this.roleGridView.MasterTemplate.AllowSearchRow = true;
             this.roleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             this.roleGridView.MasterTemplate.EnablePaging = true;
             this.roleGridView.MasterTemplate.Templates.AddRange(new Telerik.WinControls.UI.GridViewTemplate[] {

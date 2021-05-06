@@ -101,7 +101,7 @@ namespace PVCWindowsStudio.DAL
             {
                 using(var connection = DataConnection.GetConnection())
                 {
-                    using(var command = DataConnection.Command(connection,"usp_Material_Insert",CommandType.StoredProcedure))
+                    using(var command = DataConnection.Command(connection, "usp_Material_Insert", CommandType.StoredProcedure))
                     {
                         DataConnection.AddParameter(command, "Name", model.Name);
                         DataConnection.AddParameter(command, "Other", model.Other);
@@ -124,13 +124,12 @@ namespace PVCWindowsStudio.DAL
                 MaterialID = int.Parse(reader["MaterialID"].ToString()),
                 Name = reader["Name"].ToString(),
                 Other = reader["Other"].ToString(),
-                InsertBy = int.Parse(reader["InsertBy"].ToString())
+                InsertBy = int.Parse(reader["InsertBy"].ToString()),
+                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
+                LUB = int.Parse(reader["LUB"].ToString()),
+                LUN = int.Parse(reader["LUN"].ToString()),
+                LUD = Convert.ToDateTime(reader["LUD"].ToString())
             };
-            if (reader["LUB"] != DBNull.Value)
-                mat.LUB = int.Parse(reader["LUB"].ToString());
-            if (reader["LUD"] != DBNull.Value)
-                mat.LUD = Convert.ToDateTime(reader["LUD"].ToString());
-            mat.LUN = int.Parse(reader["LUN"].ToString());
 
             return mat;
         }

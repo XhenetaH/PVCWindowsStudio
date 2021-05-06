@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
-            this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             this.profileGridView = new Telerik.WinControls.UI.RadGridView();
-            this.materialBlueGreyTheme2 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtColor = new Telerik.WinControls.UI.RadTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new Telerik.WinControls.UI.RadTextBox();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -50,8 +49,9 @@
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
+            this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.profileGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
@@ -60,6 +60,7 @@
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
@@ -70,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,29 +82,18 @@
             // 
             // 
             // 
+            this.profileGridView.MasterTemplate.AllowAddNewRow = false;
+            this.profileGridView.MasterTemplate.AllowDeleteRow = false;
+            this.profileGridView.MasterTemplate.AllowEditRow = false;
+            this.profileGridView.MasterTemplate.AllowSearchRow = true;
             this.profileGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.HeaderText = "column1";
-            gridViewTextBoxColumn1.Name = "column1";
-            gridViewTextBoxColumn1.Width = 165;
-            gridViewTextBoxColumn2.HeaderText = "column2";
-            gridViewTextBoxColumn2.Name = "column2";
-            gridViewTextBoxColumn2.Width = 165;
-            gridViewTextBoxColumn3.HeaderText = "column3";
-            gridViewTextBoxColumn3.Name = "column3";
-            gridViewTextBoxColumn3.Width = 165;
-            gridViewTextBoxColumn4.HeaderText = "column4";
-            gridViewTextBoxColumn4.Name = "column4";
-            gridViewTextBoxColumn4.Width = 166;
-            this.profileGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4});
+            this.profileGridView.MasterTemplate.EnablePaging = true;
             this.profileGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.profileGridView.Name = "profileGridView";
             this.profileGridView.Size = new System.Drawing.Size(709, 723);
             this.profileGridView.TabIndex = 0;
             this.profileGridView.ThemeName = "MaterialBlueGrey";
+            this.profileGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.profileGridView_CellDoubleClick);
             // 
             // radPanel2
             // 
@@ -113,6 +103,7 @@
             this.radPanel2.Name = "radPanel2";
             this.radPanel2.Size = new System.Drawing.Size(709, 723);
             this.radPanel2.TabIndex = 3;
+            this.radPanel2.ThemeName = "MaterialBlueGrey";
             // 
             // radPanel1
             // 
@@ -127,8 +118,9 @@
             // 
             // radPanel5
             // 
+            this.radPanel5.Controls.Add(this.lblID);
             this.radPanel5.Controls.Add(this.label3);
-            this.radPanel5.Controls.Add(this.radTextBox1);
+            this.radPanel5.Controls.Add(this.txtColor);
             this.radPanel5.Controls.Add(this.label2);
             this.radPanel5.Controls.Add(this.txtDescription);
             this.radPanel5.Controls.Add(this.lblUserName);
@@ -139,6 +131,25 @@
             this.radPanel5.Size = new System.Drawing.Size(289, 468);
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(26, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Profile Color";
+            // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(30, 155);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(223, 36);
+            this.txtColor.TabIndex = 7;
+            this.txtColor.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtColor, radValidationRule2);
             // 
             // label2
             // 
@@ -162,6 +173,7 @@
             this.txtDescription.Size = new System.Drawing.Size(223, 94);
             this.txtDescription.TabIndex = 5;
             this.txtDescription.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtDescription, null);
             // 
             // lblUserName
             // 
@@ -177,9 +189,10 @@
             // 
             this.txtName.Location = new System.Drawing.Point(30, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 41);
+            this.txtName.Size = new System.Drawing.Size(223, 36);
             this.txtName.TabIndex = 0;
             this.txtName.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
             // 
             // radPanel4
             // 
@@ -207,6 +220,7 @@
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "CLEAR";
             this.btnClear.ThemeName = "MaterialBlueGrey";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnClear.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnClear.GetChildAt(0))).Text = "CLEAR";
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -227,6 +241,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.ThemeName = "MaterialBlueGrey";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.trash;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = "DELETE";
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -247,6 +262,7 @@
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.ThemeName = "MaterialBlueGrey";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.pencil;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Text = "UPDATE";
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -269,6 +285,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "SAVE";
             this.btnSave.ThemeName = "MaterialBlueGrey";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.plus__3_;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Text = "SAVE";
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -303,24 +320,28 @@
             this.label1.Text = "Profiles Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblID
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Profile Color";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(41, 366);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 22);
+            this.lblID.TabIndex = 9;
+            this.lblID.Visible = false;
             // 
-            // radTextBox1
+            // radValidationProvider1
             // 
-            this.radTextBox1.Location = new System.Drawing.Point(30, 155);
-            this.radTextBox1.Name = "radTextBox1";
-            this.radTextBox1.Size = new System.Drawing.Size(223, 41);
-            this.radTextBox1.TabIndex = 7;
-            this.radTextBox1.ThemeName = "MaterialBlueGrey";
+            radValidationRule1.Controls.Add(this.txtName);
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule1.ToolTipText = "Name can\'t be empty!";
+            radValidationRule1.Value = "";
+            radValidationRule2.Controls.Add(this.txtColor);
+            radValidationRule2.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule2.ToolTipText = "Profile Color can\'t be empty!";
+            radValidationRule2.Value = "";
+            this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
+            radValidationRule1,
+            radValidationRule2});
             // 
             // ProfilesForm
             // 
@@ -337,6 +358,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "ProfilesForm";
             this.ThemeName = "MaterialBlueGrey";
+            this.Load += new System.EventHandler(this.ProfilesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profileGridView.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
@@ -346,6 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
             this.radPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
@@ -356,22 +379,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
         private Telerik.WinControls.UI.RadGridView profileGridView;
-        private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme2;
         private Telerik.WinControls.UI.RadPanel radPanel2;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadPanel radPanel5;
         private System.Windows.Forms.Label label3;
-        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private Telerik.WinControls.UI.RadTextBox txtColor;
         private System.Windows.Forms.Label label2;
         private Telerik.WinControls.UI.RadTextBox txtDescription;
         private System.Windows.Forms.Label lblUserName;
@@ -383,5 +403,8 @@
         private Telerik.WinControls.UI.RadButton btnSave;
         private Telerik.WinControls.UI.RadPanel radPanel3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblID;
+        private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
+        private Telerik.WinControls.UI.RadValidationProvider radValidationProvider1;
     }
 }
