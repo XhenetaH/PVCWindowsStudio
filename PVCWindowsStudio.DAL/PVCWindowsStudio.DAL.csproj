@@ -52,6 +52,7 @@
     <Compile Include="ProfileDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleDAL.cs" />
+    <Compile Include="UserDAL.cs" />
     <Compile Include="WindowPaneDAL.cs" />
   </ItemGroup>
   <ItemGroup>
