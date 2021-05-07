@@ -32,17 +32,6 @@ namespace PVCWindowsStudio.UI
         {
             var list = windowpaneBll.GetAll();
             windowpaneGridView.DataSource = list;
-
-            windowpaneGridView.Columns[0].IsVisible = false;
-            windowpaneGridView.Columns[0].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[1].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[2].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[3].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[4].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[5].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[6].TextAlignment = ContentAlignment.MiddleCenter;
-            windowpaneGridView.Columns[7].TextAlignment = ContentAlignment.MiddleCenter;
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)

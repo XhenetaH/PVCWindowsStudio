@@ -46,16 +46,6 @@ namespace PVCWindowsStudio.UI
         {
             var list = materialBll.GetAll();
             materialGridView.DataSource = list;
-            materialGridView.Columns[0].IsVisible = false;
-            materialGridView.Columns[3].IsVisible = false;
-            materialGridView.Columns[1].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[2].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[4].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[5].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[6].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[7].TextAlignment = ContentAlignment.MiddleCenter;
-            materialGridView.Columns[8].TextAlignment = ContentAlignment.MiddleCenter;
-
         }
 
         private void MaterialsForm_Load(object sender, EventArgs e)

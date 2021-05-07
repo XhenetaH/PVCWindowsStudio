@@ -28,18 +28,6 @@ namespace PVCWindowsStudio.UI
         {
             var list = roleBll.GetAll();
             roleGridView.DataSource = list;
-  
-            roleGridView.Columns[0].IsVisible = false;
-            roleGridView.Columns[2].IsVisible = false;
-            roleGridView.Columns[0].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[1].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[2].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[3].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[4].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[5].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[6].TextAlignment = ContentAlignment.MiddleCenter;
-            roleGridView.Columns[7].TextAlignment = ContentAlignment.MiddleCenter;
-
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

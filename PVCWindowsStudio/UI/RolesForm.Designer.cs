@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
@@ -77,7 +83,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(30, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 36);
+            this.txtName.Size = new System.Drawing.Size(223, 41);
             this.txtName.TabIndex = 0;
             this.txtName.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
@@ -95,6 +101,43 @@
             this.roleGridView.MasterTemplate.AllowEditRow = false;
             this.roleGridView.MasterTemplate.AllowSearchRow = true;
             this.roleGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "Name";
+            gridViewTextBoxColumn1.HeaderText = "Name";
+            gridViewTextBoxColumn1.Name = "Name";
+            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn1.Width = 101;
+            gridViewTextBoxColumn2.FieldName = "InsertBy";
+            gridViewTextBoxColumn2.HeaderText = "Insert By";
+            gridViewTextBoxColumn2.Name = "InsertBy";
+            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn2.Width = 140;
+            gridViewTextBoxColumn3.FieldName = "InsertDate";
+            gridViewTextBoxColumn3.HeaderText = "Insert Date";
+            gridViewTextBoxColumn3.Name = "InsertDate";
+            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn3.Width = 169;
+            gridViewTextBoxColumn4.FieldName = "LUN";
+            gridViewTextBoxColumn4.HeaderText = "LUN";
+            gridViewTextBoxColumn4.Name = "LUN";
+            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn4.Width = 79;
+            gridViewTextBoxColumn5.FieldName = "LUB";
+            gridViewTextBoxColumn5.HeaderText = "LUB";
+            gridViewTextBoxColumn5.Name = "LUB";
+            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn5.Width = 76;
+            gridViewTextBoxColumn6.FieldName = "LUD";
+            gridViewTextBoxColumn6.HeaderText = "LUD";
+            gridViewTextBoxColumn6.Name = "LUD";
+            gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn6.Width = 191;
+            this.roleGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6});
             this.roleGridView.MasterTemplate.EnablePaging = true;
             this.roleGridView.MasterTemplate.Templates.AddRange(new Telerik.WinControls.UI.GridViewTemplate[] {
             this.gridViewTemplate1});

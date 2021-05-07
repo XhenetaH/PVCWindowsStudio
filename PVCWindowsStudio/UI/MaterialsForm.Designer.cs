@@ -29,15 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition4 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule4 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
+            this.lblID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new Telerik.WinControls.UI.RadTextBox();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
             this.btnClear = new Telerik.WinControls.UI.RadButton();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
@@ -47,14 +56,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.materialGridView = new Telerik.WinControls.UI.RadGridView();
-            this.lblID = new System.Windows.Forms.Label();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
             this.radPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).BeginInit();
@@ -70,6 +78,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(30, 69);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(223, 41);
+            this.txtName.TabIndex = 0;
+            this.txtName.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
             // 
             // radPanel1
             // 
@@ -95,6 +112,15 @@
             this.radPanel5.Size = new System.Drawing.Size(289, 441);
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(48, 330);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 22);
+            this.lblID.TabIndex = 7;
+            this.lblID.Visible = false;
             // 
             // label2
             // 
@@ -129,15 +155,6 @@
             this.lblUserName.Size = new System.Drawing.Size(117, 23);
             this.lblUserName.TabIndex = 4;
             this.lblUserName.Text = "Material Name";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(30, 69);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 41);
-            this.txtName.TabIndex = 0;
-            this.txtName.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule4);
             // 
             // radPanel4
             // 
@@ -286,32 +303,72 @@
             this.materialGridView.MasterTemplate.AllowEditRow = false;
             this.materialGridView.MasterTemplate.AllowSearchRow = true;
             this.materialGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "MaterialID";
+            gridViewTextBoxColumn1.HeaderText = "MaterialID";
+            gridViewTextBoxColumn1.IsVisible = false;
+            gridViewTextBoxColumn1.Name = "MaterialID";
+            gridViewTextBoxColumn1.Width = 637;
+            gridViewTextBoxColumn2.FieldName = "Name";
+            gridViewTextBoxColumn2.HeaderText = "Name";
+            gridViewTextBoxColumn2.Name = "Name";
+            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn2.Width = 76;
+            gridViewTextBoxColumn3.FieldName = "Other";
+            gridViewTextBoxColumn3.HeaderText = "Description";
+            gridViewTextBoxColumn3.Name = "Other";
+            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn3.Width = 134;
+            gridViewTextBoxColumn4.FieldName = "InsertBy";
+            gridViewTextBoxColumn4.HeaderText = "Insert By";
+            gridViewTextBoxColumn4.Name = "InsertBy";
+            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn4.Width = 106;
+            gridViewTextBoxColumn5.FieldName = "InsertDate";
+            gridViewTextBoxColumn5.HeaderText = "Insert Date";
+            gridViewTextBoxColumn5.Name = "InsertDate";
+            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn5.Width = 129;
+            gridViewTextBoxColumn6.FieldName = "LUB";
+            gridViewTextBoxColumn6.HeaderText = "LUB";
+            gridViewTextBoxColumn6.Name = "LUB";
+            gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn6.Width = 58;
+            gridViewTextBoxColumn7.FieldName = "LUN";
+            gridViewTextBoxColumn7.HeaderText = "LUN";
+            gridViewTextBoxColumn7.Name = "LUN";
+            gridViewTextBoxColumn7.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn7.Width = 60;
+            gridViewTextBoxColumn8.FieldName = "LUD";
+            gridViewTextBoxColumn8.HeaderText = "LUD";
+            gridViewTextBoxColumn8.Name = "LUD";
+            gridViewTextBoxColumn8.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn8.Width = 74;
+            this.materialGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8});
             this.materialGridView.MasterTemplate.EnablePaging = true;
-            this.materialGridView.MasterTemplate.ViewDefinition = tableViewDefinition4;
+            this.materialGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.materialGridView.Name = "materialGridView";
             this.materialGridView.Size = new System.Drawing.Size(685, 696);
             this.materialGridView.TabIndex = 0;
             this.materialGridView.ThemeName = "MaterialBlueGrey";
             this.materialGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.materialGridView_CellDoubleClick);
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(48, 330);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 22);
-            this.lblID.TabIndex = 7;
-            this.lblID.Visible = false;
-            // 
             // radValidationProvider1
             // 
             this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
-            radValidationRule4.Controls.Add(this.txtName);
-            radValidationRule4.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule4.ToolTipText = "Name can\'t be empty!";
-            radValidationRule4.Value = "";
+            radValidationRule1.Controls.Add(this.txtName);
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule1.ToolTipText = "Name can\'t be empty!";
+            radValidationRule1.Value = "";
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
-            radValidationRule4});
+            radValidationRule1});
             // 
             // MaterialsForm
             // 
@@ -329,13 +386,13 @@
             this.Text = "MaterialsForm";
             this.ThemeName = "MaterialBlueGrey";
             this.Load += new System.EventHandler(this.MaterialsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
             this.radPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
             this.radPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).EndInit();

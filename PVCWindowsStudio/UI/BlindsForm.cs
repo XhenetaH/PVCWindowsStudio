@@ -50,17 +50,6 @@ namespace PVCWindowsStudio.UI
         {
             var list = blindBll.GetAll();
             blindsGrindView.DataSource = list;
-
-            blindsGrindView.Columns[0].IsVisible = false;
-
-            blindsGrindView.Columns[1].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[2].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[3].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[4].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[5].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[6].TextAlignment = ContentAlignment.MiddleCenter;
-            blindsGrindView.Columns[7].TextAlignment = ContentAlignment.MiddleCenter;
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

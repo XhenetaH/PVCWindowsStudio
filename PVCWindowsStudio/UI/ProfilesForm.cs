@@ -31,16 +31,6 @@ namespace PVCWindowsStudio.UI
             var list = profileBll.GetAll();
             profileGridView.DataSource = list;
 
-            profileGridView.Columns[0].IsVisible = false;
-            profileGridView.Columns[4].IsVisible = false;
-            profileGridView.Columns[1].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[2].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[3].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[5].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[6].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[7].TextAlignment = ContentAlignment.MiddleCenter;
-            profileGridView.Columns[8].TextAlignment = ContentAlignment.MiddleCenter;
-
         }
 
         private void btnSave_Click(object sender, EventArgs e)

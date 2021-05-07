@@ -29,16 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.blindsGrindView = new Telerik.WinControls.UI.RadGridView();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
+            this.lblID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new Telerik.WinControls.UI.RadTextBox();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
             this.btnClear = new Telerik.WinControls.UI.RadButton();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
@@ -48,7 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
-            this.lblID = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
@@ -58,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
             this.radPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).BeginInit();
@@ -70,6 +77,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(30, 69);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(223, 41);
+            this.txtName.TabIndex = 0;
+            this.txtName.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
             // 
             // blindsGrindView
             // 
@@ -83,6 +99,49 @@
             this.blindsGrindView.MasterTemplate.AllowEditRow = false;
             this.blindsGrindView.MasterTemplate.AllowSearchRow = true;
             this.blindsGrindView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "Name";
+            gridViewTextBoxColumn1.HeaderText = "Name";
+            gridViewTextBoxColumn1.Name = "Name";
+            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn1.Width = 78;
+            gridViewTextBoxColumn2.FieldName = "Other";
+            gridViewTextBoxColumn2.HeaderText = "Description";
+            gridViewTextBoxColumn2.Name = "Other";
+            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn2.Width = 137;
+            gridViewTextBoxColumn3.FieldName = "InsertBy";
+            gridViewTextBoxColumn3.HeaderText = "Insert By";
+            gridViewTextBoxColumn3.Name = "InsertBy";
+            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn3.Width = 109;
+            gridViewTextBoxColumn4.FieldName = "InsertDate";
+            gridViewTextBoxColumn4.HeaderText = "Insert Date";
+            gridViewTextBoxColumn4.Name = "InsertDate";
+            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn4.Width = 132;
+            gridViewTextBoxColumn5.FieldName = "LUB";
+            gridViewTextBoxColumn5.HeaderText = "LUB";
+            gridViewTextBoxColumn5.Name = "LUB";
+            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn5.Width = 59;
+            gridViewTextBoxColumn6.FieldName = "LUN";
+            gridViewTextBoxColumn6.HeaderText = "LUN";
+            gridViewTextBoxColumn6.Name = "LUN";
+            gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn6.Width = 32;
+            gridViewTextBoxColumn7.FieldName = "LUD";
+            gridViewTextBoxColumn7.HeaderText = "LUD";
+            gridViewTextBoxColumn7.Name = "LUD";
+            gridViewTextBoxColumn7.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn7.Width = 123;
+            this.blindsGrindView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7});
             this.blindsGrindView.MasterTemplate.EnablePaging = true;
             this.blindsGrindView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.blindsGrindView.Name = "blindsGrindView";
@@ -125,6 +184,15 @@
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(41, 303);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 22);
+            this.lblID.TabIndex = 7;
+            this.lblID.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -158,15 +226,6 @@
             this.lblUserName.Size = new System.Drawing.Size(94, 23);
             this.lblUserName.TabIndex = 4;
             this.lblUserName.Text = "Blind Name";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(30, 69);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 36);
-            this.txtName.TabIndex = 0;
-            this.txtName.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
             // 
             // radPanel4
             // 
@@ -304,15 +363,6 @@
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
             radValidationRule1});
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(41, 303);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 22);
-            this.lblID.TabIndex = 7;
-            this.lblID.Visible = false;
-            // 
             // BlindsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,6 +379,7 @@
             this.Text = "Blinds";
             this.ThemeName = "MaterialBlueGrey";
             this.Load += new System.EventHandler(this.BlindsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
@@ -339,7 +390,6 @@
             this.radPanel5.ResumeLayout(false);
             this.radPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
             this.radPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).EndInit();
