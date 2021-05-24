@@ -46,14 +46,16 @@
             // btnLogIn
             // 
             this.btnLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.btnLogIn.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnLogIn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F);
             this.btnLogIn.ForeColor = System.Drawing.Color.White;
-            this.btnLogIn.Location = new System.Drawing.Point(24, 432);
+            this.btnLogIn.Location = new System.Drawing.Point(69, 432);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(247, 49);
             this.btnLogIn.TabIndex = 7;
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.ThemeName = "MaterialBlueGrey";
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnLogIn.GetChildAt(0))).Text = "Log In";
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnLogIn.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnLogIn.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
@@ -64,7 +66,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(44, 331);
+            this.lblPassword.Location = new System.Drawing.Point(89, 331);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(84, 23);
             this.lblPassword.TabIndex = 6;
@@ -72,7 +74,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(48, 357);
+            this.txtPassword.Location = new System.Drawing.Point(93, 357);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(200, 41);
@@ -81,7 +83,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(48, 281);
+            this.txtUserName.Location = new System.Drawing.Point(93, 281);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(200, 41);
             this.txtUserName.TabIndex = 4;
@@ -91,7 +93,7 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(44, 256);
+            this.lblUserName.Location = new System.Drawing.Point(89, 256);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(90, 23);
             this.lblUserName.TabIndex = 3;
@@ -100,7 +102,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(107, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(183, 173);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,23 +113,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 582);
+            this.ClientSize = new System.Drawing.Size(393, 539);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "LogIn";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogIn";
+            this.Text = "";
             this.ThemeName = "MaterialBlueGrey";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.btnLogIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName)).EndInit();

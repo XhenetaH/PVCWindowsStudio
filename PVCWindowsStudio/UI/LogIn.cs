@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PVCWindowsStudio.BLL;
+using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +17,26 @@ namespace PVCWindowsStudio.UI
         public LogIn()
         {
             InitializeComponent();
+        }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            string password = txtPassword.Text;
+            if(username.Trim()!=""&&password!="")
+            {
+                Users user = UsersBLL.Login(username, password);
+                if(user!=null)
+                {
+                    UserSession.CurrentUser = user;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Username or password is incorrect!");
+                    Application.Exit();
+                }
+            }
         }
     }
 }

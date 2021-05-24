@@ -37,7 +37,7 @@ namespace PVCWindowsStudio.UI
         }
         private void Menu_Load(object sender, EventArgs e)
         {
-            openChildForm(new LogIn());
+            
         }
 
         private void radMenuItem1_Click(object sender, EventArgs e)
@@ -73,6 +73,20 @@ namespace PVCWindowsStudio.UI
         private void radMenuItem7_Click(object sender, EventArgs e)
         {
             openChildForm(new RolesForm());
+        }
+
+        private void Menu_Shown(object sender, EventArgs e)
+        {
+            LogIn loginfrm = new LogIn();
+
+            if(loginfrm.ShowDialog() == DialogResult.OK)
+            {
+                loginfrm.Close();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }
