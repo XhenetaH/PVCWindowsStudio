@@ -11,5 +11,7 @@ namespace PVCWindowsStudio.BO
         public int BlindID { get; set; }
         public string Name { get; set; }
         public string Other { get; set; }
+        public decimal Price { get; set; }
+        public string Color { get; set; }
     }
 }

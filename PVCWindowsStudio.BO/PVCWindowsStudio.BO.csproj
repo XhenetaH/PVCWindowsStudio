@@ -52,10 +52,11 @@
     <Compile Include="Interfaces\IConvertToObject.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Invoices.cs" />
-    <Compile Include="MaterialList.cs" />
+    <Compile Include="OrderDetails.cs" />
     <Compile Include="Materials.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="Payments.cs" />
+    <Compile Include="PriceCalculation.cs" />
     <Compile Include="PriceList.cs" />
     <Compile Include="ProductItems.cs" />
     <Compile Include="Products.cs" />

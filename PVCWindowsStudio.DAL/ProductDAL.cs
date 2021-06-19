@@ -46,7 +46,32 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
-
+        public List<Products> GetExistProd()
+        {
+            try
+            {
+                List<Products> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Product_GetExistProd", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<Products>();
+                            while (reader.Read())
+                            {
+                                lista.Add(ToObject(reader));
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<Products> GetAll()
         {
             try

@@ -38,6 +38,11 @@ namespace PVCWindowsStudio.BLL
             return dal.GetAll();
         }
 
+        public List<Materials> GetAllItems()
+        {
+            return dal.GetAllItems();
+        }
+
         public bool Insert(Materials model)
         {
             return dal.Insert(model);

@@ -69,7 +69,36 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
-
+        public List<Materials> GetAllItems()
+        {
+            try
+            {
+                List<Materials> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Material_GetAllItems", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<Materials>();
+                            while (reader.Read())
+                            {
+                                Materials mat = new Materials();
+                                mat.Name = reader["Name"].ToString();
+                                mat.MaterialID = int.Parse(reader["MaterialID"].ToString());
+                                lista.Add(mat);
+                            }
+                                
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<Materials> GetAll()
         {
             try
@@ -124,11 +153,7 @@ namespace PVCWindowsStudio.DAL
                 MaterialID = int.Parse(reader["MaterialID"].ToString()),
                 Name = reader["Name"].ToString(),
                 Other = reader["Other"].ToString(),
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
+                Profile = new Profiles()
             };
 
             return mat;

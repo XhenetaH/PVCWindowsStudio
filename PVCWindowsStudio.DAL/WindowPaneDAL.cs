@@ -41,6 +41,32 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
+        public decimal GetPrice(int paneId)
+        {
+            try
+            {
+                decimal price = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_WindowPane_GetPrice", CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "WindowPaneID", paneId);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                price = Convert.ToDecimal(reader["Price"].ToString());
+                            }
+                        }
+                    }
+                }
+                return price;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
 
         public WindowPanes Get(WindowPanes model)
         {
@@ -84,6 +110,7 @@ namespace PVCWindowsStudio.DAL
                     {
                         DataConnection.AddParameter(command, "Name", model.Name);
                         DataConnection.AddParameter(command, "Other", model.Other);
+                        DataConnection.AddParameter(command, "Price", model.Price);
                         DataConnection.AddParameter(command, "InsertBy", model.InsertBy);
                         int result = command.ExecuteNonQuery();
                         return result > 0;
@@ -103,11 +130,7 @@ namespace PVCWindowsStudio.DAL
                 WindowPaneID = int.Parse(reader["WindowPaneID"].ToString()),
                 Name = reader["Name"].ToString(),
                 Other = reader["Other"].ToString(),
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
+                Price = Convert.ToDecimal(reader["Price"].ToString())
             };
             return wind;
         }
@@ -123,6 +146,7 @@ namespace PVCWindowsStudio.DAL
                         DataConnection.AddParameter(command, "WindowPaneID", model.WindowPaneID);
                         DataConnection.AddParameter(command, "Name", model.Name);
                         DataConnection.AddParameter(command, "Other", model.Other);
+                        DataConnection.AddParameter(command, "Price", model.Price);
                         DataConnection.AddParameter(command, "LUB", model.LUB);
 
                         int result = command.ExecuteNonQuery();

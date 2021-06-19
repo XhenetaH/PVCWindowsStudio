@@ -65,7 +65,32 @@ namespace PVCWindowsStudio.DAL
                 return false;
             }
         }
-
+        public List<Profiles> GetExistProfile()
+        {
+            try
+            {
+                List<Profiles> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Pofile_GetExistProd", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<Profiles>();
+                            while (reader.Read())
+                            {
+                                lista.Add(ToObject(reader));
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public Profiles ToObject(SqlDataReader reader)
         {
             Profiles profile = new Profiles

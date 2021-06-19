@@ -36,7 +36,10 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.GetAll();
         }
-
+        public List<Profiles> GetExistProfile()
+        {
+            return dal.GetExistProfile();
+        }
         public bool Insert(Profiles model)
         {
             return dal.Insert(model);

@@ -12,5 +12,6 @@ namespace PVCWindowsStudio.BO
         public string Name { get; set; }
         public string Other { get; set; }
         public virtual List<ProductItems> Productitems { get; set; }
+        public virtual Profiles Profile { get; set; }
     }
 }

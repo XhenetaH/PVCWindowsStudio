@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D3E7148-C0DF-4BB3-91FF-7313309FB851}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PVCWindowsStudio</RootNamespace>
+    <AssemblyName>PVCWindowsStudio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=15.0.21.326, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=15.0.21.326, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=15.0.21.326, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=15.0.21.326, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.WinControls, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.326.40.Trial\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Fluent, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.MaterialBlueGrey, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.326.40.Trial\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2021.1.326.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWF\2021.1.326.40.Trial\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OrderDetailsForm.Designer.cs">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportViewerForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReportViewerForm1.Designer.cs">
+      <DependentUpon>ReportViewerForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Session\Methods.cs" />
+    <Compile Include="Session\UserSession.cs" />
+    <Compile Include="UI\BlindsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BlindsForm.Designer.cs">
+      <DependentUpon>BlindsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CalculatorForm.Designer.cs">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ClientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ClientsForm.Designer.cs">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormulaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormulaForm.Designer.cs">
+      <DependentUpon>FormulaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MaterialsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MaterialsForm.Designer.cs">
+      <DependentUpon>MaterialsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PriceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PriceListForm.Designer.cs">
+      <DependentUpon>PriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProductItemsForm.Designer.cs">
+      <DependentUpon>ProductItemsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProductsForm.Designer.cs">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProfilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProfilesForm.Designer.cs">
+      <DependentUpon>ProfilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RolesForm.Designer.cs">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UsersForm.Designer.cs">
+      <DependentUpon>UsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\WindowPanesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WindowPanesForm.Designer.cs">
+      <DependentUpon>WindowPanesForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderDetailsForm.resx">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportViewerForm1.resx">
+      <DependentUpon>ReportViewerForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BlindsForm.resx">
+      <DependentUpon>BlindsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CalculatorForm.resx">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ClientsForm.resx">
+      <DependentUpon>ClientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormulaForm.resx">
+      <DependentUpon>FormulaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MaterialsForm.resx">
+      <DependentUpon>MaterialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PriceListForm.resx">
+      <DependentUpon>PriceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductItemsForm.resx">
+      <DependentUpon>ProductItemsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductsForm.resx">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProfilesForm.resx">
+      <DependentUpon>ProfilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RolesForm.resx">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UsersForm.resx">
+      <DependentUpon>UsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\WindowPanesForm.resx">
+      <DependentUpon>WindowPanesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\SampleReport.trdp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\plus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\browsing %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus %284%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PVCWindowsStudio.BLL\PVCWindowsStudio.BLL.csproj">
+      <Project>{84D02FA1-2027-438B-BB41-58874D29ED4C}</Project>
+      <Name>PVCWindowsStudio.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PVCWindowsStudio.BO\PVCWindowsStudio.BO.csproj">
+      <Project>{91D18322-6D21-43D0-A719-D39779E7B75B}</Project>
+      <Name>PVCWindowsStudio.BO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

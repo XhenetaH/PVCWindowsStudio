@@ -46,7 +46,32 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
-
+        public decimal GetPrice(int blindId)
+        {
+            try
+            {
+                decimal price = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Blind_GetPrice", CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "BlindID", blindId);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                price = Convert.ToDecimal(reader["Price"].ToString());
+                            }
+                        }
+                    }
+                }
+                return price;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
         public List<Blinds> GetAll()
         {
             try
@@ -84,6 +109,8 @@ namespace PVCWindowsStudio.DAL
                     {
                         DataConnection.AddParameter(command, "Name", model.Name);
                         DataConnection.AddParameter(command, "Other", model.Other);
+                        DataConnection.AddParameter(command, "Price", model.Price);
+                        DataConnection.AddParameter(command, "Color", model.Color);
                         DataConnection.AddParameter(command, "InsertBy", model.InsertBy);
                         int result = command.ExecuteNonQuery();
                         return result > 0;
@@ -103,11 +130,9 @@ namespace PVCWindowsStudio.DAL
                 BlindID = int.Parse(reader["BlindID"].ToString()),
                 Name = reader["Name"].ToString(),
                 Other = reader["Other"].ToString(),
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
+                Price = Convert.ToDecimal(reader["Price"].ToString()),
+                Color = reader["Color"].ToString()
+                
             };
 
             return blind;
@@ -124,6 +149,8 @@ namespace PVCWindowsStudio.DAL
                         DataConnection.AddParameter(command, "BlindID", model.BlindID);
                         DataConnection.AddParameter(command, "Name", model.Name);
                         DataConnection.AddParameter(command, "Other", model.Other);
+                        DataConnection.AddParameter(command, "Price", model.Price);
+                        DataConnection.AddParameter(command, "Color", model.Color);
                         DataConnection.AddParameter(command, "LUB", model.LUB);
 
                         int result = command.ExecuteNonQuery();

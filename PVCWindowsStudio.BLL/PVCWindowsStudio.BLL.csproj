@@ -46,8 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlindBLL.cs" />
+    <Compile Include="ClientBLL.cs" />
+    <Compile Include="FormModels\ProductItemsModel.cs" />
+    <Compile Include="FormulaBLL.cs" />
     <Compile Include="MaterialBLL.cs" />
+    <Compile Include="OrderBLL.cs" />
+    <Compile Include="OrderDetailsBLL.cs" />
+    <Compile Include="PriceListBLL.cs" />
     <Compile Include="ProductBLL.cs" />
+    <Compile Include="ProductItemsBLL.cs" />
     <Compile Include="ProfileBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleBLL.cs" />

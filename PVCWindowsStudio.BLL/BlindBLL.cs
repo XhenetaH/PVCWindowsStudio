@@ -22,6 +22,10 @@ namespace PVCWindowsStudio.BLL
             throw new NotImplementedException();
         }
 
+        public decimal GetPrice(int blindId)
+        {
+            return dal.GetPrice(blindId);
+        }
         public Blinds Get(int id)
         {
             throw new NotImplementedException();

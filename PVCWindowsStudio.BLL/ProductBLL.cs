@@ -31,7 +31,10 @@ namespace PVCWindowsStudio.BLL
         {
             throw new NotImplementedException();
         }
-
+        public List<Products> GetExistProd()
+        {
+            return dal.GetExistProd();
+        }
         public List<Products> GetAll()
         {
             return dal.GetAll();

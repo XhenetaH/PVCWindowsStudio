@@ -10,14 +10,11 @@ namespace PVCWindowsStudio.BO
     {
         public int ProductItemsID { get; set; }
         public int ProductID { get; set; }
-        public int ProfileID { get; set; }
         public int MaterialID { get; set; }
-        public decimal Width { get; set; }
-        public decimal Height { get; set; }
-        public int Quantity { get; set; }
-        public string Formula { get; set; }
-        public decimal Total { get; set; }
+        public int FormulaID { get; set; }
         public virtual Materials Materials { get; set; }
+        public virtual Products Products { get; set; }
+        public virtual Formula Formula { get; set; }
 
     }
 }

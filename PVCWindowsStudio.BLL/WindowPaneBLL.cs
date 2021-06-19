@@ -17,6 +17,10 @@ namespace PVCWindowsStudio.BLL
             return dal.Delete(id);
         }
 
+        public decimal GetPrice(int paneId)
+        {
+            return dal.GetPrice(paneId);
+        }
         public bool Delete(WindowPanes model)
         {
             throw new NotImplementedException();
