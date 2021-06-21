@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -220,16 +220,18 @@
             // radValidationProvider1
             // 
             this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
-            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule1.ToolTipText = "Name can\'t be empty!";
+            radValidationRule1.Controls.Add(this.ddlFormula);
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotNull;
+            radValidationRule1.ToolTipText = "Formula can\'t be empty!";
             radValidationRule1.Value = "";
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
             radValidationRule1});
             // 
             // ddlMaterial
             // 
-            radListDataItem1.Text = "Choose Role";
-            this.ddlMaterial.Items.Add(radListDataItem1);
+            this.ddlMaterial.DropDownAnimationEnabled = true;
+            radListDataItem2.Text = "Choose Role";
+            this.ddlMaterial.Items.Add(radListDataItem2);
             this.ddlMaterial.Location = new System.Drawing.Point(105, 80);
             this.ddlMaterial.Name = "ddlMaterial";
             this.ddlMaterial.Size = new System.Drawing.Size(311, 41);
@@ -239,14 +241,15 @@
             // 
             // ddlFormula
             // 
-            radListDataItem2.Text = "Choose Role";
-            this.ddlFormula.Items.Add(radListDataItem2);
+            this.ddlFormula.DropDownAnimationEnabled = true;
+            radListDataItem1.Text = "Choose Role";
+            this.ddlFormula.Items.Add(radListDataItem1);
             this.ddlFormula.Location = new System.Drawing.Point(105, 169);
             this.ddlFormula.Name = "ddlFormula";
             this.ddlFormula.Size = new System.Drawing.Size(311, 41);
             this.ddlFormula.TabIndex = 12;
             this.ddlFormula.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.ddlFormula, null);
+            this.radValidationProvider1.SetValidationRule(this.ddlFormula, radValidationRule1);
             // 
             // radPanel5
             // 
@@ -316,7 +319,7 @@
             this.productsradGridView.Size = new System.Drawing.Size(506, 593);
             this.productsradGridView.TabIndex = 0;
             this.productsradGridView.ThemeName = "MaterialBlueGrey";
-            this.productsradGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productsradGridView_CellDoubleClick);
+            this.productsradGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productsradGridView_CellClick);
             // 
             // radPanel2
             // 
@@ -395,7 +398,7 @@
             this.productitemsGridView.Size = new System.Drawing.Size(751, 502);
             this.productitemsGridView.TabIndex = 0;
             this.productitemsGridView.ThemeName = "MaterialBlueGrey";
-            this.productitemsGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productitemsGridView_CellDoubleClick);
+            this.productitemsGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productitemsGridView_CellClick);
             // 
             // radPanel1
             // 

@@ -62,8 +62,10 @@ namespace PVCWindowsStudio.DAL
                             while (reader.Read())
                             {
                                 var user = ToObject(reader);
-                                user.Role = new Roles();
-                                user.Role.Name = reader["RoleName"].ToString();
+                                user.Role = new Roles
+                                {
+                                    Name = reader["RoleName"].ToString()
+                                };
 
                                 lista.Add(user);
                             }
@@ -142,11 +144,6 @@ namespace PVCWindowsStudio.DAL
                 UserName = reader["UserName"].ToString(),
                 Password = reader["Password"].ToString(),
                 RoleID = int.Parse(reader["RoleID"].ToString()),
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
             };
 
             return user;

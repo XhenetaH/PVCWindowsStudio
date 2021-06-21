@@ -49,6 +49,7 @@
     <Compile Include="Blinds.cs" />
     <Compile Include="Clients.cs" />
     <Compile Include="Formula.cs" />
+    <Compile Include="HandiWork.cs" />
     <Compile Include="Interfaces\IConvertToObject.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Invoices.cs" />

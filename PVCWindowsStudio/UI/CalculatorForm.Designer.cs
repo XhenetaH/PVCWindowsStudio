@@ -97,9 +97,6 @@
             this.discountCmb = new System.Windows.Forms.ComboBox();
             this.btnSaveAs = new Telerik.WinControls.UI.RadDropDownButton();
             this.save = new Telerik.WinControls.UI.RadMenuItem();
-            this.btnPrint = new Telerik.WinControls.UI.RadDropDownButton();
-            this.printInvoice = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuComboItem1 = new Telerik.WinControls.UI.RadMenuComboItem();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.btnClear = new Telerik.WinControls.UI.RadButton();
             this.txtTotal = new Telerik.WinControls.UI.RadTextBox();
@@ -108,6 +105,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.calculatorGridView = new Telerik.WinControls.UI.RadGridView();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
+            this.btnExcel = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidth)).BeginInit();
@@ -135,8 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSaveAs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radMenuComboItem1.ComboBoxElement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).BeginInit();
@@ -144,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.calculatorGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calculatorGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +173,7 @@
             // 
             // ddlProfile
             // 
+            this.ddlProfile.DropDownAnimationEnabled = true;
             radListDataItem1.Text = "Choose Role";
             this.ddlProfile.Items.Add(radListDataItem1);
             this.ddlProfile.Location = new System.Drawing.Point(118, 258);
@@ -188,6 +186,7 @@
             // 
             // ddlWindowPane
             // 
+            this.ddlWindowPane.DropDownAnimationEnabled = true;
             radListDataItem2.Text = "Choose Role";
             this.ddlWindowPane.Items.Add(radListDataItem2);
             this.ddlWindowPane.Location = new System.Drawing.Point(122, 314);
@@ -200,6 +199,7 @@
             // 
             // ddlBlinds
             // 
+            this.ddlBlinds.DropDownAnimationEnabled = true;
             radListDataItem3.Text = "Choose Role";
             this.ddlBlinds.Items.Add(radListDataItem3);
             this.ddlBlinds.Location = new System.Drawing.Point(122, 370);
@@ -629,9 +629,9 @@
             // 
             // radPanel3
             // 
+            this.radPanel3.Controls.Add(this.btnExcel);
             this.radPanel3.Controls.Add(this.discountCmb);
             this.radPanel3.Controls.Add(this.btnSaveAs);
-            this.radPanel3.Controls.Add(this.btnPrint);
             this.radPanel3.Controls.Add(this.btnAdd);
             this.radPanel3.Controls.Add(this.btnClear);
             this.radPanel3.Controls.Add(this.txtTotal);
@@ -693,75 +693,6 @@
             this.save.Text = "Save";
             this.save.UseCompatibleTextRendering = false;
             this.save.Click += new System.EventHandler(this.save_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
-            this.btnPrint.Image = global::PVCWindowsStudio.Properties.Resources.print;
-            this.btnPrint.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.printInvoice,
-            this.radMenuComboItem1});
-            this.btnPrint.Location = new System.Drawing.Point(183, 16);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(160, 40);
-            this.btnPrint.SvgImageXml = null;
-            this.btnPrint.TabIndex = 40;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrint.ThemeName = "MaterialBlueGrey";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            ((Telerik.WinControls.UI.RadDropDownButtonElement)(this.btnPrint.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.print;
-            ((Telerik.WinControls.UI.RadDropDownButtonElement)(this.btnPrint.GetChildAt(0))).TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            ((Telerik.WinControls.UI.RadDropDownButtonElement)(this.btnPrint.GetChildAt(0))).Text = "Print";
-            ((Telerik.WinControls.UI.RadDropDownButtonElement)(this.btnPrint.GetChildAt(0))).CanFocus = true;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnPrint.GetChildAt(0).GetChildAt(1).GetChildAt(0).GetChildAt(5))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnPrint.GetChildAt(0).GetChildAt(1).GetChildAt(0).GetChildAt(5))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnPrint.GetChildAt(0).GetChildAt(1).GetChildAt(1).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnPrint.GetChildAt(0).GetChildAt(1).GetChildAt(1).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnPrint.GetChildAt(0).GetChildAt(1).GetChildAt(1).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // printInvoice
-            // 
-            this.printInvoice.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printInvoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
-            this.printInvoice.Name = "printInvoice";
-            this.printInvoice.Text = "Print as Invoice";
-            // 
-            // radMenuComboItem1
-            // 
-            // 
-            // 
-            // 
-            this.radMenuComboItem1.ComboBoxElement.AutoCompleteAppend = null;
-            this.radMenuComboItem1.ComboBoxElement.AutoCompleteDataSource = null;
-            this.radMenuComboItem1.ComboBoxElement.AutoCompleteSuggest = null;
-            this.radMenuComboItem1.ComboBoxElement.DataMember = "";
-            this.radMenuComboItem1.ComboBoxElement.DataSource = null;
-            this.radMenuComboItem1.ComboBoxElement.DefaultValue = null;
-            this.radMenuComboItem1.ComboBoxElement.DisplayMember = "";
-            this.radMenuComboItem1.ComboBoxElement.DropDownAnimationEasing = Telerik.WinControls.RadEasingType.InQuad;
-            this.radMenuComboItem1.ComboBoxElement.DropDownAnimationEnabled = true;
-            this.radMenuComboItem1.ComboBoxElement.EditableElementText = "";
-            this.radMenuComboItem1.ComboBoxElement.EditorElement = this.radMenuComboItem1.ComboBoxElement;
-            this.radMenuComboItem1.ComboBoxElement.EditorManager = null;
-            this.radMenuComboItem1.ComboBoxElement.Filter = null;
-            this.radMenuComboItem1.ComboBoxElement.FilterExpression = "";
-            this.radMenuComboItem1.ComboBoxElement.Focusable = true;
-            this.radMenuComboItem1.ComboBoxElement.FormatString = "";
-            this.radMenuComboItem1.ComboBoxElement.FormattingEnabled = true;
-            this.radMenuComboItem1.ComboBoxElement.MaxDropDownItems = 0;
-            this.radMenuComboItem1.ComboBoxElement.MaxLength = 32767;
-            this.radMenuComboItem1.ComboBoxElement.MaxValue = null;
-            this.radMenuComboItem1.ComboBoxElement.MinValue = null;
-            this.radMenuComboItem1.ComboBoxElement.NullValue = null;
-            this.radMenuComboItem1.ComboBoxElement.OwnerOffset = 0;
-            this.radMenuComboItem1.ComboBoxElement.ShowImageInEditorArea = true;
-            this.radMenuComboItem1.ComboBoxElement.SortStyle = Telerik.WinControls.Enumerations.SortStyle.None;
-            this.radMenuComboItem1.ComboBoxElement.Value = null;
-            this.radMenuComboItem1.ComboBoxElement.ValueMember = "";
-            this.radMenuComboItem1.Name = "radMenuComboItem1";
-            this.radMenuComboItem1.Text = "radMenuComboItem1";
             // 
             // btnAdd
             // 
@@ -947,6 +878,27 @@
             radValidationRule8,
             radValidationRule9});
             // 
+            // btnExcel
+            // 
+            this.btnExcel.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExcel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.btnExcel.Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
+            this.btnExcel.Location = new System.Drawing.Point(183, 16);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(160, 40);
+            this.btnExcel.TabIndex = 43;
+            this.btnExcel.Text = "Excel";
+            this.btnExcel.ThemeName = "MaterialBlueGrey";
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnExcel.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnExcel.GetChildAt(0))).Text = "Excel";
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnExcel.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExcel.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExcel.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnExcel.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -994,8 +946,6 @@
             this.radPanel3.ResumeLayout(false);
             this.radPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSaveAs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radMenuComboItem1.ComboBoxElement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).EndInit();
@@ -1003,6 +953,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.calculatorGridView.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calculatorGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -1035,9 +986,6 @@
         private System.Windows.Forms.Label lblProductID;
         private Telerik.WinControls.UI.RadPictureBox radPictureBox1;
         private Telerik.WinControls.UI.RadButton btnClear;
-        private Telerik.WinControls.UI.RadDropDownButton btnPrint;
-        private Telerik.WinControls.UI.RadMenuItem printInvoice;
-        private Telerik.WinControls.UI.RadMenuComboItem radMenuComboItem1;
         private Telerik.WinControls.UI.RadDropDownButton btnSaveAs;
         private Telerik.WinControls.UI.RadMenuItem save;
         private Telerik.WinControls.UI.RadMultiColumnComboBox productMultiComboBox;
@@ -1060,5 +1008,6 @@
         private System.Windows.Forms.Label lblBlindID;
         private System.Windows.Forms.Label lblWindowPaneID;
         private System.Windows.Forms.Label lblProfileID;
+        private Telerik.WinControls.UI.RadButton btnExcel;
     }
 }

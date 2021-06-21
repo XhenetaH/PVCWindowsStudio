@@ -38,9 +38,9 @@ namespace PVCWindowsStudio.BLL
             return dal.GetAll();
         }
 
-        public List<Materials> GetAllItems()
+        public List<Materials> GetExist()
         {
-            return dal.GetAllItems();
+            return dal.GetExist();
         }
 
         public bool Insert(Materials model)

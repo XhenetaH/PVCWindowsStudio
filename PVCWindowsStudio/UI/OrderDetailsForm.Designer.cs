@@ -32,23 +32,23 @@
             Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition3 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadValidationRule radValidationRule3 = new Telerik.WinControls.UI.RadValidationRule();
@@ -146,6 +146,7 @@
             // 
             // ddlProfile
             // 
+            this.ddlProfile.DropDownAnimationEnabled = true;
             radListDataItem1.Text = "Choose Role";
             this.ddlProfile.Items.Add(radListDataItem1);
             this.ddlProfile.Location = new System.Drawing.Point(119, 486);
@@ -157,6 +158,7 @@
             // 
             // ddlWindowPane
             // 
+            this.ddlWindowPane.DropDownAnimationEnabled = true;
             radListDataItem2.Text = "Choose Role";
             this.ddlWindowPane.Items.Add(radListDataItem2);
             this.ddlWindowPane.Location = new System.Drawing.Point(119, 434);
@@ -168,6 +170,7 @@
             // 
             // ddlBlinds
             // 
+            this.ddlBlinds.DropDownAnimationEnabled = true;
             radListDataItem3.Text = "Choose Role";
             this.ddlBlinds.Items.Add(radListDataItem3);
             this.ddlBlinds.Location = new System.Drawing.Point(123, 376);
@@ -180,11 +183,12 @@
             // radPanel1
             // 
             this.radPanel1.BackColor = System.Drawing.Color.LightSlateGray;
-            this.radPanel1.Controls.Add(this.orderDetailsradGridView);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
+            this.radPanel1.Controls.Add(this.radPanel4);
+            this.radPanel1.Controls.Add(this.radPanel5);
+            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.radPanel1.Location = new System.Drawing.Point(938, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(924, 736);
+            this.radPanel1.Size = new System.Drawing.Size(505, 736);
             this.radPanel1.TabIndex = 0;
             this.radPanel1.ThemeName = "MaterialBlueGrey";
             // 
@@ -201,73 +205,71 @@
             // 
             // 
             // 
-            this.orderDetailsradGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.EnableExpressionEditor = false;
-            gridViewTextBoxColumn1.FieldName = "Product.Name";
-            gridViewTextBoxColumn1.HeaderText = "Product";
-            gridViewTextBoxColumn1.MinWidth = 6;
-            gridViewTextBoxColumn1.Name = "Product";
-            gridViewTextBoxColumn1.Width = 173;
-            gridViewTextBoxColumn2.EnableExpressionEditor = false;
-            gridViewTextBoxColumn2.FieldName = "Quantity";
-            gridViewTextBoxColumn2.HeaderText = "Quantity";
-            gridViewTextBoxColumn2.MinWidth = 6;
-            gridViewTextBoxColumn2.Name = "Quantity";
-            gridViewTextBoxColumn2.Width = 83;
-            gridViewTextBoxColumn3.EnableExpressionEditor = false;
-            gridViewTextBoxColumn3.FieldName = "Width";
-            gridViewTextBoxColumn3.HeaderText = "Width";
-            gridViewTextBoxColumn3.MinWidth = 6;
-            gridViewTextBoxColumn3.Name = "Width";
-            gridViewTextBoxColumn3.Width = 81;
-            gridViewTextBoxColumn4.EnableExpressionEditor = false;
-            gridViewTextBoxColumn4.FieldName = "Height";
-            gridViewTextBoxColumn4.HeaderText = "Height";
-            gridViewTextBoxColumn4.MinWidth = 6;
-            gridViewTextBoxColumn4.Name = "Height";
-            gridViewTextBoxColumn4.Width = 86;
-            gridViewTextBoxColumn5.EnableExpressionEditor = false;
-            gridViewTextBoxColumn5.FieldName = "Blind.Name";
-            gridViewTextBoxColumn5.HeaderText = "Blind";
-            gridViewTextBoxColumn5.MinWidth = 6;
-            gridViewTextBoxColumn5.Name = "Blind";
-            gridViewTextBoxColumn5.Width = 185;
-            gridViewTextBoxColumn6.EnableExpressionEditor = false;
-            gridViewTextBoxColumn6.FieldName = "Price";
-            gridViewTextBoxColumn6.HeaderText = "Price";
-            gridViewTextBoxColumn6.MinWidth = 6;
-            gridViewTextBoxColumn6.Name = "Price";
-            gridViewTextBoxColumn6.Width = 129;
-            gridViewTextBoxColumn7.EnableExpressionEditor = false;
-            gridViewTextBoxColumn7.FieldName = "Total";
-            gridViewTextBoxColumn7.HeaderText = "Total";
-            gridViewTextBoxColumn7.MinWidth = 6;
-            gridViewTextBoxColumn7.Name = "Total";
-            gridViewTextBoxColumn7.Width = 139;
+            gridViewTextBoxColumn8.EnableExpressionEditor = false;
+            gridViewTextBoxColumn8.FieldName = "Product.Name";
+            gridViewTextBoxColumn8.HeaderText = "Product";
+            gridViewTextBoxColumn8.MinWidth = 6;
+            gridViewTextBoxColumn8.Name = "Product";
+            gridViewTextBoxColumn8.Width = 173;
+            gridViewTextBoxColumn9.EnableExpressionEditor = false;
+            gridViewTextBoxColumn9.FieldName = "Quantity";
+            gridViewTextBoxColumn9.HeaderText = "Quantity";
+            gridViewTextBoxColumn9.MinWidth = 6;
+            gridViewTextBoxColumn9.Name = "Quantity";
+            gridViewTextBoxColumn9.Width = 83;
+            gridViewTextBoxColumn10.EnableExpressionEditor = false;
+            gridViewTextBoxColumn10.FieldName = "Width";
+            gridViewTextBoxColumn10.HeaderText = "Width";
+            gridViewTextBoxColumn10.MinWidth = 6;
+            gridViewTextBoxColumn10.Name = "Width";
+            gridViewTextBoxColumn10.Width = 81;
+            gridViewTextBoxColumn11.EnableExpressionEditor = false;
+            gridViewTextBoxColumn11.FieldName = "Height";
+            gridViewTextBoxColumn11.HeaderText = "Height";
+            gridViewTextBoxColumn11.MinWidth = 6;
+            gridViewTextBoxColumn11.Name = "Height";
+            gridViewTextBoxColumn11.Width = 86;
+            gridViewTextBoxColumn12.EnableExpressionEditor = false;
+            gridViewTextBoxColumn12.FieldName = "Blind.Name";
+            gridViewTextBoxColumn12.HeaderText = "Blind";
+            gridViewTextBoxColumn12.MinWidth = 6;
+            gridViewTextBoxColumn12.Name = "Blind";
+            gridViewTextBoxColumn12.Width = 185;
+            gridViewTextBoxColumn13.EnableExpressionEditor = false;
+            gridViewTextBoxColumn13.FieldName = "Price";
+            gridViewTextBoxColumn13.HeaderText = "Price";
+            gridViewTextBoxColumn13.MinWidth = 6;
+            gridViewTextBoxColumn13.Name = "Price";
+            gridViewTextBoxColumn13.Width = 129;
+            gridViewTextBoxColumn14.EnableExpressionEditor = false;
+            gridViewTextBoxColumn14.FieldName = "Total";
+            gridViewTextBoxColumn14.HeaderText = "Total";
+            gridViewTextBoxColumn14.MinWidth = 6;
+            gridViewTextBoxColumn14.Name = "Total";
+            gridViewTextBoxColumn14.Width = 139;
             this.orderDetailsradGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6,
-            gridViewTextBoxColumn7});
-            this.orderDetailsradGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9,
+            gridViewTextBoxColumn10,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
+            gridViewTextBoxColumn13,
+            gridViewTextBoxColumn14});
+            this.orderDetailsradGridView.MasterTemplate.ViewDefinition = tableViewDefinition3;
             this.orderDetailsradGridView.Name = "orderDetailsradGridView";
             this.orderDetailsradGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.orderDetailsradGridView.Size = new System.Drawing.Size(924, 736);
+            this.orderDetailsradGridView.Size = new System.Drawing.Size(938, 736);
             this.orderDetailsradGridView.TabIndex = 0;
             this.orderDetailsradGridView.ThemeName = "MaterialBlueGrey";
             this.orderDetailsradGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.orderDetailsradGridView_CellClick);
             // 
             // radPanel2
             // 
-            this.radPanel2.Controls.Add(this.radPanel5);
-            this.radPanel2.Controls.Add(this.radPanel4);
+            this.radPanel2.Controls.Add(this.orderDetailsradGridView);
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel2.Location = new System.Drawing.Point(924, 0);
+            this.radPanel2.Location = new System.Drawing.Point(0, 0);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(519, 736);
+            this.radPanel2.Size = new System.Drawing.Size(938, 736);
             this.radPanel2.TabIndex = 1;
             this.radPanel2.ThemeName = "MaterialBlueGrey";
             // 
@@ -297,7 +299,7 @@
             this.radPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel5.Location = new System.Drawing.Point(0, 0);
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(519, 587);
+            this.radPanel5.Size = new System.Drawing.Size(505, 736);
             this.radPanel5.TabIndex = 4;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
@@ -331,28 +333,28 @@
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.AllowColumnHeaderContextMenu = false;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.AllowSearchRow = true;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn8.FieldName = "ProductID";
-            gridViewTextBoxColumn8.HeaderText = "Product ID";
-            gridViewTextBoxColumn8.Name = "ProductID";
-            gridViewTextBoxColumn8.Width = 94;
-            gridViewTextBoxColumn9.FieldName = "Picture";
-            gridViewTextBoxColumn9.HeaderText = "Picture";
-            gridViewTextBoxColumn9.Name = "Picture";
-            gridViewTextBoxColumn9.Width = 94;
-            gridViewTextBoxColumn10.FieldName = "Name";
-            gridViewTextBoxColumn10.HeaderText = "Name";
-            gridViewTextBoxColumn10.Name = "ProdName";
-            gridViewTextBoxColumn10.Width = 93;
+            gridViewTextBoxColumn1.FieldName = "ProductID";
+            gridViewTextBoxColumn1.HeaderText = "Product ID";
+            gridViewTextBoxColumn1.Name = "ProductID";
+            gridViewTextBoxColumn1.Width = 94;
+            gridViewTextBoxColumn2.FieldName = "Picture";
+            gridViewTextBoxColumn2.HeaderText = "Picture";
+            gridViewTextBoxColumn2.Name = "Picture";
+            gridViewTextBoxColumn2.Width = 94;
+            gridViewTextBoxColumn3.FieldName = "Name";
+            gridViewTextBoxColumn3.HeaderText = "Name";
+            gridViewTextBoxColumn3.Name = "ProdName";
+            gridViewTextBoxColumn3.Width = 93;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn8,
-            gridViewTextBoxColumn9,
-            gridViewTextBoxColumn10});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.EnableFiltering = true;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.EnableGrouping = false;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.None;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.ShowColumnHeaders = false;
             this.productMultiColumnComboBox1.EditorControl.MasterTemplate.ShowFilteringRow = false;
-            this.productMultiColumnComboBox1.EditorControl.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.productMultiColumnComboBox1.EditorControl.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.productMultiColumnComboBox1.EditorControl.Name = "NestedRadGridView";
             this.productMultiColumnComboBox1.EditorControl.ReadOnly = true;
             this.productMultiColumnComboBox1.EditorControl.ShowGroupPanel = false;
@@ -438,33 +440,33 @@
             this.orderMultiComboBox.EditorControl.MasterTemplate.AllowColumnHeaderContextMenu = false;
             this.orderMultiComboBox.EditorControl.MasterTemplate.AllowSearchRow = true;
             this.orderMultiComboBox.EditorControl.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn11.FieldName = "OrderID";
-            gridViewTextBoxColumn11.HeaderText = "Order ID";
-            gridViewTextBoxColumn11.Name = "OrderID";
-            gridViewTextBoxColumn11.Width = 35;
-            gridViewTextBoxColumn12.FieldName = "Clients.Name";
-            gridViewTextBoxColumn12.HeaderText = "Name";
-            gridViewTextBoxColumn12.Name = "Name";
-            gridViewTextBoxColumn12.Width = 164;
-            gridViewTextBoxColumn13.FieldName = "Clients.LastName";
-            gridViewTextBoxColumn13.HeaderText = "LastName";
-            gridViewTextBoxColumn13.Name = "LastName";
-            gridViewTextBoxColumn13.Width = 42;
-            gridViewTextBoxColumn14.FieldName = "Date";
-            gridViewTextBoxColumn14.HeaderText = "Date";
-            gridViewTextBoxColumn14.Name = "Date";
-            gridViewTextBoxColumn14.Width = 41;
+            gridViewTextBoxColumn4.FieldName = "OrderID";
+            gridViewTextBoxColumn4.HeaderText = "Order ID";
+            gridViewTextBoxColumn4.Name = "OrderID";
+            gridViewTextBoxColumn4.Width = 35;
+            gridViewTextBoxColumn5.FieldName = "Clients.Name";
+            gridViewTextBoxColumn5.HeaderText = "Name";
+            gridViewTextBoxColumn5.Name = "Name";
+            gridViewTextBoxColumn5.Width = 164;
+            gridViewTextBoxColumn6.FieldName = "Clients.LastName";
+            gridViewTextBoxColumn6.HeaderText = "LastName";
+            gridViewTextBoxColumn6.Name = "LastName";
+            gridViewTextBoxColumn6.Width = 42;
+            gridViewTextBoxColumn7.FieldName = "Date";
+            gridViewTextBoxColumn7.HeaderText = "Date";
+            gridViewTextBoxColumn7.Name = "Date";
+            gridViewTextBoxColumn7.Width = 41;
             this.orderMultiComboBox.EditorControl.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn11,
-            gridViewTextBoxColumn12,
-            gridViewTextBoxColumn13,
-            gridViewTextBoxColumn14});
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7});
             this.orderMultiComboBox.EditorControl.MasterTemplate.EnableFiltering = true;
             this.orderMultiComboBox.EditorControl.MasterTemplate.EnableGrouping = false;
             this.orderMultiComboBox.EditorControl.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.None;
             this.orderMultiComboBox.EditorControl.MasterTemplate.ShowColumnHeaders = false;
             this.orderMultiComboBox.EditorControl.MasterTemplate.ShowFilteringRow = false;
-            this.orderMultiComboBox.EditorControl.MasterTemplate.ViewDefinition = tableViewDefinition3;
+            this.orderMultiComboBox.EditorControl.MasterTemplate.ViewDefinition = tableViewDefinition2;
             this.orderMultiComboBox.EditorControl.Name = "NestedRadGridView";
             this.orderMultiComboBox.EditorControl.ReadOnly = true;
             this.orderMultiComboBox.EditorControl.ShowGroupPanel = false;
@@ -534,7 +536,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(519, 76);
+            this.label1.Size = new System.Drawing.Size(505, 76);
             this.label1.TabIndex = 3;
             this.label1.Text = "Order Details Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -556,7 +558,7 @@
             this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radPanel4.Location = new System.Drawing.Point(0, 587);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(519, 149);
+            this.radPanel4.Size = new System.Drawing.Size(505, 149);
             this.radPanel4.TabIndex = 5;
             this.radPanel4.ThemeName = "MaterialBlueGrey";
             // 
@@ -571,7 +573,7 @@
             this.btnClear.Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
             this.btnClear.Location = new System.Drawing.Point(17, 96);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(486, 40);
+            this.btnClear.Size = new System.Drawing.Size(472, 40);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "CLEAR";
             this.btnClear.ThemeName = "MaterialBlueGrey";
@@ -594,7 +596,7 @@
             this.btnUpdate.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
             this.btnUpdate.Location = new System.Drawing.Point(17, 8);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(486, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(472, 40);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.ThemeName = "MaterialBlueGrey";
@@ -617,7 +619,7 @@
             this.btnDelete.Image = global::PVCWindowsStudio.Properties.Resources.trash;
             this.btnDelete.Location = new System.Drawing.Point(17, 54);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(486, 40);
+            this.btnDelete.Size = new System.Drawing.Size(472, 40);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.ThemeName = "MaterialBlueGrey";
@@ -665,7 +667,7 @@
             radValidationRule6,
             radValidationRule7});
             // 
-            // OrdersForm
+            // OrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -674,7 +676,7 @@
             this.Controls.Add(this.radPanel2);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "OrdersForm";
+            this.Name = "OrderDetailsForm";
             // 
             // 
             // 

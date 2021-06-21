@@ -14,10 +14,11 @@ namespace PVCWindowsStudio.UI
     public partial class FormulaForm : Telerik.WinControls.UI.RadForm
     {
         private Formula formula;
-        private FormulaBLL formulaBLL;
-        
+        private readonly FormulaBLL formulaBLL;
+        private readonly ProductItemsBLL productBll;
         public FormulaForm()
         {
+            productBll = new ProductItemsBLL();
             formula = new Formula();
             formulaBLL = new FormulaBLL();
             InitializeComponent();
@@ -47,13 +48,13 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtValue.Text))
             {
                 value = txtValue.Text.Substring((txtValue.Text.Length - 1), 1);
-            }
-           
+
+
                 if (value == "+" || value == "-" || value == "*" || value == "/" || value == ".")
                     return;
                 else
                     txtValue.Text += operand;
-
+            }
             
         }
 
@@ -86,15 +87,6 @@ namespace PVCWindowsStudio.UI
                     txtValue.Text += brace;
 
             }
-        }
-        private void radPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void radPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btn1_Click(object sender, EventArgs e)
@@ -189,12 +181,12 @@ namespace PVCWindowsStudio.UI
 
         private void btnLeftBracket_Click(object sender, EventArgs e)
         {
-            OpClick("(");
+            BraceClick("(");
         }
 
         private void btnRightBracket_Click(object sender, EventArgs e)
         {
-            OpClick(")");
+            BraceClick(")");
         }
 
         private void btnDot_Click(object sender, EventArgs e)
@@ -228,12 +220,9 @@ namespace PVCWindowsStudio.UI
                     InitiateData();
                     Clear();
                 }
-                else
-                {
-                    MessageBox.Show("Something went wrong!");
-                }
+                else MessageBox.Show("Something went wrong!");                
             }
-
+            else MessageBox.Show("Please fill the formula box!");
         }
 
         private void FormulaForm_Load(object sender, EventArgs e)
@@ -243,48 +232,61 @@ namespace PVCWindowsStudio.UI
 
         private void radGridView1_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
+            
             int rowindex = e.RowIndex;
-            formula = (Formula)radGridView1.Rows[rowindex].DataBoundItem;
-            if (formula != null)
+            if (!rowindex.Equals(-1))
             {
-                lblID.Text = formula.FormulaID.ToString();
-                txtValue.Text = formula.FormulaType;
+                formula = (Formula)radGridView1.Rows[rowindex].DataBoundItem;
+                if (formula != null)
+                {
+                    lblID.Text = formula.FormulaID.ToString();
+                    txtValue.Text = formula.FormulaType;
 
+                }
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(txtValue.Text))
+            if (!String.IsNullOrEmpty(txtValue.Text))
             {
                 formula.FormulaType = txtValue.Text;
                 formula.LUB = 1;
-                if(formulaBLL.Update(formula))
+                if (formulaBLL.Update(formula))
                 {
                     MessageBox.Show("Formula updated successfully!");
                     InitiateData();
                     Clear();
                 }
-                else
-                {
-                    MessageBox.Show("Something went wrong!");
-                }
+                else MessageBox.Show("Something went wrong!");
 
             }
+            else MessageBox.Show("Please select an formula!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    formulaBLL.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
-                }
+                var formulaList = productBll.GetFormula();
 
+                    if (!formulaList.Contains(int.Parse(lblID.Text)))
+                    {
+                        if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (formulaBLL.Delete(int.Parse(lblID.Text)))
+                            {
+                                MessageBox.Show("Formula is deleted successfully!");
+                                InitiateData();
+                                Clear();
+                            }
+                            else MessageBox.Show("Something went wrong!");
+                        }                        
+                    }
+                    else MessageBox.Show("Selected formula is in use!");                                       
             }
+            else MessageBox.Show("Please select a formula!");
         }
 
         private void Clear()

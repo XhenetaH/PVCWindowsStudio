@@ -95,6 +95,33 @@ namespace PVCWindowsStudio.DAL
                 return null;
             }
         }
+
+        public List<Orders> GetAllExist()
+        {
+            try
+            {
+                List<Orders> list = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Order_GetAllExist", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            list = new List<Orders>();
+                            while (reader.Read())
+                            {
+                                list.Add(ToObject(reader));
+                            }
+                        }
+                    }
+                }
+                return list;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public int GetID()
         {
             try

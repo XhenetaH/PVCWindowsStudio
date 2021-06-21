@@ -48,7 +48,35 @@ namespace PVCWindowsStudio.DAL
             throw new NotImplementedException();
         }
 
-        public List<ProductItems> GetAll()
+        public List<int> GetFormula()
+        {
+            try
+            {
+                List<int> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_ProductItems_GetFormula", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<int>();
+                            while (reader.Read())
+                            {
+                                int nr = int.Parse(reader["FormulaID"].ToString());
+                                lista.Add(nr);
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public List<ProductItems> GetAll(int id)
         {
             try
             {
@@ -57,6 +85,7 @@ namespace PVCWindowsStudio.DAL
                 {
                     using (var command = DataConnection.Command(connection, "usp_ProductItems_GetAll", CommandType.StoredProcedure))
                     {
+                        DataConnection.AddParameter(command, "ProductID", id);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             lista = new List<ProductItems>();
@@ -126,20 +155,33 @@ namespace PVCWindowsStudio.DAL
 
         public ProductItems ToObject(SqlDataReader reader)
         {
-            ProductItems productItem = new ProductItems();
-            productItem.ProductItemsID = int.Parse(reader["ProductItemsID"].ToString());
-            productItem.Materials = new Materials();
-            productItem.Materials.Name = reader["Material Name"].ToString();
-            productItem.Materials.MaterialID =int.Parse(reader["MaterialID"].ToString());
-            productItem.Products = new Products();
-            productItem.Products.Name = reader["Product Name"].ToString();
-            productItem.Products.ProductID = int.Parse(reader["ProductID"].ToString());
-          
-            productItem.Products.Picture =(byte[])reader["Picture"];
-            productItem.Formula = new Formula();
-            productItem.Formula.FormulaType = reader["Formula"].ToString();
-            productItem.Formula.FormulaID = int.Parse(reader["FormulaID"].ToString());
+            ProductItems productItem = new ProductItems
+            {
+                ProductItemsID = int.Parse(reader["ProductItemsID"].ToString()),
+                Materials = new Materials()
+                {
+                    Name = reader["Material Name"].ToString(),
+                    MaterialID = int.Parse(reader["MaterialID"].ToString())
+                },
+                Products = new Products()
+                {
+                    Name = reader["Product Name"].ToString(),
+                    Picture = (byte[])reader["Picture"],
+                    ProductID = int.Parse(reader["ProductID"].ToString())                   
+                },
+                Formula = new Formula()
+                {
+                    FormulaID = int.Parse(reader["FormulaID"].ToString()),
+                    FormulaType = reader["Formula"].ToString()
+                }
+            };
+           
             return productItem;
+        }
+
+        public List<ProductItems> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -102,9 +102,6 @@ namespace PVCWindowsStudio.DAL
             {
                 FormulaID = int.Parse(reader["FormulaID"].ToString()),
                 FormulaType = reader["FormulaType"].ToString(),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString())
             };
 
             return frm;

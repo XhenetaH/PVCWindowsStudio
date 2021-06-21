@@ -13,9 +13,9 @@ namespace PVCWindowsStudio.UI
 {
     public partial class UsersForm : Telerik.WinControls.UI.RadForm
     {
-        private RoleBLL roleBll;
+        private readonly RoleBLL roleBll;
         private Users user;
-        private UsersBLL userBll;
+        private readonly UsersBLL userBll;
         public UsersForm()
         {
             user = new Users();
@@ -25,23 +25,30 @@ namespace PVCWindowsStudio.UI
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            user.UserName = txtName.Text;
-            user.Password = txtPassword.Text;
-            if (roleddlist.SelectedValue == null)
-                user.RoleID = -1;
-            else
-                user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
-            user.InsertBy = 1;
+        {            
             if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPassword.Text) && user.RoleID >= 0)
             {
-                userBll.Insert(user);
+                user.UserName = txtName.Text;
+                user.Password = txtPassword.Text;
+                if (roleddlist.SelectedValue == null)
+                    user.RoleID = -1;
+                else
+                    user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
+                user.InsertBy = 1;
+                if (userBll.Insert(user))
+                {
+                    MessageBox.Show("User inserted successfully!");
+                    Clear();
+                    InitiateData();
+                }
+                else MessageBox.Show("Something went wrong!");
             }
-            this.radValidationProvider1.Validate(txtName);
-            this.radValidationProvider1.Validate(txtPassword);
-            this.radValidationProvider1.Validate(roleddlist);
-            Clear();
-            InitiateData();
+            else
+            {
+                this.radValidationProvider1.Validate(txtName);
+                this.radValidationProvider1.Validate(txtPassword);
+                this.radValidationProvider1.Validate(roleddlist);
+            }            
         }
 
         private void Clear()
@@ -50,58 +57,54 @@ namespace PVCWindowsStudio.UI
             txtName.Text = "";
             txtPassword.Text = "";
             roleddlist.SelectedIndex = -1;
-            
+            roleddlist.Text = "Select a role";
         }
         private void InitiateData()
         {
-            var list = userBll.GetAll();
-            usersGridView.DataSource = list;
-
+            usersGridView.DataSource = userBll.GetAll();
         }
         private void UsersForm_Load(object sender, EventArgs e)
         {
             roleddlist.DataSource = roleBll.GetAll();
             roleddlist.DisplayMember = "Name";
             roleddlist.ValueMember = "RoleID";
+            roleddlist.Text = "Select a role";
             
 
             InitiateData();
             
-        }
-
-        private void usersGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            user = (Users)usersGridView.Rows[rowindex].DataBoundItem;
-            if (user != null)
-            {
-                lblID.Text = user.UserID.ToString();
-                txtName.Text = user.UserName;
-                txtPassword.Text = user.Password;
-                roleddlist.Text = user.Role.Name;
-                roleddlist.SelectedValue = user.RoleID;
-            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            user.UserID = int.Parse(lblID.Text);
-            user.UserName = txtName.Text;
-            user.Password = txtPassword.Text;
-            if (roleddlist.SelectedValue == null)
-                user.RoleID = -1;
-            else
-                user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
-            user.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPassword.Text) && user.RoleID >= 0)
-            {
-                userBll.Update(user);
+            if (!String.IsNullOrEmpty(lblID.Text))
+            {                
+                if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPassword.Text) && user.RoleID >= 0)
+                {
+                    user.UserID = int.Parse(lblID.Text);
+                    user.UserName = txtName.Text;
+                    user.Password = txtPassword.Text;
+                    if (roleddlist.SelectedValue == null)
+                        user.RoleID = -1;
+                    else
+                        user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
+                    user.LUB = 1;
+                    if (userBll.Update(user))
+                    {
+                        MessageBox.Show("User is updated successfully!");
+                        Clear();
+                        InitiateData();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else
+                {
+                    this.radValidationProvider1.Validate(txtName);
+                    this.radValidationProvider1.Validate(txtPassword);
+                    this.radValidationProvider1.Validate(roleddlist);
+                }
             }
-            this.radValidationProvider1.Validate(txtName);
-            this.radValidationProvider1.Validate(txtPassword);
-            this.radValidationProvider1.Validate(roleddlist);
-            Clear();
-            InitiateData();
+            else MessageBox.Show("Please select an user!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -116,11 +119,29 @@ namespace PVCWindowsStudio.UI
                 }
 
             }
+            else MessageBox.Show("Please select a user!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void usersGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                user = (Users)usersGridView.Rows[rowindex].DataBoundItem;
+                if (user != null)
+                {
+                    lblID.Text = user.UserID.ToString();
+                    txtName.Text = user.UserName;
+                    txtPassword.Text = user.Password;
+                    roleddlist.Text = user.Role.Name;
+                    roleddlist.SelectedValue = user.RoleID;
+                }
+            }
         }
     }
 }

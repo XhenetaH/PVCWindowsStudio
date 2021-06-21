@@ -9,17 +9,18 @@ using System.Windows.Forms;
 
 namespace PVCWindowsStudio.Reports
 {
-    public partial class OrdersReportViewerForm : Form
+    public partial class InvoiceReportViewerForm : Form
     {
         private int Id { get; set; }
-        public OrdersReportViewerForm(int _id)
+        public InvoiceReportViewerForm(int id)
         {
-            this.Id = _id;
+            this.Id = id;
             InitializeComponent();
         }
-        private void OrdersReportViewerForm_Load(object sender, EventArgs e)
+
+        private void InvoiceReportViewerForm_Load(object sender, EventArgs e)
         {
-            this.reportViewer1.ReportSource.Parameters.Add("OrderID", Id);
+            this.reportViewer1.ReportSource.Parameters.Add("InvoiceID", Id);
             this.reportViewer1.RefreshReport();
         }
     }

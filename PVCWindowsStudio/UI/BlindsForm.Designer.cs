@@ -40,6 +40,10 @@
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtColor = new Telerik.WinControls.UI.RadTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPrice = new Telerik.WinControls.UI.RadTextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescription = new Telerik.WinControls.UI.RadTextBox();
@@ -53,10 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPrice = new Telerik.WinControls.UI.RadTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtColor = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blindsGrindView.MasterTemplate)).BeginInit();
@@ -66,6 +66,8 @@
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
             this.radPanel4.SuspendLayout();
@@ -76,8 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
             this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,7 +146,7 @@
             this.blindsGrindView.Size = new System.Drawing.Size(684, 713);
             this.blindsGrindView.TabIndex = 0;
             this.blindsGrindView.ThemeName = "MaterialBlueGrey";
-            this.blindsGrindView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.blindsGrindView_CellDoubleClick);
+            this.blindsGrindView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.blindsGrindView_CellClick);
             // 
             // radPanel2
             // 
@@ -185,6 +185,44 @@
             this.radPanel5.Size = new System.Drawing.Size(323, 458);
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 23);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Color";
+            // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(30, 226);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(281, 41);
+            this.txtColor.TabIndex = 10;
+            this.txtColor.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtColor, null);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(27, 122);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 23);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Price";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(31, 150);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(281, 41);
+            this.txtPrice.TabIndex = 8;
+            this.txtPrice.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtPrice, null);
             // 
             // lblID
             // 
@@ -365,44 +403,6 @@
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
             radValidationRule1});
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 23);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Price";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(31, 150);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(281, 41);
-            this.txtPrice.TabIndex = 8;
-            this.txtPrice.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtPrice, null);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 200);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 23);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Color";
-            // 
-            // txtColor
-            // 
-            this.txtColor.Location = new System.Drawing.Point(30, 226);
-            this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(281, 41);
-            this.txtColor.TabIndex = 10;
-            this.txtColor.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtColor, null);
-            // 
             // BlindsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,6 +429,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
             this.radPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
             this.radPanel4.ResumeLayout(false);
@@ -439,8 +441,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
             this.radPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

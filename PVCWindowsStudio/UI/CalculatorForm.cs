@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
-using Telerik.WinControls.UI;
+
 
 namespace PVCWindowsStudio.UI
 {
@@ -425,6 +425,12 @@ namespace PVCWindowsStudio.UI
             {
                 lblBlindID.Text = ddlBlinds.SelectedValue.ToString();
             }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

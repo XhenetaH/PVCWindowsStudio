@@ -9,50 +9,40 @@ using System.Threading.Tasks;
 
 namespace PVCWindowsStudio.BLL
 {
-    public class OrderBLL : IRepository<Orders>
+    public class InvoiceBLL : IRepository<Invoices>
     {
-        private OrderDAL dal = new OrderDAL();
+        private readonly InvoiceDAL dal = new InvoiceDAL();
         public bool Delete(int id)
         {
             return dal.Delete(id);
         }
-        public bool DeleteAll(int id)
-        {
-            return dal.DeleteAll(id);
-        }
-        public bool Delete(Orders model)
+
+        public bool Delete(Invoices model)
         {
             throw new NotImplementedException();
         }
 
-        public Orders Get(int id)
+        public Invoices Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Orders Get(Orders model)
+        public Invoices Get(Invoices model)
         {
             throw new NotImplementedException();
         }
 
-        public List<Orders> GetAll()
+        public List<Invoices> GetAll()
         {
             return dal.GetAll();
         }
-        public List<Orders> GetAllExist()
-        {
-            return dal.GetAllExist();
-        }
-        public int GetID()
-        {
-            return dal.GetID();
-        }
-        public bool Insert(Orders model)
+
+        public bool Insert(Invoices model)
         {
             return dal.Insert(model);
         }
 
-        public bool Update(Orders model)
+        public bool Update(Invoices model)
         {
             return dal.Update(model);
         }

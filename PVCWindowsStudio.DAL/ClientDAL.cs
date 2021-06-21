@@ -195,18 +195,15 @@ namespace PVCWindowsStudio.DAL
 
         public Clients ToObject(SqlDataReader reader)
         {
-            Clients client = new Clients();
-            client.ClientID = int.Parse(reader["ClientID"].ToString());
-            client.Name = reader["Name"].ToString();
-            client.LastName = reader["LastName"].ToString();
-            client.PhoneNumber = reader["PhoneNumber"].ToString();
-            client.Email = reader["Email"].ToString();
-            client.Address = reader["Address"].ToString();
-            client.InsertBy =int.Parse(reader["InsertBy"].ToString());
-            client.InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString());
-            client.LUB = int.Parse(reader["LUB"].ToString());
-            client.LUD = Convert.ToDateTime(reader["LUD"].ToString());
-            client.LUN = int.Parse(reader["LUN"].ToString());
+            Clients client = new Clients
+            {
+                ClientID = int.Parse(reader["ClientID"].ToString()),
+                Name = reader["Name"].ToString(),
+                LastName = reader["LastName"].ToString(),
+                PhoneNumber = reader["PhoneNumber"].ToString(),
+                Email = reader["Email"].ToString(),
+                Address = reader["Address"].ToString()
+            };
             return client;
         }
 

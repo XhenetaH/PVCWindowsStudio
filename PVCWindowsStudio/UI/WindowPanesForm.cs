@@ -14,7 +14,7 @@ namespace PVCWindowsStudio.UI
     public partial class WindowPanesForm : Telerik.WinControls.UI.RadForm
     {
         private WindowPanes windowpane;
-        private WindowPaneBLL windowpaneBll;
+        private readonly WindowPaneBLL windowpaneBll;
 
         public WindowPanesForm()
         {
@@ -30,26 +30,36 @@ namespace PVCWindowsStudio.UI
 
         private void InitiateData()
         {
-            var list = windowpaneBll.GetAll();
-            windowpaneGridView.DataSource = list;
+            windowpaneGridView.DataSource = windowpaneBll.GetAll();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            windowpane.Name = txtName.Text;
-            windowpane.Price = Convert.ToDecimal(txtPrice.Text);
-            windowpane.Other = txtDescription.Text;
-            windowpane.InsertBy = 1;
-            if (!String.IsNullOrEmpty(txtName.Text))
-            {
-                windowpaneBll.Insert(windowpane);                
+            if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPrice.Text))
+            {                
+                if (windowpaneBll.Insert(windowpane))
+                {
+                    windowpane.Name = txtName.Text;
+                    windowpane.Price = Convert.ToDecimal(txtPrice.Text);
+                    windowpane.Other = txtDescription.Text;
+                    windowpane.InsertBy = 1;
+                    MessageBox.Show("Window Pane inserted successfully!");
+                    Clear();
+                    InitiateData();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
+                else MessageBox.Show("Something went worng!");
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else
+            {
+                this.radValidationProvider1.Validate(txtName);
+                this.radValidationProvider1.Validate(txtPrice);
+            }
+            
         }
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             txtName.Text = "";
             txtDescription.Text = "";
             lblID.Text = "";
@@ -58,17 +68,27 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            windowpane.Name = txtName.Text;
-            windowpane.Price = Convert.ToDecimal(txtPrice.Text);
-            windowpane.Other = txtDescription.Text;
-            windowpane.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text))
-            {
-                windowpaneBll.Update(windowpane);
+            if (!String.IsNullOrEmpty(lblID.Text))
+            {                
+                if (!String.IsNullOrEmpty(txtName.Text))
+                {
+                    windowpane.Name = txtName.Text;
+                    windowpane.Price = Convert.ToDecimal(txtPrice.Text);
+                    windowpane.Other = txtDescription.Text;
+                    windowpane.LUB = 1;
+                    if (windowpaneBll.Update(windowpane))
+                    {
+                        MessageBox.Show("Window Pane updated successfully!");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else this.radValidationProvider1.Validate(txtName);
+
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else MessageBox.Show("Please select a Window Pane!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -77,12 +97,16 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    windowpaneBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
-                }
-
+                    if (windowpaneBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Window Pane deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }                
             }
+            else MessageBox.Show("Please select a window pane!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -90,16 +114,20 @@ namespace PVCWindowsStudio.UI
             Clear();
         }
 
-        private void windowpaneGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        private void windowpaneGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
+            this.radValidationProvider1.ClearErrorStatus();
             int rowindex = e.RowIndex;
-            windowpane = (WindowPanes)windowpaneGridView.Rows[rowindex].DataBoundItem;
-            if (windowpane != null)
+            if (!rowindex.Equals(-1))
             {
-                lblID.Text = windowpane.WindowPaneID.ToString();
-                txtName.Text = windowpane.Name;
-                txtPrice.Text = windowpane.Price.ToString();
-                txtDescription.Text = windowpane.Other;
+                windowpane = (WindowPanes)windowpaneGridView.Rows[rowindex].DataBoundItem;
+                if (windowpane != null)
+                {
+                    lblID.Text = windowpane.WindowPaneID.ToString();
+                    txtName.Text = windowpane.Name;
+                    txtPrice.Text = windowpane.Price.ToString();
+                    txtDescription.Text = windowpane.Other;
+                }
             }
         }
     }

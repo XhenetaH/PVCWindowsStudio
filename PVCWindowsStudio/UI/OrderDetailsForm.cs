@@ -13,14 +13,14 @@ namespace PVCWindowsStudio.UI
 {
     public partial class OrderDetailsForm : Telerik.WinControls.UI.RadForm
     {
-        private OrderBLL ordersBLL;
+        private readonly OrderBLL ordersBLL;
         private Orders order;
-        private BlindBLL blindBll;
-        private OrderDetailsBLL detailsBLL;
+        private readonly BlindBLL blindBll;
+        private readonly OrderDetailsBLL detailsBLL;
         private OrderDetails details;
-        private ProductBLL productBll;
-        private ProfileBLL profileBll;
-        private WindowPaneBLL windowpaneBll;
+        private readonly ProductBLL productBll;
+        private readonly ProfileBLL profileBll;
+        private readonly WindowPaneBLL windowpaneBll;
         public OrderDetailsForm()
         {
             productBll = new ProductBLL();
@@ -72,26 +72,24 @@ namespace PVCWindowsStudio.UI
             orderMultiComboBox.Text = "Choose a order";
         }
 
-        private void OrderGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            //int rowindex = e.RowIndex;
-            //int id = int.Parse(OrderGridView.Rows[rowindex].Cells["OrderID"].Value.ToString());
-            //lblOrderID.Text = id.ToString();
-            
-        }
-
         private void radMultiColumnComboBox1_EditorControl_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex;
-            int id = int.Parse(orderMultiComboBox.EditorControl.Rows[rowindex].Cells["OrderID"].Value.ToString());
-            lblOrderID.Text = id.ToString();
+            if (!rowindex.Equals(-1))
+            {
+                int id = int.Parse(orderMultiComboBox.EditorControl.Rows[rowindex].Cells["OrderID"].Value.ToString());
+                lblOrderID.Text = id.ToString();
+            }
         }
 
         private void productMultiColumnComboBox_EditorControl_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex;
-            int id = int.Parse(productMultiColumnComboBox1.EditorControl.Rows[rowindex].Cells["ProductID"].Value.ToString());
-            lblProductID.Text = id.ToString();
+            if (!rowindex.Equals(-1))
+            {
+                int id = int.Parse(productMultiColumnComboBox1.EditorControl.Rows[rowindex].Cells["ProductID"].Value.ToString());
+                lblProductID.Text = id.ToString();
+            }
         }
 
         private void lblOrderID_TextChanged(object sender, EventArgs e)
@@ -107,26 +105,29 @@ namespace PVCWindowsStudio.UI
         private void orderDetailsradGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex;
-            details = (OrderDetails)orderDetailsradGridView.Rows[rowindex].DataBoundItem;
-            if (details != null)
+            if (!rowindex.Equals(-1))
             {
-                lblID.Text = details.OrderDetailsID.ToString();
-                txtWidth.Text = details.Width.ToString();
-                txtHeight.Text = details.Height.ToString();
-                txtQuantity.Text = details.Quantity.ToString();
-                ddlBlinds.Text = details.Blind.Name;
-                ddlBlinds.SelectedValue = details.BlindID;
-                ddlProfile.Text = details.Profile.NameProf;
-                ddlProfile.SelectedValue = details.ProfileID;
-                ddlWindowPane.Text = details.WindowPane.Name;
-                ddlWindowPane.SelectedValue = details.WindowPaneID;
-                productMultiColumnComboBox1.Text = details.Product.Name;
-                lblProductID.Text = details.ProductID.ToString();
-                if (details.Product.Picture?.Length > 0)
-                    radPictureBox1.Image = ConvertToImage(details.Product.Picture);
-                else
-                    radPictureBox1.Image = null;
+                details = (OrderDetails)orderDetailsradGridView.Rows[rowindex].DataBoundItem;
+                if (details != null)
+                {
+                    lblID.Text = details.OrderDetailsID.ToString();
+                    txtWidth.Text = details.Width.ToString();
+                    txtHeight.Text = details.Height.ToString();
+                    txtQuantity.Text = details.Quantity.ToString();
+                    ddlBlinds.Text = details.Blind.Name;
+                    ddlBlinds.SelectedValue = details.BlindID;
+                    ddlProfile.Text = details.Profile.NameProf;
+                    ddlProfile.SelectedValue = details.ProfileID;
+                    ddlWindowPane.Text = details.WindowPane.Name;
+                    ddlWindowPane.SelectedValue = details.WindowPaneID;
+                    productMultiColumnComboBox1.Text = details.Product.Name;
+                    lblProductID.Text = details.ProductID.ToString();
+                    if (details.Product.Picture?.Length > 0)
+                        radPictureBox1.Image = ConvertToImage(details.Product.Picture);
+                    else
+                        radPictureBox1.Image = null;
 
+                }
             }
         }
         private Image ConvertToImage(byte[] array)
@@ -142,30 +143,25 @@ namespace PVCWindowsStudio.UI
                 if (radPictureBox1.Image != null)
                 {
 
-                    if (String.IsNullOrEmpty(txtHeight.Text))
+                    if (String.IsNullOrEmpty(txtHeight.Text)&& String.IsNullOrEmpty(txtWidth.Text)&& String.IsNullOrEmpty(txtQuantity.Text))
                     {
                         radValidationProvider1.Validate(txtHeight);
-                    }
-                    if (String.IsNullOrEmpty(txtWidth.Text))
-                    {
                         radValidationProvider1.Validate(txtWidth);
-                    }
-                    if (String.IsNullOrEmpty(txtQuantity.Text))
-                    {
                         radValidationProvider1.Validate(txtQuantity);
                     }
-                    if (ddlProfile.SelectedValue == null)
-                    {
-                        radValidationProvider1.Validate(ddlProfile);
-                    }
-                    if (ddlBlinds.SelectedValue == null)
-                    {
-                        radValidationProvider1.Validate(ddlBlinds);
-                    }
-                    if (ddlWindowPane.SelectedValue == null)
-                    {
-                        radValidationProvider1.Validate(ddlWindowPane);
-                    }
+                    
+                    //if (ddlProfile.SelectedValue == null)
+                    //{
+                    //    radValidationProvider1.Validate(ddlProfile);
+                    //}
+                    //if (ddlBlinds.SelectedValue == null)
+                    //{
+                    //    radValidationProvider1.Validate(ddlBlinds);
+                    //}
+                    //if (ddlWindowPane.SelectedValue == null)
+                    //{
+                    //    radValidationProvider1.Validate(ddlWindowPane);
+                    //}
                     else
                     {
                         details.OrderDetailsID = int.Parse(lblID.Text);
@@ -229,13 +225,17 @@ namespace PVCWindowsStudio.UI
                     InitOrderDetailsData(details.OrderID);
                     if (orderDetailsradGridView.RowCount == 0)
                     {
-                        ordersBLL.Delete(details.OrderID);
-                        InitOrderData();
-                    }                   
+                        if (ordersBLL.Delete(details.OrderID))
+                        {
+                            MessageBox.Show("Order item deleted successfully!");
+                            InitOrderData();
+                        }
+                        else MessageBox.Show("Something went wrong!");
+                    }
                     Clear();
                 }
-
             }
+            else MessageBox.Show("Please select an order item!");
         }
     }
 }

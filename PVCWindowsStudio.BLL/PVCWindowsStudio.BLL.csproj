@@ -49,6 +49,8 @@
     <Compile Include="ClientBLL.cs" />
     <Compile Include="FormModels\ProductItemsModel.cs" />
     <Compile Include="FormulaBLL.cs" />
+    <Compile Include="HandiWorkBLL.cs" />
+    <Compile Include="InvoiceBLL.cs" />
     <Compile Include="MaterialBLL.cs" />
     <Compile Include="OrderBLL.cs" />
     <Compile Include="OrderDetailsBLL.cs" />

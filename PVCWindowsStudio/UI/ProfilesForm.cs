@@ -13,7 +13,7 @@ namespace PVCWindowsStudio.UI
     public partial class ProfilesForm : Telerik.WinControls.UI.RadForm
     {
         private Profiles profile;
-        private ProfileBLL profileBll;
+        private readonly ProfileBLL profileBll;
         public ProfilesForm()
         {
             profile = new Profiles();
@@ -28,28 +28,36 @@ namespace PVCWindowsStudio.UI
 
         private void InitiateData()
         {
-            var list = profileBll.GetAll();
-            profileGridView.DataSource = list;
-
+            profileGridView.DataSource = profileBll.GetAll();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            profile.Name = txtName.Text;
-            profile.Other = txtDescription.Text;
-            profile.Color = txtColor.Text;
-            profile.InsertBy = 1;
+        {            
             if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtColor.Text))
             {
-                profileBll.Insert(profile);               
+                profile.Name = txtName.Text;
+                profile.Other = txtDescription.Text;
+                profile.Color = txtColor.Text;
+                profile.InsertBy = 1;
+                if (profileBll.Insert(profile))
+                {
+                    MessageBox.Show("Profile inserted successfully!");
+                    Clear();
+                    InitiateData();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
+                else MessageBox.Show("Something went wrong!");
             }
-            this.radValidationProvider1.Validate(txtName);
-            this.radValidationProvider1.Validate(txtColor);
-            Clear();
-            InitiateData();
+            else
+            {
+                this.radValidationProvider1.Validate(txtName);
+                this.radValidationProvider1.Validate(txtColor);
+            }
+            
         }
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             txtName.Text = "";
             txtDescription.Text = "";
             txtColor.Text = "";
@@ -58,31 +66,31 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            profile.Name = txtName.Text;
-            profile.Other = txtDescription.Text;
-            profile.Color = txtColor.Text;
-            profile.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtDescription.Text))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                profileBll.Update(profile);
+                if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtDescription.Text))
+                {
+                    profile.Name = txtName.Text;
+                    profile.Other = txtDescription.Text;
+                    profile.Color = txtColor.Text;
+                    profile.LUB = 1;
+                    if (profileBll.Update(profile))
+                    {
+                        MessageBox.Show("Profile updated successfully!");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else
+                {
+                    this.radValidationProvider1.Validate(txtName);
+                    this.radValidationProvider1.Validate(txtColor);
+                }
+                
             }
-            this.radValidationProvider1.Validate(txtName);
-            this.radValidationProvider1.Validate(txtColor);
-            Clear();
-            InitiateData();
-        }
-
-        private void profileGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            profile = (Profiles)profileGridView.Rows[rowindex].DataBoundItem;
-            if (profile != null)
-            {
-                lblID.Text = profile.ProfileID.ToString();
-                txtName.Text = profile.Name;
-                txtDescription.Text = profile.Other;
-                txtColor.Text = profile.Color;
-            }
+            else MessageBox.Show("Please select a profile!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -91,17 +99,38 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    profileBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (profileBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Profile deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
-
             }
+            else MessageBox.Show("Please select a Profile!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void profileGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            this.radValidationProvider1.ClearErrorStatus();
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                profile = (Profiles)profileGridView.Rows[rowindex].DataBoundItem;
+                if (profile != null)
+                {
+                    lblID.Text = profile.ProfileID.ToString();
+                    txtName.Text = profile.Name;
+                    txtDescription.Text = profile.Other;
+                    txtColor.Text = profile.Color;
+                }
+            }
         }
     }
 }

@@ -36,6 +36,14 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.GetAll();
         }
+        public List<ProductItems> GetAll(int id)
+        {
+            return dal.GetAll(id);
+        }
+        public List<int> GetFormula()
+        {
+            return dal.GetFormula();
+        }
 
         public bool Insert(ProductItems model)
         {

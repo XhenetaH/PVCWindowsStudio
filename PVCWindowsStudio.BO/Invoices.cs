@@ -9,11 +9,11 @@ namespace PVCWindowsStudio.BO
     public class Invoices : AuditColumns
     {
         public int InvoiceID { get; set; }
-        public Orders Order { get; set; }
-        public string Comment { get; set; }
-        public decimal Amount { get; set; }
-        public decimal Discount { get; set; }
-        public decimal TotalAmount { get; set; }
+        public int OrderID { get; set; }
+        public virtual Orders Order { get; set; }
+        public decimal Paid { get; set; }
+        public decimal Debt { get; set; }
+        public DateTime Date { get; set; }
 
     }
 }

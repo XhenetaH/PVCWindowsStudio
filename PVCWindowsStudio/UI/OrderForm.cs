@@ -14,9 +14,9 @@ namespace PVCWindowsStudio.UI
 {
     public partial class OrderForm : Telerik.WinControls.UI.RadForm
     {
-        private OrderBLL orderBll;
+        private readonly OrderBLL orderBll;
         private Orders order;
-        private ClientBLL clientBll;
+        private readonly ClientBLL clientBll;
         public OrderForm()
         {
             clientBll = new ClientBLL();

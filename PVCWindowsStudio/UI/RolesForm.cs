@@ -15,7 +15,7 @@ namespace PVCWindowsStudio.UI
     public partial class RolesForm : Telerik.WinControls.UI.RadForm
     {
         private Roles role;
-        private RoleBLL roleBll;
+        private readonly RoleBLL roleBll;
         public RolesForm()
         {
             role = new Roles();
@@ -30,16 +30,21 @@ namespace PVCWindowsStudio.UI
             roleGridView.DataSource = list;
         }
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            role.Name = txtName.Text;
-            role.InsertBy = 1;                   
+        {                            
             if(!String.IsNullOrEmpty(txtName.Text))
             {
-                roleBll.Insert(role);                
+                role.Name = txtName.Text;
+                role.InsertBy = 1;
+                if(roleBll.Insert(role))
+                {
+                    MessageBox.Show("Role inserted successfully!");
+                    Clear();
+                    InitiateData();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else this.radValidationProvider1.Validate(txtName);
+            
         }
 
         private void RolesForm_Load(object sender, EventArgs e)
@@ -49,47 +54,50 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            role.Name = txtName.Text;
-            role.LUB = 1;
-            if(!String.IsNullOrEmpty(txtName.Text))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                roleBll.Update(role);                
-            }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
-        }
+                if (!String.IsNullOrEmpty(txtName.Text))
+                {
+                    role.Name = txtName.Text;
+                    role.LUB = 1;
 
-        private void roleGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            role = (Roles)roleGridView.Rows[rowindex].DataBoundItem;
-            if (role != null)
-            {
-                lblID.Text = role.RoleID.ToString();
-                txtName.Text = role.Name;
+                    if (roleBll.Update(role))
+                    {
+                        MessageBox.Show("Role updated successfully!");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else this.radValidationProvider1.Validate(txtName);
             }
+            else MessageBox.Show("Please select a role!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(lblID.Text))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if(MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    roleBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (roleBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Role is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
-              
             }
+            else MessageBox.Show("Please select a role!");
 
         }
 
 
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             txtName.Text = "";
             lblID.Text = "";
         }
@@ -97,6 +105,21 @@ namespace PVCWindowsStudio.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void roleGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {           
+            this.radValidationProvider1.ClearErrorStatus();
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                role = (Roles)roleGridView.Rows[rowindex].DataBoundItem;
+                if (role != null)
+                {
+                    lblID.Text = role.RoleID.ToString();
+                    txtName.Text = role.Name;
+                }
+            }
         }
     }
 }

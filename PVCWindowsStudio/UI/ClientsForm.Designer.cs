@@ -89,9 +89,9 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(31, 69);
+            this.txtName.Location = new System.Drawing.Point(30, 69);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(223, 41);
+            this.txtName.Size = new System.Drawing.Size(280, 41);
             this.txtName.TabIndex = 0;
             this.txtName.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
@@ -102,7 +102,7 @@
             this.radPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel6.Location = new System.Drawing.Point(0, 0);
             this.radPanel6.Name = "radPanel6";
-            this.radPanel6.Size = new System.Drawing.Size(965, 770);
+            this.radPanel6.Size = new System.Drawing.Size(931, 770);
             this.radPanel6.TabIndex = 7;
             // 
             // clientGridView1
@@ -128,31 +128,31 @@
             gridViewTextBoxColumn1.HeaderText = "Name";
             gridViewTextBoxColumn1.MinWidth = 6;
             gridViewTextBoxColumn1.Name = "Name";
-            gridViewTextBoxColumn1.Width = 179;
+            gridViewTextBoxColumn1.Width = 172;
             gridViewTextBoxColumn2.EnableExpressionEditor = false;
             gridViewTextBoxColumn2.FieldName = "LastName";
-            gridViewTextBoxColumn2.HeaderText = "LastName";
+            gridViewTextBoxColumn2.HeaderText = "Last Name";
             gridViewTextBoxColumn2.MinWidth = 6;
             gridViewTextBoxColumn2.Name = "LastName";
-            gridViewTextBoxColumn2.Width = 180;
+            gridViewTextBoxColumn2.Width = 173;
             gridViewTextBoxColumn3.EnableExpressionEditor = false;
             gridViewTextBoxColumn3.FieldName = "PhoneNumber";
-            gridViewTextBoxColumn3.HeaderText = "PhoneNumber";
+            gridViewTextBoxColumn3.HeaderText = "Phone Number";
             gridViewTextBoxColumn3.MinWidth = 6;
             gridViewTextBoxColumn3.Name = "PhoneNumber";
-            gridViewTextBoxColumn3.Width = 137;
+            gridViewTextBoxColumn3.Width = 132;
             gridViewTextBoxColumn4.EnableExpressionEditor = false;
             gridViewTextBoxColumn4.FieldName = "Email";
             gridViewTextBoxColumn4.HeaderText = "Email";
             gridViewTextBoxColumn4.MinWidth = 6;
             gridViewTextBoxColumn4.Name = "Email";
-            gridViewTextBoxColumn4.Width = 189;
+            gridViewTextBoxColumn4.Width = 182;
             gridViewTextBoxColumn5.EnableExpressionEditor = false;
             gridViewTextBoxColumn5.FieldName = "Address";
             gridViewTextBoxColumn5.HeaderText = "Address";
             gridViewTextBoxColumn5.MinWidth = 6;
             gridViewTextBoxColumn5.Name = "Address";
-            gridViewTextBoxColumn5.Width = 232;
+            gridViewTextBoxColumn5.Width = 224;
             this.clientGridView1.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -163,17 +163,17 @@
             this.clientGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.clientGridView1.Name = "clientGridView1";
             this.clientGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.clientGridView1.Size = new System.Drawing.Size(965, 770);
+            this.clientGridView1.Size = new System.Drawing.Size(931, 770);
             this.clientGridView1.TabIndex = 0;
             this.clientGridView1.ThemeName = "MaterialBlueGrey";
-            this.clientGridView1.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.clientGridView1_CellDoubleClick);
+            this.clientGridView1.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.clientGridView1_CellClick);
             // 
             // radPanel2
             // 
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel2.Location = new System.Drawing.Point(0, 0);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(965, 770);
+            this.radPanel2.Size = new System.Drawing.Size(931, 770);
             this.radPanel2.TabIndex = 6;
             // 
             // label1
@@ -183,13 +183,15 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(289, 52);
+            this.label1.Size = new System.Drawing.Size(323, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = "Clients Management";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnUpdate.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
@@ -197,7 +199,7 @@
             this.btnUpdate.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
             this.btnUpdate.Location = new System.Drawing.Point(8, 58);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(269, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(302, 40);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.ThemeName = "MaterialBlueGrey";
@@ -220,7 +222,7 @@
             this.btnSave.Image = global::PVCWindowsStudio.Properties.Resources.plus__3_;
             this.btnSave.Location = new System.Drawing.Point(8, 10);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(269, 40);
+            this.btnSave.Size = new System.Drawing.Size(303, 40);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "SAVE";
             this.btnSave.ThemeName = "MaterialBlueGrey";
@@ -248,7 +250,7 @@
             this.radPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel5.Location = new System.Drawing.Point(0, 52);
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(289, 515);
+            this.radPanel5.Size = new System.Drawing.Size(323, 515);
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
@@ -256,7 +258,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 357);
+            this.label5.Location = new System.Drawing.Point(30, 357);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 23);
             this.label5.TabIndex = 13;
@@ -264,9 +266,9 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(31, 385);
+            this.txtAddress.Location = new System.Drawing.Point(30, 385);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(223, 41);
+            this.txtAddress.Size = new System.Drawing.Size(280, 41);
             this.txtAddress.TabIndex = 12;
             this.txtAddress.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtAddress, null);
@@ -275,7 +277,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 278);
+            this.label4.Location = new System.Drawing.Point(30, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 23);
             this.label4.TabIndex = 11;
@@ -283,9 +285,9 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(31, 306);
+            this.txtEmail.Location = new System.Drawing.Point(30, 306);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(223, 41);
+            this.txtEmail.Size = new System.Drawing.Size(280, 41);
             this.txtEmail.TabIndex = 10;
             this.txtEmail.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtEmail, null);
@@ -294,7 +296,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 199);
+            this.label3.Location = new System.Drawing.Point(30, 199);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 23);
             this.label3.TabIndex = 9;
@@ -302,9 +304,9 @@
             // 
             // txtPhoneNr
             // 
-            this.txtPhoneNr.Location = new System.Drawing.Point(31, 227);
+            this.txtPhoneNr.Location = new System.Drawing.Point(30, 227);
             this.txtPhoneNr.Name = "txtPhoneNr";
-            this.txtPhoneNr.Size = new System.Drawing.Size(223, 41);
+            this.txtPhoneNr.Size = new System.Drawing.Size(280, 41);
             this.txtPhoneNr.TabIndex = 8;
             this.txtPhoneNr.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtPhoneNr, null);
@@ -313,7 +315,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 120);
+            this.label2.Location = new System.Drawing.Point(30, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 23);
             this.label2.TabIndex = 7;
@@ -321,9 +323,9 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(31, 148);
+            this.txtLastName.Location = new System.Drawing.Point(30, 148);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(223, 41);
+            this.txtLastName.Size = new System.Drawing.Size(280, 41);
             this.txtLastName.TabIndex = 6;
             this.txtLastName.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtLastName, null);
@@ -341,7 +343,7 @@
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(31, 41);
+            this.lblUserName.Location = new System.Drawing.Point(30, 41);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(54, 23);
             this.lblUserName.TabIndex = 4;
@@ -356,7 +358,7 @@
             this.btnClear.Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
             this.btnClear.Location = new System.Drawing.Point(8, 154);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(269, 40);
+            this.btnClear.Size = new System.Drawing.Size(302, 40);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "CLEAR";
             this.btnClear.ThemeName = "MaterialBlueGrey";
@@ -377,7 +379,7 @@
             this.btnDelete.Image = global::PVCWindowsStudio.Properties.Resources.trash;
             this.btnDelete.Location = new System.Drawing.Point(8, 106);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(269, 40);
+            this.btnDelete.Size = new System.Drawing.Size(302, 40);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.ThemeName = "MaterialBlueGrey";
@@ -398,7 +400,7 @@
             this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radPanel4.Location = new System.Drawing.Point(0, 567);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(289, 203);
+            this.radPanel4.Size = new System.Drawing.Size(323, 203);
             this.radPanel4.TabIndex = 2;
             this.radPanel4.ThemeName = "MaterialBlueGrey";
             // 
@@ -408,9 +410,9 @@
             this.radPanel1.Controls.Add(this.radPanel4);
             this.radPanel1.Controls.Add(this.radPanel3);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.radPanel1.Location = new System.Drawing.Point(965, 0);
+            this.radPanel1.Location = new System.Drawing.Point(931, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(289, 770);
+            this.radPanel1.Size = new System.Drawing.Size(323, 770);
             this.radPanel1.TabIndex = 5;
             // 
             // radPanel3
@@ -423,7 +425,7 @@
             // 
             // 
             this.radPanel3.RootElement.BorderHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.radPanel3.Size = new System.Drawing.Size(289, 52);
+            this.radPanel3.Size = new System.Drawing.Size(323, 52);
             this.radPanel3.TabIndex = 2;
             this.radPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radPanel3.ThemeName = "MaterialBlueGrey";

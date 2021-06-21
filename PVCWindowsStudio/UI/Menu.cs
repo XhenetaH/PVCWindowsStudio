@@ -123,5 +123,15 @@ namespace PVCWindowsStudio.UI
         {
             openChildForm(new OrderForm());
         }
+
+        private void radMenuItem15_Click(object sender, EventArgs e)
+        {
+            openChildForm(new InvoiceForm());
+        }
+
+        private void radMenuItem16_Click(object sender, EventArgs e)
+        {
+            openChildForm(new HandiWorkForm());
+        }
     }
 }

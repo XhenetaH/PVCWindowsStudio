@@ -99,13 +99,7 @@ namespace PVCWindowsStudio.DAL
                 Name = reader["Name"].ToString(),
                 NameProf = reader["Name"].ToString() + " " + reader["Color"].ToString(),
                 Color = reader["Color"].ToString(),
-                Other = reader["Other"].ToString(),
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
-
+                Other = reader["Other"].ToString()
             };
             return profile;
         }

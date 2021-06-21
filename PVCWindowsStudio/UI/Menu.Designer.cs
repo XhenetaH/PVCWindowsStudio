@@ -46,6 +46,8 @@
             this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
+            this.radMenuItem16 = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelChildForm)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,7 +85,7 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(0, 72);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1277, 649);
+            this.panelChildForm.Size = new System.Drawing.Size(1277, 691);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -95,7 +97,7 @@
             this.pictureBox1.Image = global::PVCWindowsStudio.Properties.Resources.logo2;
             this.pictureBox1.Location = new System.Drawing.Point(433, 106);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(847, 511);
+            this.pictureBox1.Size = new System.Drawing.Size(847, 553);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -127,7 +129,9 @@
             this.radMenuItem11,
             this.radMenuItem12,
             this.radMenuItem13,
-            this.radMenuItem14});
+            this.radMenuItem14,
+            this.radMenuItem15,
+            this.radMenuItem16});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
             this.radMenu1.Size = new System.Drawing.Size(1277, 72);
@@ -182,13 +186,26 @@
             this.radMenuItem14.Text = "Order";
             this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
             // 
+            // radMenuItem15
+            // 
+            this.radMenuItem15.Name = "radMenuItem15";
+            this.radMenuItem15.Text = "Invoices";
+            this.radMenuItem15.Click += new System.EventHandler(this.radMenuItem15_Click);
+            // 
+            // radMenuItem16
+            // 
+            this.radMenuItem16.Name = "radMenuItem16";
+            this.radMenuItem16.Text = "HandiWork";
+            this.radMenuItem16.Click += new System.EventHandler(this.radMenuItem16_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 721);
+            this.ClientSize = new System.Drawing.Size(1277, 763);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.radMenu1);
+            this.MinimumSize = new System.Drawing.Size(1100, 800);
             this.Name = "Menu";
             // 
             // 
@@ -229,5 +246,7 @@
         private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
         private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem16;
     }
 }

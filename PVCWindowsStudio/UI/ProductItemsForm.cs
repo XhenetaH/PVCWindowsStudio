@@ -14,7 +14,7 @@ namespace PVCWindowsStudio.UI
 {
     public partial class ProductItemsForm : Telerik.WinControls.UI.RadForm
     {
-        private ProductItemsModel productModel;
+        private readonly ProductItemsModel productModel;
         public ProductItemsForm()
         {
             productModel = new ProductItemsModel()
@@ -35,35 +35,21 @@ namespace PVCWindowsStudio.UI
             productsradGridView.DataSource = productList;
             this.productsradGridView.TableElement.RowHeight = 150;
 
-            ddlMaterial.DataSource = productModel.MaterialBll.GetAll();
+            ddlMaterial.DataSource = productModel.MaterialBll.GetExist();
             ddlMaterial.DisplayMember = "Name";
             ddlMaterial.ValueMember = "MaterialID";
+            ddlMaterial.Text = "Choose a material";
 
             ddlFormula.DataSource = productModel.FormulaBll.GetAll();
             ddlFormula.DisplayMember = "FormulaType";
             ddlFormula.ValueMember = "FormulaID";
-
+            ddlFormula.Text = "Choose a formula";
 
         }
         private void ProductItemsForm_Load(object sender, EventArgs e)
         {
             InitiateProduct();
-            InitiateProductItems();
-        }
-
-        private void productsradGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            productModel.Product = (Products)productsradGridView.Rows[rowindex].DataBoundItem;
-            if (productModel.Product != null)
-            {
-                lblproductID.Text = productModel.Product.ProductID.ToString();
-                if (productModel.Product.Picture?.Length > 0)
-                    productPictureBox.Image = ConvertToImage(productModel.Product.Picture);
-                else
-                    productPictureBox.Image = null;
-
-            }
+            
         }
 
         private Image ConvertToImage(byte[] array)
@@ -75,77 +61,78 @@ namespace PVCWindowsStudio.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (productPictureBox.Image == null)
-                MessageBox.Show("Picture box can't be empty!");
+                MessageBox.Show("Picture box can't be empty!");            
             else
             {
-                productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
-                productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-                productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
-                productModel.ProductItems.InsertBy = 1;
+                if (ddlFormula.SelectedValue == null)
+                    MessageBox.Show("Formula can't be empty!");
+                else
+                {
+                    if (ddlMaterial.SelectedValue == null)
+                        MessageBox.Show("Material can't be empty!");
+                    else
+                    {
 
-                productModel.ProductItemsBll.Insert(productModel.ProductItems);
-                InitiateProductItems();
-                Clear();
-                this.radValidationProvider1.ClearErrorStatus();
+                        productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
+                        productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
+                        productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
+                        productModel.ProductItems.InsertBy = 1;
+
+                        if (productModel.ProductItemsBll.Insert(productModel.ProductItems))
+                        {
+                            MessageBox.Show("Product is inserted successfully!");
+                            InitiateProductItems(int.Parse(lblproductID.Text));
+                            Clear();
+                            this.radValidationProvider1.ClearErrorStatus();
+                        }
+                        else MessageBox.Show("Something went wrong!");
+                    }
+                }
             }
         }
 
         private void Clear()
         {
+            ddlMaterial.Text = "Choose a material";
+            ddlFormula.Text = "Choose a formula";
             lblProductItemID.Text = "";
             productPictureBox.Image = null;
+            productitemsGridView.Rows.Clear();
         }
 
-        private void InitiateProductItems()
+        private void InitiateProductItems(int id)
         {
-            var list1 = productModel.ProductItemsBll.GetAll();
-            productitemsGridView.DataSource = list1;
+            productitemsGridView.DataSource = productModel.ProductItemsBll.GetAll(id);
                 
-        }
-
-        private void productitemsGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            productModel.ProductItems = (ProductItems)productitemsGridView.Rows[rowindex].DataBoundItem;
-            if (productModel.ProductItems != null)
-            {
-                lblProductItemID.Text = productModel.ProductItems.ProductItemsID.ToString();
-                lblproductID.Text = productModel.ProductItems.Products.ProductID.ToString();
-                ddlFormula.SelectedValue = productModel.ProductItems.Formula.FormulaID;
-                ddlFormula.Text = productModel.ProductItems.Formula.FormulaType;
-                ddlMaterial.SelectedValue = productModel.ProductItems.Materials.MaterialID;
-                ddlMaterial.Text = productModel.ProductItems.Materials.Name;
-                if (productModel.ProductItems.Products.Picture?.Length > 0)
-                    productPictureBox.Image = ConvertToImage(productModel.ProductItems.Products.Picture);
-                else
-                    productPictureBox.Image = null;
-
-            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (productPictureBox.Image == null)
-                MessageBox.Show("Picture box can't be empty!");
-            else
+            if (!String.IsNullOrEmpty(lblProductItemID.Text))
             {
-                productModel.ProductItems.ProductItemsID = int.Parse(lblProductItemID.Text);
-                productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-                productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
-                productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
-                productModel.ProductItems.LUB = 1;
-
-                if (productModel.ProductItemsBll.Update(productModel.ProductItems))
-                {
-                    MessageBox.Show("Product Item uppdated successfully!");
-                    InitiateProductItems();
-                    Clear();
-                    this.radValidationProvider1.ClearErrorStatus();
-                }
+                if (productPictureBox.Image == null)
+                    MessageBox.Show("Picture box can't be empty!");
                 else
-                    MessageBox.Show("Something went wrong!");
-                
+                {
+                    productModel.ProductItems.ProductItemsID = int.Parse(lblProductItemID.Text);
+                    productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
+                    productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
+                    productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
+                    productModel.ProductItems.LUB = 1;
+
+                    if (productModel.ProductItemsBll.Update(productModel.ProductItems))
+                    {
+                        MessageBox.Show("Product Item uppdated successfully!");
+                        InitiateProductItems(int.Parse(lblproductID.Text));
+                        Clear();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else
+                        MessageBox.Show("Something went wrong!");
+
+                }
             }
+            else MessageBox.Show("Please select a product item!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -157,20 +144,62 @@ namespace PVCWindowsStudio.UI
                     if (productModel.ProductItemsBll.Delete(int.Parse(lblProductItemID.Text)))
                     {
                         MessageBox.Show("Product Item deleted successfully!");
-                        InitiateProductItems();
+                        InitiateProductItems(int.Parse(lblproductID.Text));
                         Clear();
                     }
                     else
                         MessageBox.Show("Shomething went wrong!");
-                    
                 }
 
             }
+            else MessageBox.Show("Please select a product item!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void productsradGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                productModel.Product = (Products)productsradGridView.Rows[rowindex].DataBoundItem;
+                if (productModel.Product != null)
+                {
+                    lblproductID.Text = productModel.Product.ProductID.ToString();
+                    if (productModel.Product.Picture?.Length > 0)
+                        productPictureBox.Image = ConvertToImage(productModel.Product.Picture);
+                    else
+                        productPictureBox.Image = null;
+                    InitiateProductItems(int.Parse(lblproductID.Text));
+
+                }
+            }
+        }
+
+        private void productitemsGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                productModel.ProductItems = (ProductItems)productitemsGridView.Rows[rowindex].DataBoundItem;
+                if (productModel.ProductItems != null)
+                {
+                    lblProductItemID.Text = productModel.ProductItems.ProductItemsID.ToString();
+                    lblproductID.Text = productModel.ProductItems.Products.ProductID.ToString();
+                    ddlFormula.SelectedValue = productModel.ProductItems.Formula.FormulaID;
+                    ddlFormula.Text = productModel.ProductItems.Formula.FormulaType;
+                    ddlMaterial.SelectedValue = productModel.ProductItems.Materials.MaterialID;
+                    ddlMaterial.Text = productModel.ProductItems.Materials.Name;
+                    if (productModel.ProductItems.Products.Picture?.Length > 0)
+                        productPictureBox.Image = ConvertToImage(productModel.ProductItems.Products.Picture);
+                    else
+                        productPictureBox.Image = null;
+
+                }
+            }
         }
     }
 }

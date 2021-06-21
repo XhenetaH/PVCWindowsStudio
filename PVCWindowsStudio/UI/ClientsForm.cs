@@ -14,7 +14,7 @@ namespace PVCWindowsStudio.UI
 {
     public partial class ClientsForm : Telerik.WinControls.UI.RadForm
     {
-        private ClientBLL clientBll;
+        private readonly ClientBLL clientBll;
         private Clients client;
         public ClientsForm()
         {
@@ -24,24 +24,28 @@ namespace PVCWindowsStudio.UI
         }
         private void InitiateData()
         {
-            var list = clientBll.GetAll();
-            clientGridView1.DataSource = list;
+            clientGridView1.DataSource = clientBll.GetAll();
         }
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            client.Name = txtName.Text;
-            client.LastName = txtLastName.Text;
-            client.PhoneNumber = txtPhoneNr.Text;
-            client.Email = txtEmail.Text;
-            client.Address = txtAddress.Text;
-            client.InsertBy = 1;
+        {            
             if (!String.IsNullOrEmpty(txtName.Text))
             {
-                clientBll.Insert(client);
+                client.Name = txtName.Text;
+                client.LastName = txtLastName.Text;
+                client.PhoneNumber = txtPhoneNr.Text;
+                client.Email = txtEmail.Text;
+                client.Address = txtAddress.Text;
+                client.InsertBy = 1;
+                if (clientBll.Insert(client))
+                {
+                    MessageBox.Show("Client is inserted successfully!");
+                    Clear();
+                    InitiateData();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
+                else MessageBox.Show("Something went wrong!");
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else this.radValidationProvider1.Validate(txtName);            
         }
 
         private void ClientsForm_Load(object sender, EventArgs e)
@@ -51,19 +55,28 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            client.Name = txtName.Text;
-            client.LastName = txtLastName.Text;
-            client.PhoneNumber = txtPhoneNr.Text;
-            client.Email = txtEmail.Text;
-            client.Address = txtAddress.Text;
-            client.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text))
-            {
-                clientBll.Update(client);
+            if (!String.IsNullOrEmpty(lblID.Text))
+            {                
+                if (!String.IsNullOrEmpty(txtName.Text))
+                {
+                    client.Name = txtName.Text;
+                    client.LastName = txtLastName.Text;
+                    client.PhoneNumber = txtPhoneNr.Text;
+                    client.Email = txtEmail.Text;
+                    client.Address = txtAddress.Text;
+                    client.LUB = 1;
+                    if (clientBll.Update(client))
+                    {
+                        MessageBox.Show("Client is updated successfully!");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else this.radValidationProvider1.Validate(txtName);                
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else MessageBox.Show("Please select a client!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -72,16 +85,22 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    clientBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (clientBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Client is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
-
             }
+            else
+                MessageBox.Show("Please select a client!");
         }
 
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             txtName.Text = "";
             txtLastName.Text = "";
             txtEmail.Text = "";
@@ -94,19 +113,23 @@ namespace PVCWindowsStudio.UI
         {
             Clear();
         }
-
-        private void clientGridView1_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+      
+        private void clientGridView1_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
+            this.radValidationProvider1.ClearErrorStatus();
             int rowindex = e.RowIndex;
-            client = (Clients)clientGridView1.Rows[rowindex].DataBoundItem;
-            if (client != null)
+            if (!rowindex.Equals(-1))
             {
-                lblID.Text = client.ClientID.ToString();
-                txtName.Text = client.Name;
-                txtLastName.Text = client.LastName;
-                txtAddress.Text = client.Address;
-                txtEmail.Text = client.Email;
-                txtPhoneNr.Text = client.PhoneNumber;
+                client = (Clients)clientGridView1.Rows[rowindex].DataBoundItem;
+                if (client != null)
+                {
+                    lblID.Text = client.ClientID.ToString();
+                    txtName.Text = client.Name;
+                    txtLastName.Text = client.LastName;
+                    txtAddress.Text = client.Address;
+                    txtEmail.Text = client.Email;
+                    txtPhoneNr.Text = client.PhoneNumber;
+                }
             }
         }
     }

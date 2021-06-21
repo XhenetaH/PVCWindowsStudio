@@ -14,7 +14,7 @@ namespace PVCWindowsStudio.UI
     public partial class BlindsForm : Telerik.WinControls.UI.RadForm
     {
         private Blinds blind;
-        private BlindBLL blindBll;
+        private readonly BlindBLL blindBll;
         public BlindsForm()
         {
             blind = new Blinds();
@@ -28,28 +28,30 @@ namespace PVCWindowsStudio.UI
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            blind.Name = txtName.Text;
-            blind.Other = txtDescription.Text;
-            blind.Price = Convert.ToDecimal(txtPrice.Text);
-            blind.Color = txtColor.Text;
-            blind.InsertBy = 1;
+        {            
             if (!String.IsNullOrEmpty(txtName.Text))
             {
+                blind.Name = txtName.Text;
+                blind.Other = txtDescription.Text;
+                blind.Price = Convert.ToDecimal(txtPrice.Text);
+                blind.Color = txtColor.Text;
+                blind.InsertBy = 1;
                 if (blindBll.Insert(blind))
                 {
                     MessageBox.Show("Blind inserted successfully!");
-                    this.radValidationProvider1.Validate(txtName);
+                    this.radValidationProvider1.ClearErrorStatus();
                     Clear();
                     InitiateData();
                 }
                 else
                     MessageBox.Show("Something went wrong!");
             }
-            
+            else this.radValidationProvider1.Validate(txtName);
+
         }
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             txtPrice.Text = "";
             txtName.Text = "";
             txtColor.Text = "";
@@ -58,40 +60,36 @@ namespace PVCWindowsStudio.UI
         }
         private void InitiateData()
         {
-            var list = blindBll.GetAll();
-            blindsGrindView.DataSource = list;
+            blindsGrindView.DataSource = blindBll.GetAll();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            blind.BlindID = int.Parse(lblID.Text);
-            blind.Name = txtName.Text;
-            blind.Other = txtDescription.Text;
-            blind.Price = Convert.ToDecimal(txtPrice.Text);
-            blind.Color = txtColor.Text;
-            blind.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                blindBll.Update(blind);
+                
+                if (!String.IsNullOrEmpty(txtName.Text))
+                {
+                    blind.BlindID = int.Parse(lblID.Text);
+                    blind.Name = txtName.Text;
+                    blind.Other = txtDescription.Text;
+                    blind.Price = Convert.ToDecimal(txtPrice.Text);
+                    blind.Color = txtColor.Text;
+                    blind.LUB = 1;
+                    if (blindBll.Update(blind))
+                    {
+                        MessageBox.Show("Blind is updated successfully!");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else this.radValidationProvider1.Validate(txtName);                
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else MessageBox.Show("Please select a blind!");
         }
 
-        private void blindsGrindView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            blind = (Blinds)blindsGrindView.Rows[rowindex].DataBoundItem;
-            if (blind != null)
-            {
-                lblID.Text = blind.BlindID.ToString();
-                txtName.Text = blind.Name;
-                txtDescription.Text = blind.Other;
-                txtColor.Text = blind.Color;
-                txtPrice.Text = blind.Price.ToString();
-            }
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -99,17 +97,39 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    blindBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (blindBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Blind is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
-
             }
+            else MessageBox.Show("Please select a blind!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void blindsGrindView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            this.radValidationProvider1.ClearErrorStatus();
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                blind = (Blinds)blindsGrindView.Rows[rowindex].DataBoundItem;
+                if (blind != null)
+                {
+                    lblID.Text = blind.BlindID.ToString();
+                    txtName.Text = blind.Name;
+                    txtDescription.Text = blind.Other;
+                    txtColor.Text = blind.Color;
+                    txtPrice.Text = blind.Price.ToString();
+                }
+            }
         }
     }
 }

@@ -12,10 +12,7 @@ namespace PVCWindowsStudio.Reports
     public partial class OrderPhotoReportViewerForm1 : Form
     {
         private int Id { get; set; }
-        public OrderPhotoReportViewerForm1()
-        {
-            InitializeComponent();
-        }
+        
         public OrderPhotoReportViewerForm1(int id)
         {
             this.Id = id;

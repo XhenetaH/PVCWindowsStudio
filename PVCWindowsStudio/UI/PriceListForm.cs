@@ -13,10 +13,10 @@ namespace PVCWindowsStudio.UI
 {
     public partial class PriceListForm : Telerik.WinControls.UI.RadForm
     {
-        private ProfileBLL profilebll;
-        private MaterialBLL materialbll;
+        private readonly ProfileBLL profilebll;
+        private readonly MaterialBLL materialbll;
         private PriceList pricelist;
-        private PriceListBLL pricelistbll;
+        private readonly PriceListBLL pricelistbll;
         public PriceListForm()
         {
             profilebll = new ProfileBLL();
@@ -29,30 +29,46 @@ namespace PVCWindowsStudio.UI
 
         private void InitiateData()
         {
-            var list = pricelistbll.GetAll();
-            pricelistGridView.DataSource = list;
+            pricelistGridView.DataSource = pricelistbll.GetAll();
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
-            pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-            pricelist.Price = Convert.ToDecimal(txtPrice.Text);
-            pricelist.InsertBy = 1;
-            if (pricelistbll.Insert(pricelist))
+            if (!ddlMaterial.SelectedIndex.Equals(-1))
             {
-                MessageBox.Show("Item inserted successfully!");
-                InitiateData();
-                Clear();
+                if (!String.IsNullOrEmpty(txtPrice.Text))
+                {
+                    if (ddlProfile.SelectedIndex.Equals(-1))
+                        pricelist.ProfileID = 0;
+                    else
+                        pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
+                    pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
+                    pricelist.Price = Convert.ToDecimal(txtPrice.Text);
+                    pricelist.InsertBy = 1;
+                    if (pricelistbll.Insert(pricelist))
+                    {
+                        MessageBox.Show("Item inserted successfully!");
+                        InitiateData();
+                        Clear();
+                        this.radValidationProvider1.ClearErrorStatus();
+
+                    }
+                    else
+                        MessageBox.Show("Something went wrong!");
+                }
+                else
+                    this.radValidationProvider1.Validate(txtPrice);
 
             }
-            else
-                MessageBox.Show("Something went wrong!");
-            
+            else MessageBox.Show("Please select a Material!");
         }
 
         private void Clear()
         {
             txtPrice.Text = "";
+            ddlMaterial.SelectedIndex = -1;
+            ddlMaterial.Text = "Choose a Material";
+            ddlProfile.SelectedIndex = -1;
+            ddlProfile.Text = "Choose a Profile";
         }
 
         private void PriceListForm_Load(object sender, EventArgs e)
@@ -60,44 +76,66 @@ namespace PVCWindowsStudio.UI
             ddlMaterial.DataSource = materialbll.GetAll();
             ddlMaterial.DisplayMember = "Name";
             ddlMaterial.ValueMember = "MaterialID";
+            ddlMaterial.Text = "Choose a Material";
+            ddlMaterial.SelectedIndex = -1;
 
             ddlProfile.DataSource = profilebll.GetAll();
             ddlProfile.DisplayMember = "NameProf";
             ddlProfile.ValueMember = "ProfileID";
+            ddlProfile.Text = "Choose a Profile";
+            ddlProfile.SelectedIndex = -1;
 
             InitiateData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            pricelist.PriceListID = int.Parse(lblID.Text);
-            pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
-            pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-            pricelist.Price = Convert.ToDecimal(txtPrice.Text);
-            pricelist.LUB = 1;
-            if (pricelistbll.Update(pricelist))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                MessageBox.Show("Item updated successfully!");
-                InitiateData();
-                Clear();
-
+                if (!ddlMaterial.SelectedIndex.Equals(-1))
+                {
+                    if (!String.IsNullOrEmpty(txtPrice.Text))
+                    {
+                        pricelist.PriceListID = int.Parse(lblID.Text);
+                        if (ddlProfile.SelectedIndex.Equals(-1))
+                            pricelist.ProfileID = 0;
+                        else
+                            pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
+                        pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
+                        pricelist.Price = Convert.ToDecimal(txtPrice.Text);
+                        pricelist.LUB = 1;
+                        if (pricelistbll.Update(pricelist))
+                        {
+                            MessageBox.Show("Item updated successfully!");
+                            InitiateData();
+                            Clear();
+                            this.radValidationProvider1.ClearErrorStatus();
+                        }
+                        else
+                            MessageBox.Show("Something went wrong!");
+                    }
+                    else this.radValidationProvider1.Validate(txtPrice);
+                }
+                else MessageBox.Show("Material can't be empty!");
             }
-            else
-                MessageBox.Show("Something went wrong!");
+            else MessageBox.Show("Please select an item!");
         }
 
-        private void pricelistGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        private void pricelistGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             int rowindex = e.RowIndex;
-            pricelist = (PriceList)pricelistGridView.Rows[rowindex].DataBoundItem;
-            if (pricelist != null)
+            if (!rowindex.Equals(-1))
             {
-                lblID.Text = pricelist.PriceListID.ToString();
-                ddlMaterial.Text = pricelist.Materials.Name;
-                ddlMaterial.SelectedValue = pricelist.MaterialID;
-                ddlProfile.Text = pricelist.Profiles.NameProf;
-                ddlProfile.SelectedValue = pricelist.ProfileID;
-                txtPrice.Text = pricelist.Price.ToString();
+                pricelist = (PriceList)pricelistGridView.Rows[rowindex].DataBoundItem;
+                if (pricelist != null)
+                {
+                    lblID.Text = pricelist.PriceListID.ToString();
+                    ddlMaterial.Text = pricelist.Materials.Name;
+                    ddlMaterial.SelectedValue = pricelist.MaterialID;
+                    ddlProfile.Text = pricelist.Profiles.NameProf;
+                    ddlProfile.SelectedValue = pricelist.ProfileID;
+                    txtPrice.Text = pricelist.Price.ToString();
+                }
             }
         }
     }

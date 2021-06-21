@@ -50,6 +50,8 @@
     <Compile Include="ClientDAL.cs" />
     <Compile Include="DataConnection.cs" />
     <Compile Include="FormulaDAL.cs" />
+    <Compile Include="HandiWorkDAL.cs" />
+    <Compile Include="InvoiceDAL.cs" />
     <Compile Include="MaterialDAL.cs" />
     <Compile Include="OrderDAL.cs" />
     <Compile Include="OrderDetailsDAL.cs" />

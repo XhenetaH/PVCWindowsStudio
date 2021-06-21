@@ -14,7 +14,7 @@ namespace PVCWindowsStudio.UI
     public partial class ProductsForm : Telerik.WinControls.UI.RadForm
     {
         private Products product;
-        private ProductBLL productBll;
+        private readonly ProductBLL productBll;
         public ProductsForm()
         {
             product = new Products();
@@ -24,8 +24,7 @@ namespace PVCWindowsStudio.UI
 
         private void InitiateData()
         {
-            var list = productBll.GetAll();
-            productGridView.DataSource = list;
+            productGridView.DataSource = productBll.GetAll();
             this.productGridView.TableElement.RowHeight = 130;
         }
         private void ProductsForm_Load(object sender, EventArgs e)
@@ -46,10 +45,14 @@ namespace PVCWindowsStudio.UI
                 product.Picture = ConvertFormImage(productPictureBox.Image);
                 product.InsertBy = 1;
 
-                productBll.Insert(product);
-                InitiateData();
-                Clear();
-                this.radValidationProvider1.ClearErrorStatus();
+                if (productBll.Insert(product))
+                {
+                    MessageBox.Show("Product inserted successfully!");
+                    InitiateData();
+                    Clear();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
+                else MessageBox.Show("Something went wrong!");
             }
         }
 
@@ -62,6 +65,7 @@ namespace PVCWindowsStudio.UI
         }
         private void Clear()
         {
+            this.radValidationProvider1.ClearErrorStatus();
             lblID.Text = "";
             txtName.Text = "";
             txtDescription.Text = "";
@@ -82,22 +86,6 @@ namespace PVCWindowsStudio.UI
 
         }
 
-        private void MasterTemplate_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            product = (Products)productGridView.Rows[rowindex].DataBoundItem;
-            if (product != null)
-            {
-                lblID.Text = product.ProductID.ToString();
-                txtName.Text = product.Name;
-                txtDescription.Text = product.Other;
-                if (product.Picture?.Length>0)
-                    productPictureBox.Image = ConvertToImage(product.Picture);
-                else
-                    productPictureBox.Image = null;
-
-            }
-        }
         private Image ConvertToImage(byte[] array)
         {
             Image x = (Bitmap)((new ImageConverter()).ConvertFrom(array));
@@ -106,22 +94,30 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (productPictureBox.Image == null)
-                MessageBox.Show("Picture box can't be empty!");
-            else if (String.IsNullOrEmpty(txtName.Text))
-                this.radValidationProvider1.Validate(txtName);
-            else
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                product.Name = txtName.Text;
-                product.Other = txtDescription.Text;
-                product.Picture = ConvertFormImage(productPictureBox.Image);
-                product.LUB = 1;
+                if (productPictureBox.Image == null)
+                    MessageBox.Show("Picture box can't be empty!");
+                else if (String.IsNullOrEmpty(txtName.Text))
+                    this.radValidationProvider1.Validate(txtName);
+                else
+                {
+                    product.Name = txtName.Text;
+                    product.Other = txtDescription.Text;
+                    product.Picture = ConvertFormImage(productPictureBox.Image);
+                    product.LUB = 1;
 
-                productBll.Update(product);
-                InitiateData();
-                Clear();
-                this.radValidationProvider1.ClearErrorStatus();
+                    if (productBll.Update(product))
+                    {
+                        MessageBox.Show("Product updated successfully!");
+                        InitiateData();
+                        Clear();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
             }
+            else MessageBox.Show("Please select an product!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -130,12 +126,16 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    productBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (productBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Product is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
-
             }
+            else MessageBox.Show("Please select an product!");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -146,6 +146,27 @@ namespace PVCWindowsStudio.UI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void productGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                product = (Products)productGridView.Rows[rowindex].DataBoundItem;
+
+                if (product != null)
+                {
+                    lblID.Text = product.ProductID.ToString();
+                    txtName.Text = product.Name;
+                    txtDescription.Text = product.Other;
+                    if (product.Picture?.Length > 0)
+                        productPictureBox.Image = ConvertToImage(product.Picture);
+                    else
+                        productPictureBox.Image = null;
+
+                }
+            }
         }
     }
 }

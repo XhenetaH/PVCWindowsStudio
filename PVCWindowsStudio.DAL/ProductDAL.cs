@@ -130,11 +130,6 @@ namespace PVCWindowsStudio.DAL
                 Name = reader["Name"].ToString(),
                 Other = reader["Other"].ToString(),
                 Picture = (byte[])reader["Picture"],
-                InsertBy = int.Parse(reader["InsertBy"].ToString()),
-                InsertDate = Convert.ToDateTime(reader["InsertDate"].ToString()),
-                LUN = int.Parse(reader["LUN"].ToString()),
-                LUB = int.Parse(reader["LUB"].ToString()),
-                LUD = Convert.ToDateTime(reader["LUD"].ToString())
             };
             return product;
         }

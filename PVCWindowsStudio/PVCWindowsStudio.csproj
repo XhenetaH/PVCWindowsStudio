@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -103,6 +104,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\InvoiceReportViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\InvoiceReportViewerForm.Designer.cs">
+      <DependentUpon>InvoiceReportViewerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\OrderPhotoReportViewerForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,12 @@
     </Compile>
     <Compile Include="Reports\OrdersReportViewerForm.Designer.cs">
       <DependentUpon>OrdersReportViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HandiWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HandiWorkForm.Designer.cs">
+      <DependentUpon>HandiWorkForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\InvoiceForm.cs">
       <SubType>Form</SubType>
@@ -225,11 +238,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InvoiceReportViewerForm.resx">
+      <DependentUpon>InvoiceReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\OrderPhotoReportViewerForm1.resx">
       <DependentUpon>OrderPhotoReportViewerForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\OrdersReportViewerForm.resx">
       <DependentUpon>OrdersReportViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HandiWorkForm.resx">
+      <DependentUpon>HandiWorkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InvoiceForm.resx">
       <DependentUpon>InvoiceForm.cs</DependentUpon>

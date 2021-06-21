@@ -15,7 +15,7 @@ namespace PVCWindowsStudio.UI
     public partial class MaterialsForm : Telerik.WinControls.UI.RadForm
     {
         private Materials material;
-        private MaterialBLL materialBll;
+        private readonly MaterialBLL materialBll;
         public MaterialsForm()
         {
             material = new Materials();
@@ -25,16 +25,22 @@ namespace PVCWindowsStudio.UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            material.Name = txtName.Text;
-            material.Other = txtDescription.Text;
-            material.InsertBy = 1;
+            
             if (!String.IsNullOrEmpty(txtName.Text))
             {
-                materialBll.Insert(material);
+                material.Name = txtName.Text;
+                material.Other = txtDescription.Text;
+                material.InsertBy = 1;
+                if (materialBll.Insert(material))
+                {
+                    Clear();
+                    InitiateData();
+                    this.radValidationProvider1.ClearErrorStatus();
+                }
+                else MessageBox.Show("Something went wrong!");
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
+            else this.radValidationProvider1.Validate(txtName);
+            
         }
         private void Clear()
         {
@@ -45,8 +51,7 @@ namespace PVCWindowsStudio.UI
 
         private void InitiateData()
         {
-            var list = materialBll.GetAll();
-            materialGridView.DataSource = list;
+            materialGridView.DataSource = materialBll.GetAll();
         }
 
      
@@ -57,29 +62,28 @@ namespace PVCWindowsStudio.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            material.MaterialID = int.Parse(lblID.Text);
-            material.Name = txtName.Text;
-            material.Other = txtDescription.Text;
-            material.LUB = 1;
-            if (!String.IsNullOrEmpty(txtName.Text))
+            if (!String.IsNullOrEmpty(lblID.Text))
             {
-                materialBll.Update(material);
+                
+                if (!String.IsNullOrEmpty(txtName.Text))
+                {
+                    material.MaterialID = int.Parse(lblID.Text);
+                    material.Name = txtName.Text;
+                    material.Other = txtDescription.Text;
+                    material.LUB = 1;
+                    if (materialBll.Update(material))
+                    {
+                        MessageBox.Show("Material is updated successfully");
+                        Clear();
+                        InitiateData();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else MessageBox.Show("Something went wrong!");
+                }
+                else this.radValidationProvider1.Validate(txtName);
             }
-            this.radValidationProvider1.Validate(txtName);
-            Clear();
-            InitiateData();
-        }
-
-        private void materialGridView_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
-        {
-            int rowindex = e.RowIndex;
-            material = (Materials)materialGridView.Rows[rowindex].DataBoundItem;
-            if (material != null)
-            {
-                lblID.Text = material.MaterialID.ToString();
-                txtName.Text = material.Name;
-                txtDescription.Text = material.Other;
-            }
+            else
+                MessageBox.Show("Please select an material!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -93,13 +97,34 @@ namespace PVCWindowsStudio.UI
             {
                 if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    materialBll.Delete(int.Parse(lblID.Text));
-                    InitiateData();
-                    Clear();
+                    if (materialBll.Delete(int.Parse(lblID.Text)))
+                    {
+                        MessageBox.Show("Material is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else MessageBox.Show("Something went wrong!");
                 }
 
             }
+            else
+                MessageBox.Show("Please select an material!");
 
+        }
+
+        private void materialGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            if (!rowindex.Equals(-1))
+            {
+                material = (Materials)materialGridView.Rows[rowindex].DataBoundItem;
+                if (material != null)
+                {
+                    lblID.Text = material.MaterialID.ToString();
+                    txtName.Text = material.Name;
+                    txtDescription.Text = material.Other;
+                }
+            }
         }
     }
 }
