@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -24,16 +25,40 @@ namespace PVCWindowsStudio.UI
         private void ProfilesForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+
         }
 
         private void InitiateData()
         {
             profileGridView.DataSource = profileBll.GetAll();
         }
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (string.IsNullOrEmpty(i.AccessibilityObject.Value.ToString()))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {            
-            if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtColor.Text))
+            if (ValidationMethod())
             {
                 profile.Name = txtName.Text;
                 profile.Other = txtDescription.Text;
@@ -41,19 +66,14 @@ namespace PVCWindowsStudio.UI
                 profile.InsertBy = 1;
                 if (profileBll.Insert(profile))
                 {
-                    MessageBox.Show("Profile inserted successfully!");
+                    RadMessageBox.Show("Profile inserted successfully!");
                     Clear();
                     InitiateData();
                     this.radValidationProvider1.ClearErrorStatus();
                 }
-                else MessageBox.Show("Something went wrong!");
-            }
-            else
-            {
-                this.radValidationProvider1.Validate(txtName);
-                this.radValidationProvider1.Validate(txtColor);
-            }
-            
+                else RadMessageBox.Show("Something went wrong!");
+            }           
+           
         }
         private void Clear()
         {
@@ -68,7 +88,7 @@ namespace PVCWindowsStudio.UI
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtDescription.Text))
+                if (ValidationMethod())
                 {
                     profile.Name = txtName.Text;
                     profile.Other = txtDescription.Text;
@@ -76,39 +96,34 @@ namespace PVCWindowsStudio.UI
                     profile.LUB = 1;
                     if (profileBll.Update(profile))
                     {
-                        MessageBox.Show("Profile updated successfully!");
+                        RadMessageBox.Show("Profile updated successfully!");
                         Clear();
                         InitiateData();
                         this.radValidationProvider1.ClearErrorStatus();
                     }
-                    else MessageBox.Show("Something went wrong!");
-                }
-                else
-                {
-                    this.radValidationProvider1.Validate(txtName);
-                    this.radValidationProvider1.Validate(txtColor);
+                    else RadMessageBox.Show("Something went wrong!");
                 }
                 
             }
-            else MessageBox.Show("Please select a profile!");
+            else RadMessageBox.Show("Please select a profile!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (profileBll.Delete(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Profile deleted successfully!");
+                        RadMessageBox.Show("Profile deleted successfully!");
                         InitiateData();
                         Clear();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
             }
-            else MessageBox.Show("Please select a Profile!");
+            else RadMessageBox.Show("Please select a Profile!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)

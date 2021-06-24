@@ -353,6 +353,7 @@
             // 
             // radValidationProvider1
             // 
+            this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
             radValidationRule1.Controls.Add(this.txtName);
             radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
             radValidationRule1.ToolTipText = "Name can\'t be empty!";

@@ -51,7 +51,10 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.Insert(model);
         }
-
+        public bool UpdatePrice(Orders model)
+        {
+            return dal.UpdatePrice(model);
+        }
         public bool Update(Orders model)
         {
             return dal.Update(model);

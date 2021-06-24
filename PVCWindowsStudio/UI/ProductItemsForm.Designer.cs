@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -41,6 +41,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            this.ddlFormula = new Telerik.WinControls.UI.RadDropDownList();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.btnUpdate = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
@@ -51,7 +52,6 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
             this.ddlMaterial = new Telerik.WinControls.UI.RadDropDownList();
-            this.ddlFormula = new Telerik.WinControls.UI.RadDropDownList();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
             this.productsradGridView = new Telerik.WinControls.UI.RadGridView();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
@@ -65,6 +65,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.radPanel7 = new Telerik.WinControls.UI.RadPanel();
+            this.btnAddFormula = new Telerik.WinControls.UI.RadButton();
+            ((System.ComponentModel.ISupportInitialize)(this.ddlFormula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
@@ -72,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlMaterial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ddlFormula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsradGridView)).BeginInit();
@@ -93,8 +94,21 @@
             this.radPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).BeginInit();
             this.radPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddFormula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ddlFormula
+            // 
+            this.ddlFormula.DropDownAnimationEnabled = true;
+            radListDataItem1.Text = "Choose Role";
+            this.ddlFormula.Items.Add(radListDataItem1);
+            this.ddlFormula.Location = new System.Drawing.Point(105, 169);
+            this.ddlFormula.Name = "ddlFormula";
+            this.ddlFormula.Size = new System.Drawing.Size(311, 41);
+            this.ddlFormula.TabIndex = 12;
+            this.ddlFormula.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.ddlFormula, radValidationRule1);
             // 
             // btnUpdate
             // 
@@ -107,7 +121,7 @@
             this.btnUpdate.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
             this.btnUpdate.Location = new System.Drawing.Point(8, 58);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(486, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(398, 40);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.ThemeName = "MaterialBlueGrey";
@@ -130,7 +144,7 @@
             this.btnSave.Image = global::PVCWindowsStudio.Properties.Resources.plus__3_;
             this.btnSave.Location = new System.Drawing.Point(8, 10);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(486, 40);
+            this.btnSave.Size = new System.Drawing.Size(398, 40);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "SAVE";
             this.btnSave.ThemeName = "MaterialBlueGrey";
@@ -172,7 +186,7 @@
             this.btnClear.Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
             this.btnClear.Location = new System.Drawing.Point(8, 154);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(486, 40);
+            this.btnClear.Size = new System.Drawing.Size(398, 40);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "CLEAR";
             this.btnClear.ThemeName = "MaterialBlueGrey";
@@ -195,7 +209,7 @@
             this.btnDelete.Image = global::PVCWindowsStudio.Properties.Resources.trash;
             this.btnDelete.Location = new System.Drawing.Point(8, 106);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(486, 40);
+            this.btnDelete.Size = new System.Drawing.Size(398, 40);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.ThemeName = "MaterialBlueGrey";
@@ -239,25 +253,13 @@
             this.ddlMaterial.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.ddlMaterial, null);
             // 
-            // ddlFormula
-            // 
-            this.ddlFormula.DropDownAnimationEnabled = true;
-            radListDataItem1.Text = "Choose Role";
-            this.ddlFormula.Items.Add(radListDataItem1);
-            this.ddlFormula.Location = new System.Drawing.Point(105, 169);
-            this.ddlFormula.Name = "ddlFormula";
-            this.ddlFormula.Size = new System.Drawing.Size(311, 41);
-            this.ddlFormula.TabIndex = 12;
-            this.ddlFormula.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.ddlFormula, radValidationRule1);
-            // 
             // radPanel5
             // 
             this.radPanel5.Controls.Add(this.productsradGridView);
             this.radPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel5.Location = new System.Drawing.Point(0, 0);
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(506, 593);
+            this.radPanel5.Size = new System.Drawing.Size(418, 593);
             this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
@@ -294,19 +296,19 @@
             gridViewImageColumn1.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             gridViewImageColumn1.MinWidth = 6;
             gridViewImageColumn1.Name = "Picture";
-            gridViewImageColumn1.Width = 280;
+            gridViewImageColumn1.Width = 231;
             gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.FieldName = "ProductID";
             gridViewTextBoxColumn1.HeaderText = "ID";
             gridViewTextBoxColumn1.MinWidth = 6;
             gridViewTextBoxColumn1.Name = "ProductID";
-            gridViewTextBoxColumn1.Width = 75;
+            gridViewTextBoxColumn1.Width = 62;
             gridViewTextBoxColumn2.EnableExpressionEditor = false;
             gridViewTextBoxColumn2.FieldName = "Name";
             gridViewTextBoxColumn2.HeaderText = "Name";
             gridViewTextBoxColumn2.MinWidth = 6;
             gridViewTextBoxColumn2.Name = "Name";
-            gridViewTextBoxColumn2.Width = 151;
+            gridViewTextBoxColumn2.Width = 125;
             this.productsradGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewImageColumn1,
             gridViewTextBoxColumn1,
@@ -316,7 +318,7 @@
             this.productsradGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.productsradGridView.Name = "productsradGridView";
             this.productsradGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.productsradGridView.Size = new System.Drawing.Size(506, 593);
+            this.productsradGridView.Size = new System.Drawing.Size(418, 593);
             this.productsradGridView.TabIndex = 0;
             this.productsradGridView.ThemeName = "MaterialBlueGrey";
             this.productsradGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productsradGridView_CellClick);
@@ -327,7 +329,7 @@
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radPanel2.Location = new System.Drawing.Point(0, 294);
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(751, 502);
+            this.radPanel2.Size = new System.Drawing.Size(839, 502);
             this.radPanel2.TabIndex = 5;
             // 
             // radPanel8
@@ -336,7 +338,7 @@
             this.radPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel8.Location = new System.Drawing.Point(0, 0);
             this.radPanel8.Name = "radPanel8";
-            this.radPanel8.Size = new System.Drawing.Size(751, 502);
+            this.radPanel8.Size = new System.Drawing.Size(839, 502);
             this.radPanel8.TabIndex = 7;
             this.radPanel8.ThemeName = "MaterialBlueGrey";
             // 
@@ -364,25 +366,25 @@
             gridViewTextBoxColumn3.HeaderText = "Product ID";
             gridViewTextBoxColumn3.MinWidth = 10;
             gridViewTextBoxColumn3.Name = "ProductID";
-            gridViewTextBoxColumn3.Width = 100;
+            gridViewTextBoxColumn3.Width = 112;
             gridViewTextBoxColumn4.EnableExpressionEditor = false;
             gridViewTextBoxColumn4.FieldName = "Products.Name";
             gridViewTextBoxColumn4.HeaderText = "Product Name";
             gridViewTextBoxColumn4.MinWidth = 6;
             gridViewTextBoxColumn4.Name = "ProductName";
-            gridViewTextBoxColumn4.Width = 233;
+            gridViewTextBoxColumn4.Width = 260;
             gridViewTextBoxColumn5.EnableExpressionEditor = false;
             gridViewTextBoxColumn5.FieldName = "Materials.Name";
             gridViewTextBoxColumn5.HeaderText = "Material Name";
             gridViewTextBoxColumn5.MinWidth = 10;
             gridViewTextBoxColumn5.Name = "MaterialName";
-            gridViewTextBoxColumn5.Width = 227;
+            gridViewTextBoxColumn5.Width = 254;
             gridViewTextBoxColumn6.EnableExpressionEditor = false;
             gridViewTextBoxColumn6.FieldName = "Formula.FormulaType";
             gridViewTextBoxColumn6.HeaderText = "Formula";
             gridViewTextBoxColumn6.MinWidth = 10;
             gridViewTextBoxColumn6.Name = "Formula";
-            gridViewTextBoxColumn6.Width = 191;
+            gridViewTextBoxColumn6.Width = 213;
             this.productitemsGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn3,
             gridViewTextBoxColumn4,
@@ -395,7 +397,7 @@
             this.productitemsGridView.Name = "productitemsGridView";
             this.productitemsGridView.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.productitemsGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.productitemsGridView.Size = new System.Drawing.Size(751, 502);
+            this.productitemsGridView.Size = new System.Drawing.Size(839, 502);
             this.productitemsGridView.TabIndex = 0;
             this.productitemsGridView.ThemeName = "MaterialBlueGrey";
             this.productitemsGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.productitemsGridView_CellClick);
@@ -405,9 +407,9 @@
             this.radPanel1.Controls.Add(this.radPanel5);
             this.radPanel1.Controls.Add(this.radPanel4);
             this.radPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.radPanel1.Location = new System.Drawing.Point(751, 0);
+            this.radPanel1.Location = new System.Drawing.Point(839, 0);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(506, 796);
+            this.radPanel1.Size = new System.Drawing.Size(418, 796);
             this.radPanel1.TabIndex = 4;
             // 
             // radPanel4
@@ -419,7 +421,7 @@
             this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radPanel4.Location = new System.Drawing.Point(0, 593);
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(506, 203);
+            this.radPanel4.Size = new System.Drawing.Size(418, 203);
             this.radPanel4.TabIndex = 2;
             this.radPanel4.ThemeName = "MaterialBlueGrey";
             // 
@@ -430,12 +432,13 @@
             this.radPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel6.Location = new System.Drawing.Point(0, 0);
             this.radPanel6.Name = "radPanel6";
-            this.radPanel6.Size = new System.Drawing.Size(751, 294);
+            this.radPanel6.Size = new System.Drawing.Size(839, 294);
             this.radPanel6.TabIndex = 6;
             this.radPanel6.ThemeName = "MaterialBlueGrey";
             // 
             // radPanel9
             // 
+            this.radPanel9.Controls.Add(this.btnAddFormula);
             this.radPanel9.Controls.Add(this.lblProductItemID);
             this.radPanel9.Controls.Add(this.lblproductID);
             this.radPanel9.Controls.Add(this.ddlFormula);
@@ -446,7 +449,7 @@
             this.radPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radPanel9.Location = new System.Drawing.Point(350, 0);
             this.radPanel9.Name = "radPanel9";
-            this.radPanel9.Size = new System.Drawing.Size(401, 294);
+            this.radPanel9.Size = new System.Drawing.Size(489, 294);
             this.radPanel9.TabIndex = 7;
             this.radPanel9.ThemeName = "MaterialBlueGrey";
             // 
@@ -466,7 +469,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(401, 52);
+            this.label2.Size = new System.Drawing.Size(489, 52);
             this.label2.TabIndex = 8;
             this.label2.Text = "Product Items Management";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -491,6 +494,18 @@
             this.radPanel7.TabIndex = 7;
             this.radPanel7.ThemeName = "MaterialBlueGrey";
             // 
+            // btnAddFormula
+            // 
+            this.btnAddFormula.DisplayStyle = Telerik.WinControls.DisplayStyle.Image;
+            this.btnAddFormula.Image = global::PVCWindowsStudio.Properties.Resources.plus__2_;
+            this.btnAddFormula.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAddFormula.Location = new System.Drawing.Point(422, 165);
+            this.btnAddFormula.Name = "btnAddFormula";
+            this.btnAddFormula.Size = new System.Drawing.Size(61, 41);
+            this.btnAddFormula.TabIndex = 14;
+            this.btnAddFormula.ThemeName = "MaterialBlueGrey";
+            this.btnAddFormula.Click += new System.EventHandler(this.btnAddFormula_Click);
+            // 
             // ProductItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -508,6 +523,7 @@
             this.Text = "ProductItemsForm";
             this.ThemeName = "MaterialBlueGrey";
             this.Load += new System.EventHandler(this.ProductItemsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ddlFormula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
@@ -515,7 +531,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlMaterial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ddlFormula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsradGridView.MasterTemplate)).EndInit();
@@ -537,6 +552,7 @@
             this.radPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).EndInit();
             this.radPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddFormula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -568,5 +584,6 @@
         private Telerik.WinControls.UI.RadPanel radPanel9;
         private Telerik.WinControls.UI.RadGridView productsradGridView;
         private System.Windows.Forms.Label lblProductItemID;
+        private Telerik.WinControls.UI.RadButton btnAddFormula;
     }
 }

@@ -37,7 +37,7 @@ namespace PVCWindowsStudio.UI
                 role.InsertBy = 1;
                 if(roleBll.Insert(role))
                 {
-                    MessageBox.Show("Role inserted successfully!");
+                    RadMessageBox.Show("Role inserted successfully!");
                     Clear();
                     InitiateData();
                     this.radValidationProvider1.ClearErrorStatus();
@@ -50,6 +50,7 @@ namespace PVCWindowsStudio.UI
         private void RolesForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -63,34 +64,34 @@ namespace PVCWindowsStudio.UI
 
                     if (roleBll.Update(role))
                     {
-                        MessageBox.Show("Role updated successfully!");
+                        RadMessageBox.Show("Role updated successfully!");
                         Clear();
                         InitiateData();
                         this.radValidationProvider1.ClearErrorStatus();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
                 else this.radValidationProvider1.Validate(txtName);
             }
-            else MessageBox.Show("Please select a role!");
+            else RadMessageBox.Show("Please select a role!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (roleBll.Delete(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Role is deleted successfully!");
+                        RadMessageBox.Show("Role is deleted successfully!");
                         InitiateData();
                         Clear();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
             }
-            else MessageBox.Show("Please select a role!");
+            else RadMessageBox.Show("Please select a role!");
 
         }
 

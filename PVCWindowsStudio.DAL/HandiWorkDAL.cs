@@ -47,6 +47,35 @@ namespace PVCWindowsStudio.DAL
             throw new NotImplementedException();
         }
 
+        public decimal GetPrice(decimal width, decimal height)
+        {
+            try
+            {
+                decimal price = 0;
+                using(var connection = DataConnection.GetConnection())
+                {
+                    using(var command = DataConnection.Command(connection, "usp_HandiWork_GetPrice",CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "Width", width);
+                        DataConnection.AddParameter(command, "Height", height);
+                        using(SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if(reader.Read())
+                            {
+                                price = Convert.ToDecimal(reader["Price"].ToString());
+                            }
+                        }
+                    }
+                }
+                return price;
+            }
+            catch
+            {
+                return -1;
+            }
+
+        }
+
         public List<HandiWork> GetAll()
         {
             try

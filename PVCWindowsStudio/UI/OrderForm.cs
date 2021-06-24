@@ -35,16 +35,14 @@ namespace PVCWindowsStudio.UI
             clientMultiComboBox.AutoCompleteMode = AutoCompleteMode.Append;           
             clientMultiComboBox.Text = "Choose a client";
             discountCmb.SelectedIndex = 1;
+
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
         }
 
         
         private void InitiateData()
         {
             orderGridView.DataSource = orderBll.GetAll();
-        }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void radMultiColumnComboBox1_EditorControl_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
@@ -114,15 +112,15 @@ namespace PVCWindowsStudio.UI
 
                 if (orderBll.Update(order))
                 {
-                    MessageBox.Show("Order updated successfully!");
+                    RadMessageBox.Show("Order updated successfully!");
                     InitiateData();
                     Clear();
                 }
                 else
-                    MessageBox.Show("Something went wrong!");
+                    RadMessageBox.Show("Something went wrong!");
             }
             else
-                MessageBox.Show("Please select an order!");
+                RadMessageBox.Show("Please select an order!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -134,20 +132,20 @@ namespace PVCWindowsStudio.UI
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (orderBll.DeleteAll(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Order deleted successfully!");
+                        RadMessageBox.Show("Order deleted successfully!");
                         InitiateData();
                         Clear();
                     }
                     else
-                        MessageBox.Show("Something went wrong!");
+                        RadMessageBox.Show("Something went wrong!");
                 }
             }
             else
-                MessageBox.Show("Please select an order!");
+                RadMessageBox.Show("Please select an order!");
         }
 
 
@@ -164,7 +162,7 @@ namespace PVCWindowsStudio.UI
                 orderReport.Show();
             }
             else
-                MessageBox.Show("Please select an order!");
+                RadMessageBox.Show("Please select an order!");
         }
 
         private void classicOrder_Click(object sender, EventArgs e)
@@ -175,7 +173,7 @@ namespace PVCWindowsStudio.UI
                 orderReport.Show();
             }
             else
-                MessageBox.Show("Please select an order!");
+                RadMessageBox.Show("Please select an order!");
         }
     }
 }

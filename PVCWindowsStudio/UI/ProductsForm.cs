@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -30,29 +31,53 @@ namespace PVCWindowsStudio.UI
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+
+        }
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (string.IsNullOrEmpty(i.AccessibilityObject.Value.ToString()))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (productPictureBox.Image == null)
-                MessageBox.Show("Picture box can't be empty!");
-            else if (String.IsNullOrEmpty(txtName.Text))
-                this.radValidationProvider1.Validate(txtName);
-            else
-            {
-                product.Name = txtName.Text;
-                product.Other = txtDescription.Text;
-                product.Picture = ConvertFormImage(productPictureBox.Image);
-                product.InsertBy = 1;
-
-                if (productBll.Insert(product))
+                RadMessageBox.Show("Picture box can't be empty!");
+            else {
+                if (ValidationMethod())
                 {
-                    MessageBox.Show("Product inserted successfully!");
-                    InitiateData();
-                    Clear();
-                    this.radValidationProvider1.ClearErrorStatus();
+                    product.Name = txtName.Text;
+                    product.Other = txtDescription.Text;
+                    product.Picture = ConvertFormImage(productPictureBox.Image);
+                    product.InsertBy = 1;
+
+                    if (productBll.Insert(product))
+                    {
+                        RadMessageBox.Show("Product inserted successfully!");
+                        InitiateData();
+                        Clear();
+                        this.radValidationProvider1.ClearErrorStatus();
+                    }
+                    else RadMessageBox.Show("Something went wrong!");
                 }
-                else MessageBox.Show("Something went wrong!");
             }
         }
 
@@ -97,45 +122,46 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(lblID.Text))
             {
                 if (productPictureBox.Image == null)
-                    MessageBox.Show("Picture box can't be empty!");
-                else if (String.IsNullOrEmpty(txtName.Text))
-                    this.radValidationProvider1.Validate(txtName);
+                    RadMessageBox.Show("Picture box can't be empty!");
                 else
                 {
-                    product.Name = txtName.Text;
-                    product.Other = txtDescription.Text;
-                    product.Picture = ConvertFormImage(productPictureBox.Image);
-                    product.LUB = 1;
-
-                    if (productBll.Update(product))
+                    if (ValidationMethod())
                     {
-                        MessageBox.Show("Product updated successfully!");
-                        InitiateData();
-                        Clear();
-                        this.radValidationProvider1.ClearErrorStatus();
+                        product.Name = txtName.Text;
+                        product.Other = txtDescription.Text;
+                        product.Picture = ConvertFormImage(productPictureBox.Image);
+                        product.LUB = 1;
+
+                        if (productBll.Update(product))
+                        {
+                            RadMessageBox.Show("Product updated successfully!");
+                            InitiateData();
+                            Clear();
+                            this.radValidationProvider1.ClearErrorStatus();
+                        }
+                        else RadMessageBox.Show("Something went wrong!");
                     }
-                    else MessageBox.Show("Something went wrong!");
                 }
             }
-            else MessageBox.Show("Please select an product!");
+            else RadMessageBox.Show("Please select an product!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (productBll.Delete(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Product is deleted successfully!");
+                        RadMessageBox.Show("Product is deleted successfully!");
                         InitiateData();
                         Clear();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
             }
-            else MessageBox.Show("Please select an product!");
+            else RadMessageBox.Show("Please select an product!");
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

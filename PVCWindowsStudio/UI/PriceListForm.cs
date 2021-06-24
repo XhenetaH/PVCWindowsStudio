@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -35,31 +36,29 @@ namespace PVCWindowsStudio.UI
         {
             if (!ddlMaterial.SelectedIndex.Equals(-1))
             {
-                if (!String.IsNullOrEmpty(txtPrice.Text))
+                if (ValidationMethod())
                 {
                     if (ddlProfile.SelectedIndex.Equals(-1))
                         pricelist.ProfileID = 0;
                     else
                         pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
                     pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-                    pricelist.Price = Convert.ToDecimal(txtPrice.Text);
+                    pricelist.Price = Convert.ToDecimal(txtPrice.Value.ToString());
                     pricelist.InsertBy = 1;
                     if (pricelistbll.Insert(pricelist))
                     {
-                        MessageBox.Show("Item inserted successfully!");
+                        RadMessageBox.Show("Item inserted successfully!");
                         InitiateData();
                         Clear();
                         this.radValidationProvider1.ClearErrorStatus();
 
                     }
                     else
-                        MessageBox.Show("Something went wrong!");
+                        RadMessageBox.Show("Something went wrong!");
                 }
-                else
-                    this.radValidationProvider1.Validate(txtPrice);
 
             }
-            else MessageBox.Show("Please select a Material!");
+            else RadMessageBox.Show("Please select a Material!");
         }
 
         private void Clear()
@@ -86,6 +85,31 @@ namespace PVCWindowsStudio.UI
             ddlProfile.SelectedIndex = -1;
 
             InitiateData();
+
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+        }
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        decimal nr;
+                        foreach (var i in mode)
+                        {
+                            if (!decimal.TryParse(i.AccessibilityObject.Value, out nr))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -94,7 +118,7 @@ namespace PVCWindowsStudio.UI
             {
                 if (!ddlMaterial.SelectedIndex.Equals(-1))
                 {
-                    if (!String.IsNullOrEmpty(txtPrice.Text))
+                    if (ValidationMethod())
                     {
                         pricelist.PriceListID = int.Parse(lblID.Text);
                         if (ddlProfile.SelectedIndex.Equals(-1))
@@ -102,23 +126,22 @@ namespace PVCWindowsStudio.UI
                         else
                             pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
                         pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-                        pricelist.Price = Convert.ToDecimal(txtPrice.Text);
+                        pricelist.Price = Convert.ToDecimal(txtPrice.Value.ToString());
                         pricelist.LUB = 1;
                         if (pricelistbll.Update(pricelist))
                         {
-                            MessageBox.Show("Item updated successfully!");
+                            RadMessageBox.Show("Item updated successfully!");
                             InitiateData();
                             Clear();
                             this.radValidationProvider1.ClearErrorStatus();
                         }
                         else
-                            MessageBox.Show("Something went wrong!");
+                            RadMessageBox.Show("Something went wrong!");
                     }
-                    else this.radValidationProvider1.Validate(txtPrice);
                 }
-                else MessageBox.Show("Material can't be empty!");
+                else RadMessageBox.Show("Material can't be empty!");
             }
-            else MessageBox.Show("Please select an item!");
+            else RadMessageBox.Show("Please select an item!");
         }
 
         private void pricelistGridView_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
@@ -134,9 +157,28 @@ namespace PVCWindowsStudio.UI
                     ddlMaterial.SelectedValue = pricelist.MaterialID;
                     ddlProfile.Text = pricelist.Profiles.NameProf;
                     ddlProfile.SelectedValue = pricelist.ProfileID;
-                    txtPrice.Text = pricelist.Price.ToString();
+                    txtPrice.Value = pricelist.Price;
                 }
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (!String.IsNullOrEmpty(lblID.Text))
+            {
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo,RadMessageIcon.Question) == DialogResult.Yes)
+                {
+                    if (pricelistbll.Delete(int.Parse(lblID.Text)))
+                    {
+                        RadMessageBox.Show("Price List item is deleted successfully!");
+                        InitiateData();
+                        Clear();
+                    }
+                    else RadMessageBox.Show("Something went wrong!");
+                }
+            }
+            else RadMessageBox.Show("Please select a Price List item!");
         }
     }
 }

@@ -31,7 +31,10 @@ namespace PVCWindowsStudio.BLL
         {
             throw new NotImplementedException();
         }
-
+        public decimal GetPrice(decimal width, decimal height)
+        {
+            return dal.GetPrice(width, height);
+        }
         public List<HandiWork> GetAll()
         {
             return dal.GetAll();

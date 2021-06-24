@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -27,8 +28,8 @@ namespace PVCWindowsStudio.UI
             clientGridView1.DataSource = clientBll.GetAll();
         }
         private void btnSave_Click(object sender, EventArgs e)
-        {            
-            if (!String.IsNullOrEmpty(txtName.Text))
+        {
+            if (ValidationMethod())
             {
                 client.Name = txtName.Text;
                 client.LastName = txtLastName.Text;
@@ -45,19 +46,20 @@ namespace PVCWindowsStudio.UI
                 }
                 else MessageBox.Show("Something went wrong!");
             }
-            else this.radValidationProvider1.Validate(txtName);            
         }
 
         private void ClientsForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {                
-                if (!String.IsNullOrEmpty(txtName.Text))
+                if (ValidationMethod())
                 {
                     client.Name = txtName.Text;
                     client.LastName = txtLastName.Text;
@@ -67,16 +69,15 @@ namespace PVCWindowsStudio.UI
                     client.LUB = 1;
                     if (clientBll.Update(client))
                     {
-                        MessageBox.Show("Client is updated successfully!");
+                        RadMessageBox.Show("Client is updated successfully!");
                         Clear();
                         InitiateData();
                         this.radValidationProvider1.ClearErrorStatus();
                     }
-                    else MessageBox.Show("Something went wrong!");
-                }
-                else this.radValidationProvider1.Validate(txtName);                
+                    else RadMessageBox.Show("Something went wrong!");
+                }            
             }
-            else MessageBox.Show("Please select a client!");
+            else RadMessageBox.Show("Please select a client!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -113,7 +114,29 @@ namespace PVCWindowsStudio.UI
         {
             Clear();
         }
-      
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (string.IsNullOrEmpty(i.AccessibilityObject.Value))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
+        }
+
         private void clientGridView1_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
             this.radValidationProvider1.ClearErrorStatus();

@@ -40,7 +40,7 @@ namespace PVCWindowsStudio.UI
         private void InitiateData()
         {
             var list = formulaBLL.GetAll();
-            radGridView1.DataSource = list;
+            radGridView3.DataSource = list;
         }
         private void OpClick(string operand)
         {
@@ -236,7 +236,7 @@ namespace PVCWindowsStudio.UI
             int rowindex = e.RowIndex;
             if (!rowindex.Equals(-1))
             {
-                formula = (Formula)radGridView1.Rows[rowindex].DataBoundItem;
+                formula = (Formula)radGridView3.Rows[rowindex].DataBoundItem;
                 if (formula != null)
                 {
                     lblID.Text = formula.FormulaID.ToString();

@@ -31,12 +31,14 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
-            this.txtValue = new Telerik.WinControls.UI.RadTextBox();
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
-            this.lblID = new System.Windows.Forms.Label();
+            this.radPanel8 = new Telerik.WinControls.UI.RadPanel();
+            this.radGridView3 = new Telerik.WinControls.UI.RadGridView();
+            this.radPanel9 = new Telerik.WinControls.UI.RadPanel();
+            this.radButton3 = new Telerik.WinControls.UI.RadButton();
+            this.radButton4 = new Telerik.WinControls.UI.RadButton();
             this.radPanel5 = new Telerik.WinControls.UI.RadPanel();
             this.btnX = new Telerik.WinControls.UI.RadButton();
+            this.txtValue = new Telerik.WinControls.UI.RadTextBox();
             this.btnC = new Telerik.WinControls.UI.RadButton();
             this.btnQuantity = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
@@ -60,19 +62,20 @@
             this.btn2 = new Telerik.WinControls.UI.RadButton();
             this.btnDot = new Telerik.WinControls.UI.RadButton();
             this.btn1 = new Telerik.WinControls.UI.RadButton();
-            this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
-            this.radGridView1 = new Telerik.WinControls.UI.RadGridView();
-            this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
-            this.btnUpdate = new Telerik.WinControls.UI.RadButton();
-            this.btnDelete = new Telerik.WinControls.UI.RadButton();
-            ((System.ComponentModel.ISupportInitialize)(this.txtValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            this.radPanel2.SuspendLayout();
+            this.lblID = new System.Windows.Forms.Label();
+            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel8)).BeginInit();
+            this.radPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView3.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel9)).BeginInit();
+            this.radPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).BeginInit();
             this.radPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -96,75 +99,112 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
-            this.radPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
-            this.radPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
+            this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtValue
+            // radPanel8
             // 
-            this.txtValue.AutoSize = false;
-            this.txtValue.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
-            this.txtValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtValue.Location = new System.Drawing.Point(15, 40);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.ReadOnly = true;
+            this.radPanel8.Controls.Add(this.radGridView3);
+            this.radPanel8.Controls.Add(this.radPanel9);
+            this.radPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radPanel8.Location = new System.Drawing.Point(0, 0);
+            this.radPanel8.Name = "radPanel8";
+            this.radPanel8.Size = new System.Drawing.Size(480, 750);
+            this.radPanel8.TabIndex = 3;
+            this.radPanel8.ThemeName = "MaterialBlueGrey";
+            // 
+            // radGridView3
+            // 
+            this.radGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radGridView3.Location = new System.Drawing.Point(0, 0);
             // 
             // 
             // 
-            this.txtValue.RootElement.CustomFontSize = 20.5F;
-            this.txtValue.RootElement.StretchVertically = false;
-            this.txtValue.Size = new System.Drawing.Size(691, 70);
-            this.txtValue.TabIndex = 0;
-            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtValue.ThemeName = "MaterialBlueGrey";
-            ((Telerik.WinControls.UI.RadTextBoxElement)(this.txtValue.GetChildAt(0))).Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.UI.RadTextBoxElement)(this.txtValue.GetChildAt(0))).StretchVertically = false;
+            this.radGridView3.MasterTemplate.AllowAddNewRow = false;
+            this.radGridView3.MasterTemplate.AllowCellContextMenu = false;
+            this.radGridView3.MasterTemplate.AllowColumnChooser = false;
+            this.radGridView3.MasterTemplate.AllowColumnHeaderContextMenu = false;
+            this.radGridView3.MasterTemplate.AllowColumnReorder = false;
+            this.radGridView3.MasterTemplate.AllowColumnResize = false;
+            this.radGridView3.MasterTemplate.AllowDeleteRow = false;
+            this.radGridView3.MasterTemplate.AllowDragToGroup = false;
+            this.radGridView3.MasterTemplate.AllowEditRow = false;
+            this.radGridView3.MasterTemplate.AllowRowHeaderContextMenu = false;
+            this.radGridView3.MasterTemplate.AllowRowResize = false;
+            this.radGridView3.MasterTemplate.AllowSearchRow = true;
+            this.radGridView3.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.FieldName = "FormulaType";
+            gridViewTextBoxColumn1.HeaderText = "Formula Type";
+            gridViewTextBoxColumn1.Name = "FormulaType";
+            gridViewTextBoxColumn1.Width = 432;
+            this.radGridView3.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1});
+            this.radGridView3.MasterTemplate.EnableGrouping = false;
+            this.radGridView3.MasterTemplate.EnableSorting = false;
+            this.radGridView3.MasterTemplate.ViewDefinition = tableViewDefinition1;
+            this.radGridView3.Name = "radGridView3";
+            this.radGridView3.Size = new System.Drawing.Size(480, 654);
+            this.radGridView3.TabIndex = 1;
+            this.radGridView3.ThemeName = "MaterialBlueGrey";
             // 
-            // radPanel1
+            // radPanel9
             // 
-            this.radPanel1.Controls.Add(this.radPanel2);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(1247, 750);
-            this.radPanel1.TabIndex = 1;
-            this.radPanel1.ThemeName = "MaterialBlueGrey";
+            this.radPanel9.Controls.Add(this.radButton3);
+            this.radPanel9.Controls.Add(this.radButton4);
+            this.radPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.radPanel9.Location = new System.Drawing.Point(0, 654);
+            this.radPanel9.Name = "radPanel9";
+            this.radPanel9.Size = new System.Drawing.Size(480, 96);
+            this.radPanel9.TabIndex = 2;
             // 
-            // radPanel2
+            // radButton3
             // 
-            this.radPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radPanel2.Controls.Add(this.lblID);
-            this.radPanel2.Controls.Add(this.radPanel5);
-            this.radPanel2.Controls.Add(this.radPanel3);
-            this.radPanel2.Location = new System.Drawing.Point(185, 81);
-            this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(854, 583);
-            this.radPanel2.TabIndex = 2;
-            this.radPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radPanel2.ThemeName = "MaterialBlueGrey";
+            this.radButton3.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
+            this.radButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radButton3.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.radButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.radButton3.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
+            this.radButton3.Location = new System.Drawing.Point(0, 0);
+            this.radButton3.Name = "radButton3";
+            this.radButton3.Size = new System.Drawing.Size(480, 47);
+            this.radButton3.TabIndex = 5;
+            this.radButton3.Text = "UPDATE";
+            this.radButton3.ThemeName = "MaterialBlueGrey";
+            this.radButton3.Click += new System.EventHandler(this.btnUpdate_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton3.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.pencil;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton3.GetChildAt(0))).Text = "UPDATE";
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton3.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton3.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton3.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton3.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblID
+            // radButton4
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(190, 2);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 22);
-            this.lblID.TabIndex = 3;
-            this.lblID.Visible = false;
+            this.radButton4.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
+            this.radButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.radButton4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.radButton4.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            this.radButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.radButton4.Image = global::PVCWindowsStudio.Properties.Resources.trash;
+            this.radButton4.Location = new System.Drawing.Point(0, 47);
+            this.radButton4.Name = "radButton4";
+            this.radButton4.Size = new System.Drawing.Size(480, 49);
+            this.radButton4.TabIndex = 4;
+            this.radButton4.Text = "DELETE";
+            this.radButton4.ThemeName = "MaterialBlueGrey";
+            this.radButton4.Click += new System.EventHandler(this.btnDelete_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton4.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.trash;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.radButton4.GetChildAt(0))).Text = "DELETE";
+            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.radButton4.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton4.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton4.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.radButton4.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // radPanel5
             // 
-            this.radPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.radPanel5.Controls.Add(this.btnX);
             this.radPanel5.Controls.Add(this.txtValue);
             this.radPanel5.Controls.Add(this.btnC);
@@ -190,16 +230,17 @@
             this.radPanel5.Controls.Add(this.btn2);
             this.radPanel5.Controls.Add(this.btnDot);
             this.radPanel5.Controls.Add(this.btn1);
-            this.radPanel5.Location = new System.Drawing.Point(119, 22);
+            this.radPanel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.radPanel5.Location = new System.Drawing.Point(480, 0);
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(714, 536);
-            this.radPanel5.TabIndex = 2;
+            this.radPanel5.Size = new System.Drawing.Size(767, 750);
+            this.radPanel5.TabIndex = 4;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
             // btnX
             // 
             this.btnX.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnX.Location = new System.Drawing.Point(520, 317);
+            this.btnX.Location = new System.Drawing.Point(549, 415);
             this.btnX.Name = "btnX";
             this.btnX.Size = new System.Drawing.Size(85, 79);
             this.btnX.TabIndex = 35;
@@ -211,10 +252,30 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnX.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnX.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtValue
+            // 
+            this.txtValue.AutoSize = false;
+            this.txtValue.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold);
+            this.txtValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtValue.Location = new System.Drawing.Point(44, 138);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.ReadOnly = true;
+            // 
+            // 
+            // 
+            this.txtValue.RootElement.CustomFontSize = 20.5F;
+            this.txtValue.RootElement.StretchVertically = false;
+            this.txtValue.Size = new System.Drawing.Size(691, 70);
+            this.txtValue.TabIndex = 0;
+            this.txtValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValue.ThemeName = "MaterialBlueGrey";
+            ((Telerik.WinControls.UI.RadTextBoxElement)(this.txtValue.GetChildAt(0))).Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Bold);
+            ((Telerik.WinControls.UI.RadTextBoxElement)(this.txtValue.GetChildAt(0))).StretchVertically = false;
+            // 
             // btnC
             // 
             this.btnC.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnC.Location = new System.Drawing.Point(620, 317);
+            this.btnC.Location = new System.Drawing.Point(649, 415);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(85, 79);
             this.btnC.TabIndex = 34;
@@ -229,7 +290,7 @@
             // btnQuantity
             // 
             this.btnQuantity.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnQuantity.Location = new System.Drawing.Point(552, 134);
+            this.btnQuantity.Location = new System.Drawing.Point(581, 232);
             this.btnQuantity.Name = "btnQuantity";
             this.btnQuantity.Size = new System.Drawing.Size(153, 60);
             this.btnQuantity.TabIndex = 9;
@@ -244,7 +305,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(520, 418);
+            this.btnSave.Location = new System.Drawing.Point(549, 516);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(186, 79);
             this.btnSave.TabIndex = 4;
@@ -260,7 +321,7 @@
             // 
             this.btnPrice.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnPrice.Location = new System.Drawing.Point(373, 134);
+            this.btnPrice.Location = new System.Drawing.Point(402, 232);
             this.btnPrice.Name = "btnPrice";
             this.btnPrice.Size = new System.Drawing.Size(153, 60);
             this.btnPrice.TabIndex = 8;
@@ -275,7 +336,7 @@
             // btn0
             // 
             this.btn0.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn0.Location = new System.Drawing.Point(419, 418);
+            this.btn0.Location = new System.Drawing.Point(448, 516);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(85, 79);
             this.btn0.TabIndex = 33;
@@ -290,7 +351,7 @@
             // btnHeight
             // 
             this.btnHeight.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnHeight.Location = new System.Drawing.Point(194, 134);
+            this.btnHeight.Location = new System.Drawing.Point(223, 232);
             this.btnHeight.Name = "btnHeight";
             this.btnHeight.Size = new System.Drawing.Size(153, 60);
             this.btnHeight.TabIndex = 8;
@@ -305,7 +366,7 @@
             // btn9
             // 
             this.btn9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn9.Location = new System.Drawing.Point(318, 418);
+            this.btn9.Location = new System.Drawing.Point(347, 516);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(85, 79);
             this.btn9.TabIndex = 32;
@@ -320,7 +381,7 @@
             // btnWidth
             // 
             this.btnWidth.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnWidth.Location = new System.Drawing.Point(15, 134);
+            this.btnWidth.Location = new System.Drawing.Point(44, 232);
             this.btnWidth.Name = "btnWidth";
             this.btnWidth.Size = new System.Drawing.Size(153, 60);
             this.btnWidth.TabIndex = 7;
@@ -335,7 +396,7 @@
             // btn8
             // 
             this.btn8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn8.Location = new System.Drawing.Point(217, 418);
+            this.btn8.Location = new System.Drawing.Point(246, 516);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(85, 79);
             this.btn8.TabIndex = 31;
@@ -350,7 +411,7 @@
             // btnPlus
             // 
             this.btnPlus.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPlus.Location = new System.Drawing.Point(15, 216);
+            this.btnPlus.Location = new System.Drawing.Point(44, 314);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(85, 79);
             this.btnPlus.TabIndex = 3;
@@ -365,7 +426,7 @@
             // btn7
             // 
             this.btn7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn7.Location = new System.Drawing.Point(116, 418);
+            this.btn7.Location = new System.Drawing.Point(145, 516);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(85, 79);
             this.btn7.TabIndex = 30;
@@ -380,7 +441,7 @@
             // btnMinus
             // 
             this.btnMinus.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMinus.Location = new System.Drawing.Point(116, 216);
+            this.btnMinus.Location = new System.Drawing.Point(145, 314);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(85, 79);
             this.btnMinus.TabIndex = 22;
@@ -395,7 +456,7 @@
             // btn6
             // 
             this.btn6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn6.Location = new System.Drawing.Point(15, 418);
+            this.btn6.Location = new System.Drawing.Point(44, 516);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(85, 79);
             this.btn6.TabIndex = 29;
@@ -410,7 +471,7 @@
             // btnDivide
             // 
             this.btnDivide.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDivide.Location = new System.Drawing.Point(318, 216);
+            this.btnDivide.Location = new System.Drawing.Point(347, 314);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(85, 79);
             this.btnDivide.TabIndex = 23;
@@ -425,7 +486,7 @@
             // btn5
             // 
             this.btn5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn5.Location = new System.Drawing.Point(419, 317);
+            this.btn5.Location = new System.Drawing.Point(448, 415);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(85, 79);
             this.btn5.TabIndex = 5;
@@ -440,7 +501,7 @@
             // btnMultiplication
             // 
             this.btnMultiplication.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMultiplication.Location = new System.Drawing.Point(217, 216);
+            this.btnMultiplication.Location = new System.Drawing.Point(246, 314);
             this.btnMultiplication.Name = "btnMultiplication";
             this.btnMultiplication.Size = new System.Drawing.Size(85, 79);
             this.btnMultiplication.TabIndex = 24;
@@ -455,7 +516,7 @@
             // btn4
             // 
             this.btn4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn4.Location = new System.Drawing.Point(318, 317);
+            this.btn4.Location = new System.Drawing.Point(347, 415);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(85, 79);
             this.btn4.TabIndex = 28;
@@ -470,7 +531,7 @@
             // btnLeftBracket
             // 
             this.btnLeftBracket.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLeftBracket.Location = new System.Drawing.Point(419, 216);
+            this.btnLeftBracket.Location = new System.Drawing.Point(448, 314);
             this.btnLeftBracket.Name = "btnLeftBracket";
             this.btnLeftBracket.Size = new System.Drawing.Size(85, 79);
             this.btnLeftBracket.TabIndex = 4;
@@ -485,7 +546,7 @@
             // btn3
             // 
             this.btn3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn3.Location = new System.Drawing.Point(217, 317);
+            this.btn3.Location = new System.Drawing.Point(246, 415);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(85, 79);
             this.btn3.TabIndex = 27;
@@ -500,7 +561,7 @@
             // btnRightBracket
             // 
             this.btnRightBracket.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRightBracket.Location = new System.Drawing.Point(520, 216);
+            this.btnRightBracket.Location = new System.Drawing.Point(549, 314);
             this.btnRightBracket.Name = "btnRightBracket";
             this.btnRightBracket.Size = new System.Drawing.Size(85, 79);
             this.btnRightBracket.TabIndex = 25;
@@ -515,7 +576,7 @@
             // btn2
             // 
             this.btn2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn2.Location = new System.Drawing.Point(116, 317);
+            this.btn2.Location = new System.Drawing.Point(145, 415);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(85, 79);
             this.btn2.TabIndex = 26;
@@ -530,7 +591,7 @@
             // btnDot
             // 
             this.btnDot.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDot.Location = new System.Drawing.Point(620, 216);
+            this.btnDot.Location = new System.Drawing.Point(649, 314);
             this.btnDot.Name = "btnDot";
             this.btnDot.Size = new System.Drawing.Size(85, 79);
             this.btnDot.TabIndex = 4;
@@ -545,7 +606,7 @@
             // btn1
             // 
             this.btn1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btn1.Location = new System.Drawing.Point(15, 317);
+            this.btn1.Location = new System.Drawing.Point(44, 415);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(85, 79);
             this.btn1.TabIndex = 4;
@@ -557,107 +618,23 @@
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btn1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btn1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radPanel3
+            // lblID
             // 
-            this.radPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.radPanel3.Controls.Add(this.radGridView1);
-            this.radPanel3.Controls.Add(this.radPanel4);
-            this.radPanel3.Location = new System.Drawing.Point(0, 0);
-            this.radPanel3.Name = "radPanel3";
-            this.radPanel3.Size = new System.Drawing.Size(99, 583);
-            this.radPanel3.TabIndex = 2;
-            this.radPanel3.ThemeName = "MaterialBlueGrey";
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(756, 710);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 22);
+            this.lblID.TabIndex = 5;
+            this.lblID.Visible = false;
             // 
-            // radGridView1
+            // radPanel1
             // 
-            this.radGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radGridView1.Location = new System.Drawing.Point(0, 0);
-            // 
-            // 
-            // 
-            this.radGridView1.MasterTemplate.AllowAddNewRow = false;
-            this.radGridView1.MasterTemplate.AllowCellContextMenu = false;
-            this.radGridView1.MasterTemplate.AllowColumnChooser = false;
-            this.radGridView1.MasterTemplate.AllowColumnHeaderContextMenu = false;
-            this.radGridView1.MasterTemplate.AllowColumnReorder = false;
-            this.radGridView1.MasterTemplate.AllowColumnResize = false;
-            this.radGridView1.MasterTemplate.AllowDeleteRow = false;
-            this.radGridView1.MasterTemplate.AllowDragToGroup = false;
-            this.radGridView1.MasterTemplate.AllowEditRow = false;
-            this.radGridView1.MasterTemplate.AllowRowHeaderContextMenu = false;
-            this.radGridView1.MasterTemplate.AllowRowResize = false;
-            this.radGridView1.MasterTemplate.AllowSearchRow = true;
-            this.radGridView1.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FieldName = "FormulaType";
-            gridViewTextBoxColumn1.HeaderText = "Formula Type";
-            gridViewTextBoxColumn1.Name = "FormulaType";
-            gridViewTextBoxColumn1.Width = 51;
-            this.radGridView1.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1});
-            this.radGridView1.MasterTemplate.EnableGrouping = false;
-            this.radGridView1.MasterTemplate.EnableSorting = false;
-            this.radGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
-            this.radGridView1.Name = "radGridView1";
-            this.radGridView1.Size = new System.Drawing.Size(99, 487);
-            this.radGridView1.TabIndex = 1;
-            this.radGridView1.ThemeName = "MaterialBlueGrey";
-            this.radGridView1.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.radGridView1_CellDoubleClick);
-            // 
-            // radPanel4
-            // 
-            this.radPanel4.Controls.Add(this.btnUpdate);
-            this.radPanel4.Controls.Add(this.btnDelete);
-            this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radPanel4.Location = new System.Drawing.Point(0, 487);
-            this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(99, 96);
-            this.radPanel4.TabIndex = 2;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
-            this.btnUpdate.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 0);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(99, 47);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.ThemeName = "MaterialBlueGrey";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.pencil;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Text = "UPDATE";
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
-            this.btnDelete.Image = global::PVCWindowsStudio.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(0, 47);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(99, 49);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.ThemeName = "MaterialBlueGrey";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.trash;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = "DELETE";
-            ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radPanel1.Controls.Add(this.radPanel8);
+            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radPanel1.Location = new System.Drawing.Point(0, 0);
+            this.radPanel1.Name = "radPanel1";
+            this.radPanel1.Size = new System.Drawing.Size(480, 750);
+            this.radPanel1.TabIndex = 6;
             // 
             // FormulaForm
             // 
@@ -665,6 +642,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1247, 750);
             this.Controls.Add(this.radPanel1);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.radPanel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormulaForm";
             // 
@@ -675,15 +654,18 @@
             this.Text = "FormulaForm";
             this.ThemeName = "MaterialBlueGrey";
             this.Load += new System.EventHandler(this.FormulaForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            this.radPanel2.ResumeLayout(false);
-            this.radPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel8)).EndInit();
+            this.radPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView3.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel9)).EndInit();
+            this.radPanel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel5)).EndInit();
             this.radPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
@@ -707,55 +689,49 @@
             ((System.ComponentModel.ISupportInitialize)(this.btn2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
-            this.radPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
-            this.radPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
+            this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
-        private Telerik.WinControls.UI.RadTextBox txtValue;
-        private Telerik.WinControls.UI.RadPanel radPanel1;
-        private Telerik.WinControls.UI.RadButton btnQuantity;
-        private Telerik.WinControls.UI.RadButton btnPrice;
-        private Telerik.WinControls.UI.RadButton btnHeight;
-        private Telerik.WinControls.UI.RadButton btnWidth;
-        private Telerik.WinControls.UI.RadButton btnPlus;
-        private Telerik.WinControls.UI.RadPanel radPanel2;
-        private Telerik.WinControls.UI.RadPanel radPanel3;
-        private Telerik.WinControls.UI.RadButton btnC;
-        private Telerik.WinControls.UI.RadButton btnSave;
-        private Telerik.WinControls.UI.RadButton btn0;
-        private Telerik.WinControls.UI.RadButton btn9;
-        private Telerik.WinControls.UI.RadButton btn8;
-        private Telerik.WinControls.UI.RadButton btn7;
-        private Telerik.WinControls.UI.RadButton btn6;
-        private Telerik.WinControls.UI.RadButton btn5;
-        private Telerik.WinControls.UI.RadButton btn4;
-        private Telerik.WinControls.UI.RadButton btn3;
-        private Telerik.WinControls.UI.RadButton btn2;
-        private Telerik.WinControls.UI.RadButton btn1;
-        private Telerik.WinControls.UI.RadButton btnDot;
-        private Telerik.WinControls.UI.RadButton btnRightBracket;
-        private Telerik.WinControls.UI.RadButton btnLeftBracket;
-        private Telerik.WinControls.UI.RadButton btnMultiplication;
-        private Telerik.WinControls.UI.RadButton btnDivide;
-        private Telerik.WinControls.UI.RadButton btnMinus;
-        private Telerik.WinControls.UI.RadGridView radGridView1;
-        private Telerik.WinControls.UI.RadPanel radPanel4;
-        private Telerik.WinControls.UI.RadButton btnDelete;
+        private Telerik.WinControls.UI.RadPanel radPanel8;
+        private Telerik.WinControls.UI.RadGridView radGridView3;
+        private Telerik.WinControls.UI.RadPanel radPanel9;
+        private Telerik.WinControls.UI.RadButton radButton3;
+        private Telerik.WinControls.UI.RadButton radButton4;
         private Telerik.WinControls.UI.RadPanel radPanel5;
         private Telerik.WinControls.UI.RadButton btnX;
+        private Telerik.WinControls.UI.RadTextBox txtValue;
+        private Telerik.WinControls.UI.RadButton btnC;
+        private Telerik.WinControls.UI.RadButton btnQuantity;
+        private Telerik.WinControls.UI.RadButton btnSave;
+        private Telerik.WinControls.UI.RadButton btnPrice;
+        private Telerik.WinControls.UI.RadButton btn0;
+        private Telerik.WinControls.UI.RadButton btnHeight;
+        private Telerik.WinControls.UI.RadButton btn9;
+        private Telerik.WinControls.UI.RadButton btnWidth;
+        private Telerik.WinControls.UI.RadButton btn8;
+        private Telerik.WinControls.UI.RadButton btnPlus;
+        private Telerik.WinControls.UI.RadButton btn7;
+        private Telerik.WinControls.UI.RadButton btnMinus;
+        private Telerik.WinControls.UI.RadButton btn6;
+        private Telerik.WinControls.UI.RadButton btnDivide;
+        private Telerik.WinControls.UI.RadButton btn5;
+        private Telerik.WinControls.UI.RadButton btnMultiplication;
+        private Telerik.WinControls.UI.RadButton btn4;
+        private Telerik.WinControls.UI.RadButton btnLeftBracket;
+        private Telerik.WinControls.UI.RadButton btn3;
+        private Telerik.WinControls.UI.RadButton btnRightBracket;
+        private Telerik.WinControls.UI.RadButton btn2;
+        private Telerik.WinControls.UI.RadButton btnDot;
+        private Telerik.WinControls.UI.RadButton btn1;
         private System.Windows.Forms.Label lblID;
-        private Telerik.WinControls.UI.RadButton btnUpdate;
+        private Telerik.WinControls.UI.RadPanel radPanel1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
@@ -42,6 +43,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.txtClient = new Telerik.WinControls.UI.RadTextBox();
             this.lblID = new Telerik.WinControls.UI.RadLabel();
@@ -56,7 +58,6 @@
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
-            this.txtPay = new Telerik.WinControls.UI.RadTextBox();
             this.txtDebt = new Telerik.WinControls.UI.RadTextBox();
             this.txtPaid = new Telerik.WinControls.UI.RadTextBox();
             this.radPanel4 = new Telerik.WinControls.UI.RadPanel();
@@ -68,6 +69,8 @@
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.OrderradGridView = new Telerik.WinControls.UI.RadGridView();
             this.InvoiceradGridView = new Telerik.WinControls.UI.RadGridView();
+            this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
+            this.txtPay = new Telerik.WinControls.UI.RadMaskedEditBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
@@ -83,7 +86,6 @@
             this.radLabel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).BeginInit();
@@ -98,6 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrderradGridView.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceradGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceradGridView.MasterTemplate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +115,7 @@
             this.txtClient.Size = new System.Drawing.Size(270, 41);
             this.txtClient.TabIndex = 22;
             this.txtClient.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtClient, null);
             // 
             // lblID
             // 
@@ -145,10 +150,12 @@
             this.radDateTimePicker1.TabStop = false;
             this.radDateTimePicker1.Text = "Saturday, June 19, 2021";
             this.radDateTimePicker1.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.radDateTimePicker1, null);
             this.radDateTimePicker1.Value = new System.DateTime(2021, 6, 19, 21, 0, 38, 362);
             // 
             // radPanel1
             // 
+            this.radPanel1.Controls.Add(this.txtPay);
             this.radPanel1.Controls.Add(this.txtTotalPrice);
             this.radPanel1.Controls.Add(this.radLabel8);
             this.radPanel1.Controls.Add(this.radLabel4);
@@ -156,7 +163,6 @@
             this.radPanel1.Controls.Add(this.radLabel7);
             this.radPanel1.Controls.Add(this.radLabel1);
             this.radPanel1.Controls.Add(this.radLabel6);
-            this.radPanel1.Controls.Add(this.txtPay);
             this.radPanel1.Controls.Add(this.txtDebt);
             this.radPanel1.Controls.Add(this.txtPaid);
             this.radPanel1.Controls.Add(this.radPanel4);
@@ -182,6 +188,7 @@
             this.txtTotalPrice.Size = new System.Drawing.Size(270, 41);
             this.txtTotalPrice.TabIndex = 35;
             this.txtTotalPrice.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtTotalPrice, null);
             // 
             // radLabel8
             // 
@@ -268,16 +275,6 @@
             ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel6.GetChildAt(0))).Text = "Client";
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.radLabel6.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             // 
-            // txtPay
-            // 
-            this.txtPay.Location = new System.Drawing.Point(124, 495);
-            this.txtPay.Name = "txtPay";
-            this.txtPay.ReadOnly = true;
-            this.txtPay.Size = new System.Drawing.Size(270, 41);
-            this.txtPay.TabIndex = 31;
-            this.txtPay.ThemeName = "MaterialBlueGrey";
-            this.txtPay.TextChanged += new System.EventHandler(this.radTextBox1_TextChanged);
-            // 
             // txtDebt
             // 
             this.txtDebt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -287,6 +284,7 @@
             this.txtDebt.Size = new System.Drawing.Size(267, 41);
             this.txtDebt.TabIndex = 30;
             this.txtDebt.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtDebt, null);
             // 
             // txtPaid
             // 
@@ -297,6 +295,7 @@
             this.txtPaid.Size = new System.Drawing.Size(267, 41);
             this.txtPaid.TabIndex = 29;
             this.txtPaid.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtPaid, null);
             // 
             // radPanel4
             // 
@@ -557,6 +556,31 @@
             this.InvoiceradGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.InvoiceradGridView_CellFormatting);
             this.InvoiceradGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.InvoiceradGridView_CellClick);
             // 
+            // radValidationProvider1
+            // 
+            this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
+            radValidationRule1.Controls.Add(this.txtPay);
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule1.PropertyName = "Value";
+            radValidationRule1.ToolTipText = "Price is not in correct format!";
+            radValidationRule1.Value = "";
+            this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
+            radValidationRule1});
+            // 
+            // txtPay
+            // 
+            this.txtPay.Culture = new System.Globalization.CultureInfo("eu");
+            this.txtPay.Location = new System.Drawing.Point(133, 495);
+            this.txtPay.Mask = "^(?!0\\.00)[1-9]\\d{0,2}(,\\d{3})*(\\.\\d\\d)?$";
+            this.txtPay.MaskType = Telerik.WinControls.UI.MaskType.Regex;
+            this.txtPay.Name = "txtPay";
+            this.txtPay.Size = new System.Drawing.Size(258, 41);
+            this.txtPay.TabIndex = 36;
+            this.txtPay.TabStop = false;
+            this.txtPay.ThemeName = "MaterialBlueGrey";
+            this.radValidationProvider1.SetValidationRule(this.txtPay, radValidationRule1);
+            this.txtPay.TextChanged += new System.EventHandler(this.txtPay_TextChanged);
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -590,7 +614,6 @@
             this.radLabel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDebt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPaid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel4)).EndInit();
@@ -605,6 +628,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OrderradGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceradGridView.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvoiceradGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -628,7 +653,6 @@
         private Telerik.WinControls.UI.RadButton btnUpdate;
         private Telerik.WinControls.UI.RadTextBox txtDebt;
         private Telerik.WinControls.UI.RadTextBox txtPaid;
-        private Telerik.WinControls.UI.RadTextBox txtPay;
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadLabel radLabel2;
@@ -638,5 +662,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadTextBox txtTotalPrice;
         private Telerik.WinControls.UI.RadButton btnPrint;
+        private Telerik.WinControls.UI.RadValidationProvider radValidationProvider1;
+        private Telerik.WinControls.UI.RadMaskedEditBox txtPay;
     }
 }

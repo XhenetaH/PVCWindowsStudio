@@ -38,18 +38,18 @@ namespace PVCWindowsStudio.UI
             ddlMaterial.DataSource = productModel.MaterialBll.GetExist();
             ddlMaterial.DisplayMember = "Name";
             ddlMaterial.ValueMember = "MaterialID";
-            ddlMaterial.Text = "Choose a material";
 
             ddlFormula.DataSource = productModel.FormulaBll.GetAll();
             ddlFormula.DisplayMember = "FormulaType";
             ddlFormula.ValueMember = "FormulaID";
-            ddlFormula.Text = "Choose a formula";
 
         }
         private void ProductItemsForm_Load(object sender, EventArgs e)
         {
             InitiateProduct();
-            
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+
+
         }
 
         private Image ConvertToImage(byte[] array)
@@ -61,40 +61,26 @@ namespace PVCWindowsStudio.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (productPictureBox.Image == null)
-                MessageBox.Show("Picture box can't be empty!");            
+                RadMessageBox.Show("Picture box can't be empty!");            
             else
             {
-                if (ddlFormula.SelectedValue == null)
-                    MessageBox.Show("Formula can't be empty!");
-                else
+                productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
+                productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
+                productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
+                productModel.ProductItems.InsertBy = 1;
+
+                if (productModel.ProductItemsBll.Insert(productModel.ProductItems))
                 {
-                    if (ddlMaterial.SelectedValue == null)
-                        MessageBox.Show("Material can't be empty!");
-                    else
-                    {
-
-                        productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
-                        productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
-                        productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
-                        productModel.ProductItems.InsertBy = 1;
-
-                        if (productModel.ProductItemsBll.Insert(productModel.ProductItems))
-                        {
-                            MessageBox.Show("Product is inserted successfully!");
-                            InitiateProductItems(int.Parse(lblproductID.Text));
-                            Clear();
-                            this.radValidationProvider1.ClearErrorStatus();
-                        }
-                        else MessageBox.Show("Something went wrong!");
-                    }
+                    RadMessageBox.Show("Product is inserted successfully!");
+                    InitiateProductItems(int.Parse(lblproductID.Text));
+                    Clear();
                 }
+                else RadMessageBox.Show("Something went wrong!");
             }
         }
 
         private void Clear()
         {
-            ddlMaterial.Text = "Choose a material";
-            ddlFormula.Text = "Choose a formula";
             lblProductItemID.Text = "";
             productPictureBox.Image = null;
             productitemsGridView.Rows.Clear();
@@ -122,37 +108,37 @@ namespace PVCWindowsStudio.UI
 
                     if (productModel.ProductItemsBll.Update(productModel.ProductItems))
                     {
-                        MessageBox.Show("Product Item uppdated successfully!");
+                        RadMessageBox.Show("Product Item uppdated successfully!");
                         InitiateProductItems(int.Parse(lblproductID.Text));
                         Clear();
-                        this.radValidationProvider1.ClearErrorStatus();
+
                     }
                     else
-                        MessageBox.Show("Something went wrong!");
+                        RadMessageBox.Show("Something went wrong!");
 
                 }
             }
-            else MessageBox.Show("Please select a product item!");
+            else RadMessageBox.Show("Please select a product item!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblProductItemID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (productModel.ProductItemsBll.Delete(int.Parse(lblProductItemID.Text)))
                     {
-                        MessageBox.Show("Product Item deleted successfully!");
+                        RadMessageBox.Show("Product Item deleted successfully!");
                         InitiateProductItems(int.Parse(lblproductID.Text));
                         Clear();
                     }
                     else
-                        MessageBox.Show("Shomething went wrong!");
+                        RadMessageBox.Show("Shomething went wrong!");
                 }
 
             }
-            else MessageBox.Show("Please select a product item!");
+            else RadMessageBox.Show("Please select a product item!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -200,6 +186,13 @@ namespace PVCWindowsStudio.UI
 
                 }
             }
+        }
+
+        private void btnAddFormula_Click(object sender, EventArgs e)
+        {
+            FormulaForm frm = new FormulaForm();
+            frm.FormBorderStyle = FormBorderStyle.Sizable;
+            frm.Show();
         }
     }
 }

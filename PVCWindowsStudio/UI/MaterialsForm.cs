@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -26,7 +27,7 @@ namespace PVCWindowsStudio.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             
-            if (!String.IsNullOrEmpty(txtName.Text))
+            if (ValidationMethod())
             {
                 material.Name = txtName.Text;
                 material.Other = txtDescription.Text;
@@ -37,9 +38,8 @@ namespace PVCWindowsStudio.UI
                     InitiateData();
                     this.radValidationProvider1.ClearErrorStatus();
                 }
-                else MessageBox.Show("Something went wrong!");
+                else RadMessageBox.Show("Something went wrong!");
             }
-            else this.radValidationProvider1.Validate(txtName);
             
         }
         private void Clear()
@@ -58,6 +58,30 @@ namespace PVCWindowsStudio.UI
         private void MaterialsForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+
+        }
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (string.IsNullOrEmpty(i.AccessibilityObject.Value.ToString()))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -65,7 +89,7 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(lblID.Text))
             {
                 
-                if (!String.IsNullOrEmpty(txtName.Text))
+                if (ValidationMethod())
                 {
                     material.MaterialID = int.Parse(lblID.Text);
                     material.Name = txtName.Text;
@@ -73,17 +97,17 @@ namespace PVCWindowsStudio.UI
                     material.LUB = 1;
                     if (materialBll.Update(material))
                     {
-                        MessageBox.Show("Material is updated successfully");
+                        RadMessageBox.Show("Material is updated successfully");
                         Clear();
                         InitiateData();
                         this.radValidationProvider1.ClearErrorStatus();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
                 else this.radValidationProvider1.Validate(txtName);
             }
             else
-                MessageBox.Show("Please select an material!");
+                RadMessageBox.Show("Please select an material!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -95,20 +119,20 @@ namespace PVCWindowsStudio.UI
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (materialBll.Delete(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Material is deleted successfully!");
+                        RadMessageBox.Show("Material is deleted successfully!");
                         InitiateData();
                         Clear();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
 
             }
             else
-                MessageBox.Show("Please select an material!");
+                RadMessageBox.Show("Please select an material!");
 
         }
 

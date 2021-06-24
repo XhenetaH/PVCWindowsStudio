@@ -29,25 +29,30 @@
         private void InitializeComponent()
         {
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
-            this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
+            this.materialsManagMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.materialMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.paneMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.blindMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.profileMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.productsManagMenuItem = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem3 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem4 = new Telerik.WinControls.UI.RadMenuItem();
+            this.productItemMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.formulaMenuItem = new Telerik.WinControls.UI.RadMenuItem();
             this.panelChildForm = new Telerik.WinControls.UI.RadPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radMenuItem5 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem6 = new Telerik.WinControls.UI.RadMenuItem();
+            this.usersManagMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.userMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.roleMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.pricelistMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.handworkMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.pricelistMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
+            this.calculatorMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.orderHistoryMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.orderMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.invoicesMenuItem = new Telerik.WinControls.UI.RadMenuItem();
+            this.clientsMenuItem = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
-            this.radMenuItem7 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem8 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem9 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem10 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem11 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem12 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem13 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem14 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem15 = new Telerik.WinControls.UI.RadMenuItem();
-            this.radMenuItem16 = new Telerik.WinControls.UI.RadMenuItem();
+            this.orderDetailsMenuItem = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelChildForm)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,37 +60,75 @@
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // radMenuItem1
+            // materialsManagMenuItem
             // 
-            this.radMenuItem1.Name = "radMenuItem1";
-            this.radMenuItem1.Text = "Materials";
-            this.radMenuItem1.Click += new System.EventHandler(this.radMenuItem1_Click);
+            this.materialsManagMenuItem.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.materialMenuItem,
+            this.paneMenuItem,
+            this.blindMenuItem,
+            this.profileMenuItem});
+            this.materialsManagMenuItem.Name = "materialsManagMenuItem";
+            this.materialsManagMenuItem.Text = "Materials Management";
+            this.materialsManagMenuItem.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            // 
+            // materialMenuItem
+            // 
+            this.materialMenuItem.Name = "materialMenuItem";
+            this.materialMenuItem.Text = "Material";
+            this.materialMenuItem.Click += new System.EventHandler(this.materialMenuItem_Click);
+            // 
+            // paneMenuItem
+            // 
+            this.paneMenuItem.Name = "paneMenuItem";
+            this.paneMenuItem.Text = "Window Pane";
+            this.paneMenuItem.Click += new System.EventHandler(this.paneMenuItem_Click);
+            // 
+            // blindMenuItem
+            // 
+            this.blindMenuItem.Name = "blindMenuItem";
+            this.blindMenuItem.Text = "Blind";
+            this.blindMenuItem.Click += new System.EventHandler(this.blindMenuItem_Click);
+            // 
+            // profileMenuItem
+            // 
+            this.profileMenuItem.Name = "profileMenuItem";
+            this.profileMenuItem.Text = "Profile";
+            this.profileMenuItem.Click += new System.EventHandler(this.profileMenuItem_Click);
+            // 
+            // productsManagMenuItem
+            // 
+            this.productsManagMenuItem.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radMenuItem2,
+            this.productItemMenuItem,
+            this.formulaMenuItem});
+            this.productsManagMenuItem.Name = "productsManagMenuItem";
+            this.productsManagMenuItem.Text = "Products Management";
+            this.productsManagMenuItem.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
             // radMenuItem2
             // 
             this.radMenuItem2.Name = "radMenuItem2";
-            this.radMenuItem2.Text = "Window Panes";
-            this.radMenuItem2.Click += new System.EventHandler(this.radMenuItem2_Click);
+            this.radMenuItem2.Text = "Product";
             // 
-            // radMenuItem3
+            // productItemMenuItem
             // 
-            this.radMenuItem3.Name = "radMenuItem3";
-            this.radMenuItem3.Text = "Profiles";
-            this.radMenuItem3.Click += new System.EventHandler(this.radMenuItem3_Click);
+            this.productItemMenuItem.Name = "productItemMenuItem";
+            this.productItemMenuItem.Text = "Product Items";
+            this.productItemMenuItem.Click += new System.EventHandler(this.productItemMenuItem_Click);
             // 
-            // radMenuItem4
+            // formulaMenuItem
             // 
-            this.radMenuItem4.Name = "radMenuItem4";
-            this.radMenuItem4.Text = "Products";
-            this.radMenuItem4.Click += new System.EventHandler(this.radMenuItem4_Click);
+            this.formulaMenuItem.Name = "formulaMenuItem";
+            this.formulaMenuItem.Text = "Formula";
+            this.formulaMenuItem.Click += new System.EventHandler(this.formulaMenuItem_Click);
             // 
             // panelChildForm
             // 
             this.panelChildForm.Controls.Add(this.pictureBox1);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(0, 72);
+            this.panelChildForm.Location = new System.Drawing.Point(0, 37);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1277, 691);
+            this.panelChildForm.Size = new System.Drawing.Size(1277, 726);
             this.panelChildForm.TabIndex = 1;
             this.panelChildForm.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -97,106 +140,103 @@
             this.pictureBox1.Image = global::PVCWindowsStudio.Properties.Resources.logo2;
             this.pictureBox1.Location = new System.Drawing.Point(433, 106);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(847, 553);
+            this.pictureBox1.Size = new System.Drawing.Size(847, 588);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // radMenuItem5
+            // usersManagMenuItem
             // 
-            this.radMenuItem5.Name = "radMenuItem5";
-            this.radMenuItem5.Text = "Blind";
-            this.radMenuItem5.Click += new System.EventHandler(this.radMenuItem5_Click);
+            this.usersManagMenuItem.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.userMenuItem,
+            this.roleMenuItem});
+            this.usersManagMenuItem.Name = "usersManagMenuItem";
+            this.usersManagMenuItem.Text = "Users Management";
+            this.usersManagMenuItem.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
             // 
-            // radMenuItem6
+            // userMenuItem
             // 
-            this.radMenuItem6.Name = "radMenuItem6";
-            this.radMenuItem6.Text = "Users";
-            this.radMenuItem6.Click += new System.EventHandler(this.radMenuItem6_Click);
+            this.userMenuItem.Name = "userMenuItem";
+            this.userMenuItem.Text = "User";
+            this.userMenuItem.Click += new System.EventHandler(this.userMenuItem_Click);
+            // 
+            // roleMenuItem
+            // 
+            this.roleMenuItem.Name = "roleMenuItem";
+            this.roleMenuItem.Text = "Role";
+            this.roleMenuItem.Click += new System.EventHandler(this.roleMenuItem_Click);
+            // 
+            // pricelistMenuItem
+            // 
+            this.pricelistMenuItem.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.handworkMenuItem,
+            this.pricelistMenuItem1});
+            this.pricelistMenuItem.Name = "pricelistMenuItem";
+            this.pricelistMenuItem.Text = "Price List";
+            this.pricelistMenuItem.Visibility = Telerik.WinControls.ElementVisibility.Collapsed;
+            // 
+            // handworkMenuItem
+            // 
+            this.handworkMenuItem.Name = "handworkMenuItem";
+            this.handworkMenuItem.Text = "Hand Work";
+            // 
+            // pricelistMenuItem1
+            // 
+            this.pricelistMenuItem1.Name = "pricelistMenuItem1";
+            this.pricelistMenuItem1.Text = "Price List";
+            this.pricelistMenuItem1.Click += new System.EventHandler(this.pricelistMenuItem1_Click);
+            // 
+            // calculatorMenuItem
+            // 
+            this.calculatorMenuItem.Name = "calculatorMenuItem";
+            this.calculatorMenuItem.Text = "Calculator";
+            this.calculatorMenuItem.Click += new System.EventHandler(this.calculatorMenuItem_Click);
+            // 
+            // orderHistoryMenuItem
+            // 
+            this.orderHistoryMenuItem.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.orderMenuItem,
+            this.orderDetailsMenuItem});
+            this.orderHistoryMenuItem.Name = "orderHistoryMenuItem";
+            this.orderHistoryMenuItem.Text = "Order History";
+            // 
+            // orderMenuItem
+            // 
+            this.orderMenuItem.Name = "orderMenuItem";
+            this.orderMenuItem.Text = "Order";
+            this.orderMenuItem.Click += new System.EventHandler(this.orderMenuItem_Click);
+            // 
+            // invoicesMenuItem
+            // 
+            this.invoicesMenuItem.Name = "invoicesMenuItem";
+            this.invoicesMenuItem.Text = "Invoices";
+            // 
+            // clientsMenuItem
+            // 
+            this.clientsMenuItem.Name = "clientsMenuItem";
+            this.clientsMenuItem.Text = "Clients";
             // 
             // radMenu1
             // 
             this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radMenuItem1,
-            this.radMenuItem2,
-            this.radMenuItem3,
-            this.radMenuItem4,
-            this.radMenuItem5,
-            this.radMenuItem6,
-            this.radMenuItem7,
-            this.radMenuItem8,
-            this.radMenuItem9,
-            this.radMenuItem10,
-            this.radMenuItem11,
-            this.radMenuItem12,
-            this.radMenuItem13,
-            this.radMenuItem14,
-            this.radMenuItem15,
-            this.radMenuItem16});
+            this.materialsManagMenuItem,
+            this.productsManagMenuItem,
+            this.usersManagMenuItem,
+            this.pricelistMenuItem,
+            this.calculatorMenuItem,
+            this.orderHistoryMenuItem,
+            this.invoicesMenuItem,
+            this.clientsMenuItem});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
-            this.radMenu1.Size = new System.Drawing.Size(1277, 72);
+            this.radMenu1.Size = new System.Drawing.Size(1277, 37);
             this.radMenu1.TabIndex = 0;
             this.radMenu1.ThemeName = "MaterialBlueGrey";
             // 
-            // radMenuItem7
+            // orderDetailsMenuItem
             // 
-            this.radMenuItem7.Name = "radMenuItem7";
-            this.radMenuItem7.Text = "Roles";
-            this.radMenuItem7.Click += new System.EventHandler(this.radMenuItem7_Click);
-            // 
-            // radMenuItem8
-            // 
-            this.radMenuItem8.Name = "radMenuItem8";
-            this.radMenuItem8.Text = "Clients";
-            this.radMenuItem8.Click += new System.EventHandler(this.radMenuItem8_Click);
-            // 
-            // radMenuItem9
-            // 
-            this.radMenuItem9.Name = "radMenuItem9";
-            this.radMenuItem9.Text = "Formula";
-            this.radMenuItem9.Click += new System.EventHandler(this.radMenuItem9_Click);
-            // 
-            // radMenuItem10
-            // 
-            this.radMenuItem10.Name = "radMenuItem10";
-            this.radMenuItem10.Text = "Product Items";
-            this.radMenuItem10.Click += new System.EventHandler(this.radMenuItem10_Click);
-            // 
-            // radMenuItem11
-            // 
-            this.radMenuItem11.Name = "radMenuItem11";
-            this.radMenuItem11.Text = "Price List";
-            this.radMenuItem11.Click += new System.EventHandler(this.radMenuItem11_Click);
-            // 
-            // radMenuItem12
-            // 
-            this.radMenuItem12.Name = "radMenuItem12";
-            this.radMenuItem12.Text = "Calculator";
-            this.radMenuItem12.Click += new System.EventHandler(this.radMenuItem12_Click);
-            // 
-            // radMenuItem13
-            // 
-            this.radMenuItem13.Name = "radMenuItem13";
-            this.radMenuItem13.Text = "Order Details";
-            this.radMenuItem13.Click += new System.EventHandler(this.radMenuItem13_Click);
-            // 
-            // radMenuItem14
-            // 
-            this.radMenuItem14.Name = "radMenuItem14";
-            this.radMenuItem14.Text = "Order";
-            this.radMenuItem14.Click += new System.EventHandler(this.radMenuItem14_Click);
-            // 
-            // radMenuItem15
-            // 
-            this.radMenuItem15.Name = "radMenuItem15";
-            this.radMenuItem15.Text = "Invoices";
-            this.radMenuItem15.Click += new System.EventHandler(this.radMenuItem15_Click);
-            // 
-            // radMenuItem16
-            // 
-            this.radMenuItem16.Name = "radMenuItem16";
-            this.radMenuItem16.Text = "HandiWork";
-            this.radMenuItem16.Click += new System.EventHandler(this.radMenuItem16_Click);
+            this.orderDetailsMenuItem.Name = "orderDetailsMenuItem";
+            this.orderDetailsMenuItem.Text = "Order Details";
+            this.orderDetailsMenuItem.Click += new System.EventHandler(this.orderDetailsMenuItem_Click);
             // 
             // Menu
             // 
@@ -229,24 +269,29 @@
         #endregion
 
         private Telerik.WinControls.Themes.MaterialBlueGreyTheme materialBlueGreyTheme1;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem1;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem3;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem4;
+        private Telerik.WinControls.UI.RadMenuItem materialsManagMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem productsManagMenuItem;
         private Telerik.WinControls.UI.RadPanel panelChildForm;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem5;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem6;
-        private Telerik.WinControls.UI.RadMenu radMenu1;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem7;
+        private Telerik.WinControls.UI.RadMenuItem usersManagMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem8;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem9;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem10;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem11;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem12;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem13;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem14;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem15;
-        private Telerik.WinControls.UI.RadMenuItem radMenuItem16;
+        private Telerik.WinControls.UI.RadMenuItem pricelistMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem calculatorMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem orderHistoryMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem invoicesMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem materialMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem paneMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem blindMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem profileMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem radMenuItem2;
+        private Telerik.WinControls.UI.RadMenuItem productItemMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem formulaMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem userMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem roleMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem handworkMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem orderMenuItem;
+        private Telerik.WinControls.UI.RadMenuItem clientsMenuItem;
+        private Telerik.WinControls.UI.RadMenu radMenu1;
+        private Telerik.WinControls.UI.RadMenuItem pricelistMenuItem1;
+        private Telerik.WinControls.UI.RadMenuItem orderDetailsMenuItem;
     }
 }

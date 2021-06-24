@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PVCWindowsStudio.Session;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -76,62 +77,97 @@ namespace PVCWindowsStudio.UI
 
         private void Menu_Shown(object sender, EventArgs e)
         {
-            //LogIn loginfrm = new LogIn();
+            Form background = new Form();
+            using (LogIn loginFrm = new LogIn())
+            {
+                background.StartPosition = FormStartPosition.Manual;
+                background.FormBorderStyle = FormBorderStyle.None;
+                background.Opacity = .70d;
+                background.BackColor = Color.Black;
+                background.WindowState = FormWindowState.Maximized;
+                background.TopMost = true;
+                background.Location = this.Location;
+                background.ShowInTaskbar = false;
+                background.Show();
+                loginFrm.Owner = background;
 
-            //if(loginfrm.ShowDialog() == DialogResult.OK)
-            //{
-            //    loginfrm.Close();
-            //}
-            //else
-            //{
-            //    Application.Exit();
-            //}
+                if (loginFrm.ShowDialog() == DialogResult.Yes)
+                {                    
+                    background.Dispose();
+                    if (UserSession.CurrentUser.Role.Name == "Admin")
+                    {
+                        materialsManagMenuItem.Visibility = ElementVisibility.Visible;
+                        productsManagMenuItem.Visibility = ElementVisibility.Visible;
+                        pricelistMenuItem.Visibility = ElementVisibility.Visible;
+                        usersManagMenuItem.Visibility = ElementVisibility.Visible;
+                    }
+                }
+                else
+                    Application.Exit();
+            }
+
         }
 
-        private void radMenuItem8_Click(object sender, EventArgs e)
+        
+
+        private void materialMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new ClientsForm());
+            openChildForm(new MaterialsForm());
         }
 
-        private void radMenuItem9_Click(object sender, EventArgs e)
+        private void paneMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormulaForm());
+            openChildForm(new WindowPanesForm());
         }
 
-        private void radMenuItem10_Click(object sender, EventArgs e)
+        private void blindMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new BlindsForm());
+        }
+
+        private void profileMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ProfilesForm());
+        }
+
+        private void productItemMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new ProductItemsForm());
         }
 
+        private void formulaMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormulaForm());
+        }
 
-        private void radMenuItem11_Click(object sender, EventArgs e)
+        private void userMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new UsersForm());
+        }
+
+        private void roleMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new RolesForm());
+        }
+
+        private void pricelistMenuItem1_Click(object sender, EventArgs e)
         {
             openChildForm(new PriceListForm());
         }
 
-        private void radMenuItem12_Click(object sender, EventArgs e)
-        {
-            openChildForm(new CalculatorForm());
-        }
-
-        private void radMenuItem13_Click(object sender, EventArgs e)
-        {
-            openChildForm(new OrderDetailsForm());
-        }
-
-        private void radMenuItem14_Click(object sender, EventArgs e)
+        private void orderMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new OrderForm());
         }
 
-        private void radMenuItem15_Click(object sender, EventArgs e)
+        private void orderDetailsMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new InvoiceForm());
+            openChildForm(new OrderDetailsForm());
         }
 
-        private void radMenuItem16_Click(object sender, EventArgs e)
+        private void calculatorMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new HandiWorkForm());
+            openChildForm(new CalculatorForm());
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -39,28 +40,57 @@ namespace PVCWindowsStudio.UI
             InitOrderData();
 
             productMultiColumnComboBox1.DataSource = productBll.GetExistProd();
-            productMultiColumnComboBox1.SelectedIndex = -1;
             productMultiColumnComboBox1.AutoCompleteMode = AutoCompleteMode.Append;
             productMultiColumnComboBox1.EditorControl.TableElement.RowHeight = 110;
-            productMultiColumnComboBox1.Text = "Choose a product";
+            productMultiColumnComboBox1.ValueMember = "ProductID";
 
             ddlBlinds.DataSource = blindBll.GetAll();
             ddlBlinds.DisplayMember = "Name";
             ddlBlinds.ValueMember = "BlindID";
-            ddlBlinds.SelectedText = "Choose a blind";
 
             ddlProfile.DataSource = profileBll.GetExistProfile();
             ddlProfile.DisplayMember = "NameProf";
             ddlProfile.ValueMember = "ProfileID";
-            ddlProfile.SelectedText = "Choose a profile";
-
 
             ddlWindowPane.DataSource = windowpaneBll.GetAll();
             ddlWindowPane.DisplayMember = "Name";
             ddlWindowPane.ValueMember = "WindowPaneID";
-            ddlWindowPane.SelectedText = "Choose a window pane";
+
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
+            GetDefaultImage();
+
+        
 
         }
+        private void GetDefaultImage()
+        {
+            radPictureBox1.Image = ConvertToImage((byte[])productMultiColumnComboBox1.EditorControl.Rows[0].Cells["Picturee"].Value);
+
+        }
+
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (i.AccessibilityObject.Value.ToString() == "0" )
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
+        }
+
 
         private void InitOrderData()
         {
@@ -142,71 +172,64 @@ namespace PVCWindowsStudio.UI
             {
                 if (radPictureBox1.Image != null)
                 {
-
-                    if (String.IsNullOrEmpty(txtHeight.Text)&& String.IsNullOrEmpty(txtWidth.Text)&& String.IsNullOrEmpty(txtQuantity.Text))
+                    if (ValidationMethod())
                     {
-                        radValidationProvider1.Validate(txtHeight);
-                        radValidationProvider1.Validate(txtWidth);
-                        radValidationProvider1.Validate(txtQuantity);
-                    }
-                    
-                    //if (ddlProfile.SelectedValue == null)
-                    //{
-                    //    radValidationProvider1.Validate(ddlProfile);
-                    //}
-                    //if (ddlBlinds.SelectedValue == null)
-                    //{
-                    //    radValidationProvider1.Validate(ddlBlinds);
-                    //}
-                    //if (ddlWindowPane.SelectedValue == null)
-                    //{
-                    //    radValidationProvider1.Validate(ddlWindowPane);
-                    //}
-                    else
-                    {
+                        total = TotalPrice();
+                        var price = details.Total;
                         details.OrderDetailsID = int.Parse(lblID.Text);
-                        details.Width = Convert.ToDecimal(txtWidth.Text);
-                        details.Height = Convert.ToDecimal(txtHeight.Text);
+                        details.Width = int.Parse(txtWidth.Text);
+                        details.Height = int.Parse(txtHeight.Text);
                         details.Quantity = int.Parse(txtQuantity.Text);
                         details.BlindID = int.Parse(ddlBlinds.SelectedValue.ToString());
                         details.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
                         details.ProductID = int.Parse(lblProductID.Text);
                         details.WindowPaneID = int.Parse(ddlWindowPane.SelectedValue.ToString());
-                        details.Price = Session.Methods.CalcPrice(details.ProductID, txtWidth.Text, txtHeight.Text, details.ProfileID, details.BlindID, blindBll.GetPrice(details.BlindID), windowpaneBll.GetPrice(details.WindowPaneID), details.WindowPaneID, detailsBLL.GetPrice(details.ProfileID, details.ProductID));
+                        details.Price = Session.Methods.CalcPrice(details.ProductID, txtWidth.Value.ToString(), txtHeight.Value.ToString(), details.ProfileID, details.BlindID, blindBll.GetPrice(details.BlindID), windowpaneBll.GetPrice(details.WindowPaneID), details.WindowPaneID, detailsBLL.GetPrice(details.ProfileID, details.ProductID));
                         details.Total = details.Price * details.Quantity;
                         details.LUB = 1;
 
-                        if (detailsBLL.Update(details))
+                        order.OrderID = int.Parse(lblOrderID.Text);
+                        if (price < details.Total)
+                            order.TotalPrice = total + (details.Total - price);
+                        else
+                            order.TotalPrice = total - (price-details.Total);
+                       
+                        order.LUB = 1;
+                        if (detailsBLL.Update(details) && ordersBLL.UpdatePrice(order))
                         {
-                            MessageBox.Show("Order details updated successfully!");
+                            RadMessageBox.Show("Order details updated successfully!");
                             InitOrderDetailsData(details.OrderID);
                             Clear();
+                            
                         }
                         else
-                            MessageBox.Show("Something went wrong!");
+                            RadMessageBox.Show("Something went wrong!");
                     }
                 }
                 else
-                    MessageBox.Show("Product canot be empty");
+                    RadMessageBox.Show("Product canot be empty");
             }
             else
-                MessageBox.Show("Please select an item from your order!");
+                RadMessageBox.Show("Please select an item from your order!");
         }
 
+        decimal total = 0;
+        private decimal TotalPrice()
+        {
+            decimal total = 0;
+            for(int i=0; i<orderDetailsradGridView.RowCount; i++)
+            {
+                total += Convert.ToDecimal(orderDetailsradGridView.Rows[i].Cells["Total"].Value);
+            }
+            return total;
+        }
         private void Clear()
         {
-            productMultiColumnComboBox1.Text = "Choose a product";
-            productMultiColumnComboBox1.SelectedIndex = -1;
+            GetDefaultImage();
             lblProductID.Text = "";
             txtHeight.Text = "";
             txtWidth.Text = "";
             txtQuantity.Text = "";
-            ddlBlinds.Text = "Choose a blind";
-            ddlBlinds.SelectedIndex = -1;
-            ddlWindowPane.Text = "Choose a window pane";
-            ddlWindowPane.SelectedIndex = -1;
-            ddlProfile.Text = "Choose a profile";
-            ddlProfile.SelectedIndex = -1;
             lblID.Text = "";            
         }
 
@@ -219,7 +242,7 @@ namespace PVCWindowsStudio.UI
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     detailsBLL.Delete(int.Parse(lblID.Text));
                     InitOrderDetailsData(details.OrderID);
@@ -227,15 +250,66 @@ namespace PVCWindowsStudio.UI
                     {
                         if (ordersBLL.Delete(details.OrderID))
                         {
-                            MessageBox.Show("Order item deleted successfully!");
+                            RadMessageBox.Show("Order item deleted successfully!");
                             InitOrderData();
                         }
-                        else MessageBox.Show("Something went wrong!");
+                        else RadMessageBox.Show("Something went wrong!");
                     }
                     Clear();
                 }
             }
-            else MessageBox.Show("Please select an order item!");
+            else RadMessageBox.Show("Please select an order item!");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(lblOrderID.Text))
+            {
+                if (ValidationMethod())
+                {
+                    details.OrderID = int.Parse(lblOrderID.Text);
+                    details.Width = int.Parse(txtWidth.Text);
+                    details.Height = int.Parse(txtHeight.Text);
+                    details.Quantity = int.Parse(txtQuantity.Text);
+                    details.BlindID = int.Parse(ddlBlinds.SelectedValue.ToString());
+                    details.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
+                    details.ProductID = int.Parse(productMultiColumnComboBox1.SelectedValue.ToString());
+                    details.WindowPaneID = int.Parse(ddlWindowPane.SelectedValue.ToString());
+                    details.Price = Session.Methods.CalcPrice(details.ProductID, txtWidth.Text, txtHeight.Text, details.ProfileID, details.BlindID, blindBll.GetPrice(details.BlindID), windowpaneBll.GetPrice(details.WindowPaneID), details.WindowPaneID, detailsBLL.GetPrice(details.ProfileID, details.ProductID));
+                    details.Total = details.Price * details.Quantity;
+                    details.InsertBy = 1;
+
+                    order.OrderID = int.Parse(lblOrderID.Text);
+                    order.TotalPrice = TotalPrice() + details.Total;
+                    order.LUB = 1;
+                    if (detailsBLL.Insert(details) && ordersBLL.UpdatePrice(order))
+                    {
+                        RadMessageBox.Show("Order item inserted successfully!");
+                        InitOrderDetailsData(details.OrderID);
+                        Clear();
+                    }
+                    else
+                        RadMessageBox.Show("Something went wrong!");
+                }
+            }
+            else
+                RadMessageBox.Show("Please select an order!");
+
+        }
+
+        private void orderDetailsradGridView_RowsChanged(object sender, GridViewCollectionChangedEventArgs e)
+        {
+            TotalPrice();
+        }
+
+        private void orderDetailsradGridView_CellValueChanged(object sender, GridViewCellEventArgs e)
+        {
+            TotalPrice();
+        }
+
+        private void orderMultiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

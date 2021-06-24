@@ -29,6 +29,7 @@ namespace PVCWindowsStudio.UI
                 if(user!=null)
                 {
                     UserSession.CurrentUser = user;
+                    this.DialogResult = DialogResult.Yes;
                     this.Close();
                 }
                 else
@@ -37,6 +38,7 @@ namespace PVCWindowsStudio.UI
                     Application.Exit();
                 }
             }
+           
         }
     }
 }

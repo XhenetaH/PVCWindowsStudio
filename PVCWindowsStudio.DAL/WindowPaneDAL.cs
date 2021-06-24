@@ -64,7 +64,7 @@ namespace PVCWindowsStudio.DAL
             }
             catch
             {
-                return 0;
+                return -1;
             }
         }
 

@@ -144,6 +144,10 @@ namespace PVCWindowsStudio.DAL
                 UserName = reader["UserName"].ToString(),
                 Password = reader["Password"].ToString(),
                 RoleID = int.Parse(reader["RoleID"].ToString()),
+                Role = new Roles()
+                {
+                    Name = reader["RoleName"].ToString()
+                }
             };
 
             return user;

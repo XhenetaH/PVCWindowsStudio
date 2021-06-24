@@ -26,6 +26,7 @@ namespace PVCWindowsStudio.UI
         private void WindowPanesForm_Load(object sender, EventArgs e)
         {
             InitiateData();
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
         }
 
         private void InitiateData()
@@ -36,19 +37,19 @@ namespace PVCWindowsStudio.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPrice.Text))
-            {                
+            {
+                windowpane.Name = txtName.Text;
+                windowpane.Price = Convert.ToDecimal(txtPrice.Text);
+                windowpane.Other = txtDescription.Text;
+                windowpane.InsertBy = 1;
                 if (windowpaneBll.Insert(windowpane))
                 {
-                    windowpane.Name = txtName.Text;
-                    windowpane.Price = Convert.ToDecimal(txtPrice.Text);
-                    windowpane.Other = txtDescription.Text;
-                    windowpane.InsertBy = 1;
-                    MessageBox.Show("Window Pane inserted successfully!");
+                    RadMessageBox.Show("Window Pane inserted successfully!");
                     Clear();
                     InitiateData();
                     this.radValidationProvider1.ClearErrorStatus();
                 }
-                else MessageBox.Show("Something went worng!");
+                else RadMessageBox.Show("Something went worng!");
             }
             else
             {
@@ -69,44 +70,44 @@ namespace PVCWindowsStudio.UI
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
-            {                
+            {
+                windowpane.Name = txtName.Text;
+                windowpane.Price = Convert.ToDecimal(txtPrice.Text);
+                windowpane.Other = txtDescription.Text;
+                windowpane.LUB = 1;
                 if (!String.IsNullOrEmpty(txtName.Text))
-                {
-                    windowpane.Name = txtName.Text;
-                    windowpane.Price = Convert.ToDecimal(txtPrice.Text);
-                    windowpane.Other = txtDescription.Text;
-                    windowpane.LUB = 1;
+                {                    
                     if (windowpaneBll.Update(windowpane))
                     {
-                        MessageBox.Show("Window Pane updated successfully!");
+                        RadMessageBox.Show("Window Pane updated successfully!");
                         Clear();
                         InitiateData();
                         this.radValidationProvider1.ClearErrorStatus();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }
                 else this.radValidationProvider1.Validate(txtName);
 
             }
-            else MessageBox.Show("Please select a Window Pane!");
+            else RadMessageBox.Show("Please select a Window Pane!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     if (windowpaneBll.Delete(int.Parse(lblID.Text)))
                     {
-                        MessageBox.Show("Window Pane deleted successfully!");
+                        RadMessageBox.Show("Window Pane deleted successfully!");
                         InitiateData();
                         Clear();
                     }
-                    else MessageBox.Show("Something went wrong!");
+                    else RadMessageBox.Show("Something went wrong!");
                 }                
             }
-            else MessageBox.Show("Please select a window pane!");
+            else RadMessageBox.Show("Please select a window pane!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)

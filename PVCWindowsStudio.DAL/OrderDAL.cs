@@ -197,7 +197,27 @@ namespace PVCWindowsStudio.DAL
 
             return ord;
         }
-
+        public bool UpdatePrice(Orders model)
+        {
+            try
+            {
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Order_PriceUpdate", CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "OrderID", model.OrderID);
+                        DataConnection.AddParameter(command, "TotalPrice", model.TotalPrice);
+                        DataConnection.AddParameter(command, "LUB", model.LUB);
+                        int result = command.ExecuteNonQuery();
+                        return result > 0;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public bool Update(Orders model)
         {
             try

@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem2 = new Telerik.WinControls.UI.RadListDataItem();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule4 = new Telerik.WinControls.UI.RadValidationRule();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule5 = new Telerik.WinControls.UI.RadValidationRule();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule6 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.txtPassword = new Telerik.WinControls.UI.RadTextBox();
             this.roleddlist = new Telerik.WinControls.UI.RadDropDownList();
@@ -87,7 +86,7 @@
             this.txtName.Size = new System.Drawing.Size(281, 41);
             this.txtName.TabIndex = 0;
             this.txtName.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule4);
+            this.radValidationProvider1.SetValidationRule(this.txtName, radValidationRule1);
             // 
             // txtPassword
             // 
@@ -96,19 +95,19 @@
             this.txtPassword.Size = new System.Drawing.Size(281, 41);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtPassword, radValidationRule5);
+            this.radValidationProvider1.SetValidationRule(this.txtPassword, radValidationRule2);
             // 
             // roleddlist
             // 
             this.roleddlist.DropDownAnimationEnabled = true;
-            radListDataItem2.Text = "Choose Role";
-            this.roleddlist.Items.Add(radListDataItem2);
+            radListDataItem1.Text = "Choose Role";
+            this.roleddlist.Items.Add(radListDataItem1);
             this.roleddlist.Location = new System.Drawing.Point(28, 254);
             this.roleddlist.Name = "roleddlist";
             this.roleddlist.Size = new System.Drawing.Size(281, 41);
             this.roleddlist.TabIndex = 10;
             this.roleddlist.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.roleddlist, radValidationRule6);
+            this.radValidationProvider1.SetValidationRule(this.roleddlist, null);
             // 
             // usersGridView
             // 
@@ -122,27 +121,27 @@
             this.usersGridView.MasterTemplate.AllowEditRow = false;
             this.usersGridView.MasterTemplate.AllowSearchRow = true;
             this.usersGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn4.FieldName = "UserName";
-            gridViewTextBoxColumn4.HeaderText = "UserName";
-            gridViewTextBoxColumn4.Name = "UserName";
-            gridViewTextBoxColumn4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn4.Width = 264;
-            gridViewTextBoxColumn5.FieldName = "Password";
-            gridViewTextBoxColumn5.HeaderText = "Password";
-            gridViewTextBoxColumn5.Name = "Password";
-            gridViewTextBoxColumn5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn5.Width = 249;
-            gridViewTextBoxColumn6.FieldName = "Role.Name";
-            gridViewTextBoxColumn6.HeaderText = "Role";
-            gridViewTextBoxColumn6.Name = "Role";
-            gridViewTextBoxColumn6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            gridViewTextBoxColumn6.Width = 131;
+            gridViewTextBoxColumn1.FieldName = "UserName";
+            gridViewTextBoxColumn1.HeaderText = "UserName";
+            gridViewTextBoxColumn1.Name = "UserName";
+            gridViewTextBoxColumn1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn1.Width = 264;
+            gridViewTextBoxColumn2.FieldName = "Password";
+            gridViewTextBoxColumn2.HeaderText = "Password";
+            gridViewTextBoxColumn2.Name = "Password";
+            gridViewTextBoxColumn2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn2.Width = 249;
+            gridViewTextBoxColumn3.FieldName = "Role.Name";
+            gridViewTextBoxColumn3.HeaderText = "Role";
+            gridViewTextBoxColumn3.Name = "Role";
+            gridViewTextBoxColumn3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            gridViewTextBoxColumn3.Width = 131;
             this.usersGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewTextBoxColumn6});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
             this.usersGridView.MasterTemplate.EnablePaging = true;
-            this.usersGridView.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            this.usersGridView.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.usersGridView.Name = "usersGridView";
             this.usersGridView.Size = new System.Drawing.Size(692, 777);
             this.usersGridView.TabIndex = 0;
@@ -353,22 +352,17 @@
             // radValidationProvider1
             // 
             this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
-            radValidationRule4.Controls.Add(this.txtName);
-            radValidationRule4.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule4.ToolTipText = "UserName can\'t be empty!";
-            radValidationRule4.Value = "";
-            radValidationRule5.Controls.Add(this.txtPassword);
-            radValidationRule5.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule5.ToolTipText = "Password can\'t be empty!";
-            radValidationRule5.Value = "";
-            radValidationRule6.Controls.Add(this.roleddlist);
-            radValidationRule6.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule6.ToolTipText = "Role must be selected!";
-            radValidationRule6.Value = "";
+            radValidationRule1.Controls.Add(this.txtName);
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule1.ToolTipText = "UserName can\'t be empty!";
+            radValidationRule1.Value = "";
+            radValidationRule2.Controls.Add(this.txtPassword);
+            radValidationRule2.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule2.ToolTipText = "Password can\'t be empty!";
+            radValidationRule2.Value = "";
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
-            radValidationRule4,
-            radValidationRule5,
-            radValidationRule6});
+            radValidationRule1,
+            radValidationRule2});
             // 
             // UsersForm
             // 

@@ -36,6 +36,7 @@
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             this.txtName = new Telerik.WinControls.UI.RadTextBox();
             this.radPanel6 = new Telerik.WinControls.UI.RadPanel();
             this.clientGridView1 = new Telerik.WinControls.UI.RadGridView();
@@ -328,7 +329,7 @@
             this.txtLastName.Size = new System.Drawing.Size(280, 41);
             this.txtLastName.TabIndex = 6;
             this.txtLastName.ThemeName = "MaterialBlueGrey";
-            this.radValidationProvider1.SetValidationRule(this.txtLastName, null);
+            this.radValidationProvider1.SetValidationRule(this.txtLastName, radValidationRule2);
             // 
             // lblID
             // 
@@ -437,8 +438,13 @@
             radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
             radValidationRule1.ToolTipText = "Name can\'t be empty!";
             radValidationRule1.Value = "";
+            radValidationRule2.Controls.Add(this.txtLastName);
+            radValidationRule2.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule2.ToolTipText = "Last Name can\'t be empty!";
+            radValidationRule2.Value = "";
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
-            radValidationRule1});
+            radValidationRule1,
+            radValidationRule2});
             // 
             // ClientsForm
             // 

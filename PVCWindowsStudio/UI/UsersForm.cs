@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using Telerik.WinControls.UI;
 
 namespace PVCWindowsStudio.UI
 {
@@ -23,32 +24,45 @@ namespace PVCWindowsStudio.UI
             roleBll = new RoleBLL();
             InitializeComponent();
         }
+        private bool ValidationMethod()
+        {
+            bool valid = true;
+            if (this.radValidationProvider1.ValidationMode == ValidationMode.Programmatically)
+            {
+                foreach (Control control in this.radPanel5.Controls)
+                {
+                    RadEditorControl editorControl = control as RadEditorControl;
+                    if (editorControl != null)
+                    {
+                        this.radValidationProvider1.Validate(editorControl);
+                        var mode = this.radValidationProvider1.AssociatedControls;
+                        foreach (var i in mode)
+                        {
+                            if (string.IsNullOrEmpty(i.AccessibilityObject.Value.ToString()))
+                                valid = false;
+                        }
+                    }
+                }
+            }
+            return valid;
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {            
-            if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPassword.Text) && user.RoleID >= 0)
+            if (ValidationMethod())
             {
                 user.UserName = txtName.Text;
                 user.Password = txtPassword.Text;
-                if (roleddlist.SelectedValue == null)
-                    user.RoleID = -1;
-                else
-                    user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
+                user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
                 user.InsertBy = 1;
                 if (userBll.Insert(user))
                 {
-                    MessageBox.Show("User inserted successfully!");
+                    RadMessageBox.Show("User inserted successfully!");
                     Clear();
                     InitiateData();
                 }
-                else MessageBox.Show("Something went wrong!");
-            }
-            else
-            {
-                this.radValidationProvider1.Validate(txtName);
-                this.radValidationProvider1.Validate(txtPassword);
-                this.radValidationProvider1.Validate(roleddlist);
-            }            
+                else RadMessageBox.Show("Something went wrong!");
+            }    
         }
 
         private void Clear()
@@ -56,8 +70,6 @@ namespace PVCWindowsStudio.UI
             lblID.Text = "";
             txtName.Text = "";
             txtPassword.Text = "";
-            roleddlist.SelectedIndex = -1;
-            roleddlist.Text = "Select a role";
         }
         private void InitiateData()
         {
@@ -68,50 +80,40 @@ namespace PVCWindowsStudio.UI
             roleddlist.DataSource = roleBll.GetAll();
             roleddlist.DisplayMember = "Name";
             roleddlist.ValueMember = "RoleID";
-            roleddlist.Text = "Select a role";
             
 
             InitiateData();
-            
+            RadMessageBox.SetThemeName("MaterialBlueGrey");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {                
-                if (!String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtPassword.Text) && user.RoleID >= 0)
+                if (ValidationMethod())
                 {
                     user.UserID = int.Parse(lblID.Text);
                     user.UserName = txtName.Text;
                     user.Password = txtPassword.Text;
-                    if (roleddlist.SelectedValue == null)
-                        user.RoleID = -1;
-                    else
-                        user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
+                    user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
                     user.LUB = 1;
                     if (userBll.Update(user))
                     {
-                        MessageBox.Show("User is updated successfully!");
+                        RadMessageBox.Show("User is updated successfully!");
                         Clear();
                         InitiateData();
                     }
-                    else MessageBox.Show("Something went wrong!");
-                }
-                else
-                {
-                    this.radValidationProvider1.Validate(txtName);
-                    this.radValidationProvider1.Validate(txtPassword);
-                    this.radValidationProvider1.Validate(roleddlist);
+                    else RadMessageBox.Show("Something went wrong!");                
                 }
             }
-            else MessageBox.Show("Please select an user!");
+            else RadMessageBox.Show("Please select an user!");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(lblID.Text))
             {
-                if (MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (RadMessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo, RadMessageIcon.Question) == DialogResult.Yes)
                 {
                     userBll.Delete(int.Parse(lblID.Text));
                     InitiateData();
@@ -119,7 +121,7 @@ namespace PVCWindowsStudio.UI
                 }
 
             }
-            else MessageBox.Show("Please select a user!");
+            else RadMessageBox.Show("Please select a user!");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
