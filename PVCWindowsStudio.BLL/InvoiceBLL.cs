@@ -27,6 +27,14 @@ namespace PVCWindowsStudio.BLL
             throw new NotImplementedException();
         }
 
+        public int GetNr()
+        {
+            return dal.GetNumber();
+        }
+        public int GetNrByDate()
+        {
+            return dal.GetNumberByDate();
+        }
         public Invoices Get(Invoices model)
         {
             throw new NotImplementedException();

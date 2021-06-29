@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,7 @@ namespace PVCWindowsStudio.UI
                         pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
                     pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
                     pricelist.Price = Convert.ToDecimal(txtPrice.Value.ToString());
-                    pricelist.InsertBy = 1;
+                    pricelist.InsertBy = UserSession.CurrentUser.UserID;
                     if (pricelistbll.Insert(pricelist))
                     {
                         RadMessageBox.Show("Item inserted successfully!");
@@ -127,7 +128,7 @@ namespace PVCWindowsStudio.UI
                             pricelist.ProfileID = int.Parse(ddlProfile.SelectedValue.ToString());
                         pricelist.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
                         pricelist.Price = Convert.ToDecimal(txtPrice.Value.ToString());
-                        pricelist.LUB = 1;
+                        pricelist.LUB = UserSession.CurrentUser.UserID;
                         if (pricelistbll.Update(pricelist))
                         {
                             RadMessageBox.Show("Item updated successfully!");
@@ -179,6 +180,27 @@ namespace PVCWindowsStudio.UI
                 }
             }
             else RadMessageBox.Show("Please select a Price List item!");
+        }
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "PriceList.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

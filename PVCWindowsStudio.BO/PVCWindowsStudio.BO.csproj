@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,7 @@
   <ItemGroup>
     <Compile Include="AuditColumns.cs" />
     <Compile Include="Blinds.cs" />
+    <Compile Include="ChangeLanguage.cs" />
     <Compile Include="Clients.cs" />
     <Compile Include="Formula.cs" />
     <Compile Include="HandiWork.cs" />

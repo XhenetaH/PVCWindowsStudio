@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -63,7 +64,7 @@ namespace PVCWindowsStudio.UI
                 profile.Name = txtName.Text;
                 profile.Other = txtDescription.Text;
                 profile.Color = txtColor.Text;
-                profile.InsertBy = 1;
+                profile.InsertBy = UserSession.CurrentUser.UserID;
                 if (profileBll.Insert(profile))
                 {
                     RadMessageBox.Show("Profile inserted successfully!");
@@ -93,7 +94,7 @@ namespace PVCWindowsStudio.UI
                     profile.Name = txtName.Text;
                     profile.Other = txtDescription.Text;
                     profile.Color = txtColor.Text;
-                    profile.LUB = 1;
+                    profile.LUB = UserSession.CurrentUser.UserID;
                     if (profileBll.Update(profile))
                     {
                         RadMessageBox.Show("Profile updated successfully!");
@@ -146,6 +147,40 @@ namespace PVCWindowsStudio.UI
                     txtColor.Text = profile.Color;
                 }
             }
+        }
+
+        private void btnAlbania_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnEnglish_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Profiles.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

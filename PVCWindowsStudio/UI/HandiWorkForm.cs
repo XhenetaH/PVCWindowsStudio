@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,6 +72,7 @@ namespace PVCWindowsStudio.UI
                     handi.MaxWidth = int.Parse(txtMaxWidth.Value.ToString());
                     handi.MinWidth = int.Parse(txtMinWidth.Value.ToString());
                     handi.Price = Convert.ToDecimal(txtPricee.Value.ToString());
+                    handi.LUB = UserSession.CurrentUser.UserID;
 
                     if (handiBll.Update(handi))
                     {
@@ -141,7 +143,7 @@ namespace PVCWindowsStudio.UI
                 handi.MaxWidth = int.Parse(txtMaxWidth.Value.ToString());
                 handi.MinWidth = int.Parse(txtMinWidth.Value.ToString());
                 handi.Price = Convert.ToDecimal(txtPricee.Value.ToString());
-
+                handi.InsertBy = UserSession.CurrentUser.UserID;
                 if (handiBll.Insert(handi))
                 {
                     RadMessageBox.Show("HandiWork inserted successfully!");
@@ -151,6 +153,40 @@ namespace PVCWindowsStudio.UI
                 else RadMessageBox.Show("Something went wrong!");
 
             }
+        }
+
+        private void btnAlbania_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnEnglish_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "HandiWork.htm");
+
         }
     }
 }

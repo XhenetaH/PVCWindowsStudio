@@ -1,6 +1,7 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BLL.FormModels;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,7 +68,7 @@ namespace PVCWindowsStudio.UI
                 productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
                 productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
                 productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
-                productModel.ProductItems.InsertBy = 1;
+                productModel.ProductItems.InsertBy = UserSession.CurrentUser.UserID;
 
                 if (productModel.ProductItemsBll.Insert(productModel.ProductItems))
                 {
@@ -104,7 +105,7 @@ namespace PVCWindowsStudio.UI
                     productModel.ProductItems.MaterialID = int.Parse(ddlMaterial.SelectedValue.ToString());
                     productModel.ProductItems.ProductID = int.Parse(lblproductID.Text);
                     productModel.ProductItems.FormulaID = int.Parse(ddlFormula.SelectedValue.ToString());
-                    productModel.ProductItems.LUB = 1;
+                    productModel.ProductItems.LUB = UserSession.CurrentUser.UserID;
 
                     if (productModel.ProductItemsBll.Update(productModel.ProductItems))
                     {
@@ -193,6 +194,28 @@ namespace PVCWindowsStudio.UI
             FormulaForm frm = new FormulaForm();
             frm.FormBorderStyle = FormBorderStyle.Sizable;
             frm.Show();
+        }
+
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "ProductItems.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

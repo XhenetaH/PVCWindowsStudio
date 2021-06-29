@@ -36,7 +36,7 @@ namespace PVCWindowsStudio.UI
                 client.PhoneNumber = txtPhoneNr.Text;
                 client.Email = txtEmail.Text;
                 client.Address = txtAddress.Text;
-                client.InsertBy = 1;
+                client.InsertBy = UserSession.CurrentUser.UserID;
                 if (clientBll.Insert(client))
                 {
                     MessageBox.Show("Client is inserted successfully!");
@@ -66,7 +66,7 @@ namespace PVCWindowsStudio.UI
                     client.PhoneNumber = txtPhoneNr.Text;
                     client.Email = txtEmail.Text;
                     client.Address = txtAddress.Text;
-                    client.LUB = 1;
+                    client.LUB = UserSession.CurrentUser.UserID;
                     if (clientBll.Update(client))
                     {
                         RadMessageBox.Show("Client is updated successfully!");
@@ -154,6 +154,28 @@ namespace PVCWindowsStudio.UI
                     txtPhoneNr.Text = client.PhoneNumber;
                 }
             }
+        }
+
+      
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Clients.htm");
+
         }
     }
 }

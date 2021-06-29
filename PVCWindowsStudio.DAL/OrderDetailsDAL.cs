@@ -106,6 +106,61 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
+        public decimal GetPriceByDate(int month, int year)
+        {
+            try
+            {
+                decimal total =0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_OrderDetails_GetPriceByDate", CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "Month", month);
+                        DataConnection.AddParameter(command, "Year", year);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {                            
+                            if (reader.Read())
+                            {
+                                total = Convert.ToDecimal(reader["Total"].ToString());
+                            }
+                        }
+                    }
+                }
+                return total;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        public List<DateTime> GetDateChart()
+        {
+            try
+            {
+                List<DateTime> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_OrderDetails_GetDateChart", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<DateTime>();
+                            while (reader.Read())
+                            {
+                                lista.Add(Convert.ToDateTime(reader["InsertDate"].ToString()));
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
 
         public List<PriceCalculation> GetPrice(int profileId,int productId)
         {
@@ -159,6 +214,7 @@ namespace PVCWindowsStudio.DAL
                         DataConnection.AddParameter(command, "Height", model.Height);
                         DataConnection.AddParameter(command, "Price", model.Price);
                         DataConnection.AddParameter(command, "Total", model.Total);
+                        DataConnection.AddParameter(command, "HandWorkPrice", model.HandWorkPrice);
                         DataConnection.AddParameter(command, "InsertBy", model.InsertBy);
                         int result = command.ExecuteNonQuery();
                         return result > 0;

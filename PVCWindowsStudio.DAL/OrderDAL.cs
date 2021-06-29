@@ -69,6 +69,56 @@ namespace PVCWindowsStudio.DAL
             throw new NotImplementedException();
         }
 
+        public int GetNumberByDate()
+        {
+            try
+            {
+                int nr = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Order_GetNumberByDate", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nr = int.Parse(reader["OrderNr"].ToString());
+                            }
+                        }
+                    }
+                }
+                return nr;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public int GetNumber()
+        {
+            try
+            {
+                int nr = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Order_GetNumber", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nr = int.Parse(reader["OrderNr"].ToString());
+                            }
+                        }
+                    }
+                }
+                return nr;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
         public List<Orders> GetAll()
         {
             try

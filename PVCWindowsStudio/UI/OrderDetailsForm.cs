@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,10 +96,9 @@ namespace PVCWindowsStudio.UI
         private void InitOrderData()
         {
             orderMultiComboBox.DataSource = ordersBLL.GetAll();
-            orderMultiComboBox.SelectedIndex = -1;
+            //orderMultiComboBox.SelectedIndex = -1;
             orderMultiComboBox.AutoCompleteMode = AutoCompleteMode.Append;
             orderMultiComboBox.ValueMember = "OrderID";
-            orderMultiComboBox.DisplayMember = "OrderID";
             orderMultiComboBox.Text = "Choose a order";
         }
 
@@ -186,7 +186,7 @@ namespace PVCWindowsStudio.UI
                         details.WindowPaneID = int.Parse(ddlWindowPane.SelectedValue.ToString());
                         details.Price = Session.Methods.CalcPrice(details.ProductID, txtWidth.Value.ToString(), txtHeight.Value.ToString(), details.ProfileID, details.BlindID, blindBll.GetPrice(details.BlindID), windowpaneBll.GetPrice(details.WindowPaneID), details.WindowPaneID, detailsBLL.GetPrice(details.ProfileID, details.ProductID));
                         details.Total = details.Price * details.Quantity;
-                        details.LUB = 1;
+                        details.LUB = UserSession.CurrentUser.UserID;
 
                         order.OrderID = int.Parse(lblOrderID.Text);
                         if (price < details.Total)
@@ -194,7 +194,7 @@ namespace PVCWindowsStudio.UI
                         else
                             order.TotalPrice = total - (price-details.Total);
                        
-                        order.LUB = 1;
+                        order.LUB = UserSession.CurrentUser.UserID;
                         if (detailsBLL.Update(details) && ordersBLL.UpdatePrice(order))
                         {
                             RadMessageBox.Show("Order details updated successfully!");
@@ -277,11 +277,11 @@ namespace PVCWindowsStudio.UI
                     details.WindowPaneID = int.Parse(ddlWindowPane.SelectedValue.ToString());
                     details.Price = Session.Methods.CalcPrice(details.ProductID, txtWidth.Text, txtHeight.Text, details.ProfileID, details.BlindID, blindBll.GetPrice(details.BlindID), windowpaneBll.GetPrice(details.WindowPaneID), details.WindowPaneID, detailsBLL.GetPrice(details.ProfileID, details.ProductID));
                     details.Total = details.Price * details.Quantity;
-                    details.InsertBy = 1;
+                    details.InsertBy = UserSession.CurrentUser.UserID;
 
                     order.OrderID = int.Parse(lblOrderID.Text);
                     order.TotalPrice = TotalPrice() + details.Total;
-                    order.LUB = 1;
+                    order.LUB = UserSession.CurrentUser.UserID;
                     if (detailsBLL.Insert(details) && ordersBLL.UpdatePrice(order))
                     {
                         RadMessageBox.Show("Order item inserted successfully!");
@@ -310,6 +310,26 @@ namespace PVCWindowsStudio.UI
         private void orderMultiComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "OrderDetails.htm");
+
         }
     }
 }

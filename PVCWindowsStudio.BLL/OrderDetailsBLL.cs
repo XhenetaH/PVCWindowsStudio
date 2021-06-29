@@ -40,6 +40,14 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.GetAll(id);
         }
+        public decimal GetPriceByDate(int month,int year)
+        {
+            return dal.GetPriceByDate(month,year);
+        }
+        public List<DateTime> GetDateChart()
+        {
+            return dal.GetDateChart();
+        }
         public bool Insert(OrderDetails model)
         {
             return dal.Insert(model);

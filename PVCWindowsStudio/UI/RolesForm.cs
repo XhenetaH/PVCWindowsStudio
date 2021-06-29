@@ -34,7 +34,7 @@ namespace PVCWindowsStudio.UI
             if(!String.IsNullOrEmpty(txtName.Text))
             {
                 role.Name = txtName.Text;
-                role.InsertBy = 1;
+                role.InsertBy = UserSession.CurrentUser.UserID;
                 if(roleBll.Insert(role))
                 {
                     RadMessageBox.Show("Role inserted successfully!");
@@ -60,7 +60,7 @@ namespace PVCWindowsStudio.UI
                 if (!String.IsNullOrEmpty(txtName.Text))
                 {
                     role.Name = txtName.Text;
-                    role.LUB = 1;
+                    role.LUB = UserSession.CurrentUser.UserID;
 
                     if (roleBll.Update(role))
                     {
@@ -121,6 +121,40 @@ namespace PVCWindowsStudio.UI
                     txtName.Text = role.Name;
                 }
             }
+        }
+
+        private void btnAlbania_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
+        }
+
+        private void btnEnglish_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Roles.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

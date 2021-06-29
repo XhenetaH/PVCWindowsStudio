@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,7 +55,8 @@ namespace PVCWindowsStudio.UI
                 user.UserName = txtName.Text;
                 user.Password = txtPassword.Text;
                 user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
-                user.InsertBy = 1;
+                user.InsertBy = UserSession.CurrentUser.UserID;
+                    
                 if (userBll.Insert(user))
                 {
                     RadMessageBox.Show("User inserted successfully!");
@@ -96,7 +98,7 @@ namespace PVCWindowsStudio.UI
                     user.UserName = txtName.Text;
                     user.Password = txtPassword.Text;
                     user.RoleID = int.Parse(roleddlist.SelectedValue.ToString());
-                    user.LUB = 1;
+                    user.LUB = UserSession.CurrentUser.UserID;
                     if (userBll.Update(user))
                     {
                         RadMessageBox.Show("User is updated successfully!");
@@ -144,6 +146,28 @@ namespace PVCWindowsStudio.UI
                     roleddlist.SelectedValue = user.RoleID;
                 }
             }
+        }
+
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Users.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

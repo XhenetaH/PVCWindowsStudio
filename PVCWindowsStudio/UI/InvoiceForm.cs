@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,7 +96,7 @@ namespace PVCWindowsStudio.UI
                     invoice.Paid = Convert.ToDecimal(txtPaid.Text);
                     invoice.Debt = Convert.ToDecimal(txtDebt.Text);
                     invoice.Date = radDateTimePicker1.Value;
-                    invoice.LUB = 1;
+                    invoice.LUB = UserSession.CurrentUser.UserID;
 
                     if (invoiceBll.Update(invoice))
                     {
@@ -218,6 +219,27 @@ namespace PVCWindowsStudio.UI
                     txtPaid.Text = (invoice.Order.TotalPrice - Convert.ToDecimal(txtDebt.Text)).ToString();
                 }
             }
+        }
+
+       
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Invoice.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

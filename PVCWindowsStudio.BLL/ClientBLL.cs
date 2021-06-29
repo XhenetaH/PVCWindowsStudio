@@ -21,7 +21,15 @@ namespace PVCWindowsStudio.BLL
         {
             throw new NotImplementedException();
         }
+        public int GetNr()
+        {
+            return dal.GetNumber();
+        }
 
+        public int GetNrByDate()
+        {
+            return dal.GetNumberByDate();
+        }
         public Clients Get(int id)
         {
             return dal.Get(id);

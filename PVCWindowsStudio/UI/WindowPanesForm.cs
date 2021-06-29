@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace PVCWindowsStudio.UI
                 windowpane.Name = txtName.Text;
                 windowpane.Price = Convert.ToDecimal(txtPrice.Text);
                 windowpane.Other = txtDescription.Text;
-                windowpane.InsertBy = 1;
+                windowpane.InsertBy = UserSession.CurrentUser.UserID;
                 if (windowpaneBll.Insert(windowpane))
                 {
                     RadMessageBox.Show("Window Pane inserted successfully!");
@@ -74,7 +75,7 @@ namespace PVCWindowsStudio.UI
                 windowpane.Name = txtName.Text;
                 windowpane.Price = Convert.ToDecimal(txtPrice.Text);
                 windowpane.Other = txtDescription.Text;
-                windowpane.LUB = 1;
+                windowpane.LUB = UserSession.CurrentUser.UserID;
                 if (!String.IsNullOrEmpty(txtName.Text))
                 {                    
                     if (windowpaneBll.Update(windowpane))
@@ -130,6 +131,27 @@ namespace PVCWindowsStudio.UI
                     txtDescription.Text = windowpane.Other;
                 }
             }
+        }
+
+        
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "WindowPanes.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

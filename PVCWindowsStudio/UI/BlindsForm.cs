@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace PVCWindowsStudio.UI
                 blind.Other = txtDescription.Text;
                 blind.Price = Convert.ToDecimal(txtPrice.Text);
                 blind.Color = txtColor.Text;
-                blind.InsertBy = 1;
+                blind.InsertBy = UserSession.CurrentUser.UserID;
                 if (blindBll.Insert(blind))
                 {
                     MessageBox.Show("Blind inserted successfully!");
@@ -75,7 +76,7 @@ namespace PVCWindowsStudio.UI
                     blind.Other = txtDescription.Text;
                     blind.Price = Convert.ToDecimal(txtPrice.Text);
                     blind.Color = txtColor.Text;
-                    blind.LUB = 1;
+                    blind.LUB = UserSession.CurrentUser.UserID;
                     if (blindBll.Update(blind))
                     {
                         MessageBox.Show("Blind is updated successfully!");
@@ -130,6 +131,28 @@ namespace PVCWindowsStudio.UI
                     txtPrice.Text = blind.Price.ToString();
                 }
             }
+        }
+
+      
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.TopicId, "Blinds");
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

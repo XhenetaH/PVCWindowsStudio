@@ -75,7 +75,34 @@ namespace PVCWindowsStudio.DAL
             }
 
         }
+        public decimal GetPriceByDate(int month, int year)
+        {
+            try
+            {
+                decimal price = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_HandiWork_GetPriceByDate", CommandType.StoredProcedure))
+                    {
+                        DataConnection.AddParameter(command, "Month", month);
+                        DataConnection.AddParameter(command, "Year", year);
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                price = Convert.ToDecimal(reader["Total"].ToString());
+                            }
+                        }
+                    }
+                }
+                return price;
+            }
+            catch
+            {
+                return 0;
+            }
 
+        }
         public List<HandiWork> GetAll()
         {
             try

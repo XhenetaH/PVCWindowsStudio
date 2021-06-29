@@ -43,6 +43,16 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.GetAllExist();
         }
+
+        public int GetNr()
+        {
+            return dal.GetNumber();
+        }
+
+        public int GetNrByDate()
+        {
+            return dal.GetNumberByDate();
+        }
         public int GetID()
         {
             return dal.GetID();

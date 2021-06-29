@@ -134,7 +134,36 @@ namespace PVCWindowsStudio.DAL
         {
             throw new NotImplementedException();
         }
+        public List<Profiles> Get()
+        {
+            try
+            {
+                List<Profiles> lista = null;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Profile_Get", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            lista = new List<Profiles>();
+                            while (reader.Read())
+                            {
+                                Profiles pro = new Profiles();
+                                pro.ProfileID = int.Parse(reader["ProfileNr"].ToString());
+                                pro.NameProf = reader["Name"].ToString() + reader["Color"].ToString();
+                                lista.Add(pro);
 
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<Profiles> GetAll()
         {
             try

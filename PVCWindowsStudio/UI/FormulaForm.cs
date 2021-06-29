@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -212,7 +213,7 @@ namespace PVCWindowsStudio.UI
             if(!String.IsNullOrEmpty(txtValue.Text))
             {
                 formula.FormulaType = txtValue.Text;
-                formula.InsertBy = 1;
+                formula.InsertBy = UserSession.CurrentUser.UserID;
 
                 if(formulaBLL.Insert(formula))
                 {
@@ -251,7 +252,7 @@ namespace PVCWindowsStudio.UI
             if (!String.IsNullOrEmpty(txtValue.Text))
             {
                 formula.FormulaType = txtValue.Text;
-                formula.LUB = 1;
+                formula.LUB = UserSession.CurrentUser.UserID;
                 if (formulaBLL.Update(formula))
                 {
                     MessageBox.Show("Formula updated successfully!");
@@ -293,6 +294,28 @@ namespace PVCWindowsStudio.UI
         {
             txtValue.Text = "";
             lblID.Text = "";
+        }
+
+     
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Formula.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbaniaa_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

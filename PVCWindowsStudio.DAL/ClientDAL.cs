@@ -33,7 +33,56 @@ namespace PVCWindowsStudio.DAL
                 return false;
             }
         }
-
+        public int GetNumberByDate()
+        {
+            try
+            {
+                int nr = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Client_GetNumberByDate", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nr = int.Parse(reader["ClientNr"].ToString());
+                            }
+                        }
+                    }
+                }
+                return nr;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public int GetNumber()
+        {
+            try
+            {
+                int nr = 0;
+                using (var connection = DataConnection.GetConnection())
+                {
+                    using (var command = DataConnection.Command(connection, "usp_Client_GetNumber", CommandType.StoredProcedure))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                nr = int.Parse(reader["ClientNr"].ToString());
+                            }
+                        }
+                    }
+                }
+                return nr;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
         public bool Delete(Clients model)
         {
             throw new NotImplementedException();

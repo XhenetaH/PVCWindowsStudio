@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HandiWorkForm));
             Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadValidationRule radValidationRule3 = new Telerik.WinControls.UI.RadValidationRule();
@@ -61,10 +62,12 @@
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnUpdate = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
-            this.radPanel3 = new Telerik.WinControls.UI.RadPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.handworkGridView1 = new Telerik.WinControls.UI.RadGridView();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.helpBtn = new System.Windows.Forms.PictureBox();
+            this.btnAmerican = new System.Windows.Forms.PictureBox();
+            this.btnAlbania = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaxHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinWidth)).BeginInit();
@@ -83,63 +86,48 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).BeginInit();
-            this.radPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.handworkGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.handworkGridView1.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMinHeight
             // 
-            this.txtMinHeight.Location = new System.Drawing.Point(30, 313);
-            this.txtMinHeight.MaskType = Telerik.WinControls.UI.MaskType.Numeric;
+            resources.ApplyResources(this.txtMinHeight, "txtMinHeight");
             this.txtMinHeight.Name = "txtMinHeight";
-            this.txtMinHeight.Size = new System.Drawing.Size(262, 41);
-            this.txtMinHeight.TabIndex = 17;
             this.txtMinHeight.TabStop = false;
-            this.txtMinHeight.Text = "0";
             this.txtMinHeight.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtMinHeight.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtMinHeight, radValidationRule1);
             // 
             // txtMaxHeight
             // 
-            this.txtMaxHeight.Location = new System.Drawing.Point(30, 234);
-            this.txtMaxHeight.MaskType = Telerik.WinControls.UI.MaskType.Numeric;
+            resources.ApplyResources(this.txtMaxHeight, "txtMaxHeight");
             this.txtMaxHeight.Name = "txtMaxHeight";
-            this.txtMaxHeight.Size = new System.Drawing.Size(262, 41);
-            this.txtMaxHeight.TabIndex = 14;
             this.txtMaxHeight.TabStop = false;
-            this.txtMaxHeight.Text = "0";
             this.txtMaxHeight.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtMaxHeight.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtMaxHeight, radValidationRule2);
             // 
             // txtMinWidth
             // 
-            this.txtMinWidth.Location = new System.Drawing.Point(30, 148);
-            this.txtMinWidth.MaskType = Telerik.WinControls.UI.MaskType.Numeric;
+            resources.ApplyResources(this.txtMinWidth, "txtMinWidth");
             this.txtMinWidth.Name = "txtMinWidth";
-            this.txtMinWidth.Size = new System.Drawing.Size(262, 41);
-            this.txtMinWidth.TabIndex = 15;
             this.txtMinWidth.TabStop = false;
-            this.txtMinWidth.Text = "0";
             this.txtMinWidth.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtMinWidth.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtMinWidth, radValidationRule3);
             // 
             // txtMaxWidth
             // 
-            this.txtMaxWidth.Location = new System.Drawing.Point(30, 76);
-            this.txtMaxWidth.MaskType = Telerik.WinControls.UI.MaskType.Numeric;
+            resources.ApplyResources(this.txtMaxWidth, "txtMaxWidth");
             this.txtMaxWidth.Name = "txtMaxWidth";
-            this.txtMaxWidth.Size = new System.Drawing.Size(262, 41);
-            this.txtMaxWidth.TabIndex = 16;
             this.txtMaxWidth.TabStop = false;
-            this.txtMaxWidth.Text = "0";
             this.txtMaxWidth.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.txtMaxWidth.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtMaxWidth, radValidationRule4);
@@ -147,12 +135,8 @@
             // txtPricee
             // 
             this.txtPricee.Culture = new System.Globalization.CultureInfo("eu");
-            this.txtPricee.Location = new System.Drawing.Point(34, 385);
-            this.txtPricee.Mask = "^(?!0\\.00)[1-9]\\d{0,2}(,\\d{3})*(\\.\\d\\d)?$";
-            this.txtPricee.MaskType = Telerik.WinControls.UI.MaskType.Regex;
+            resources.ApplyResources(this.txtPricee, "txtPricee");
             this.txtPricee.Name = "txtPricee";
-            this.txtPricee.Size = new System.Drawing.Size(258, 41);
-            this.txtPricee.TabIndex = 18;
             this.txtPricee.TabStop = false;
             this.txtPricee.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.txtPricee, radValidationRule5);
@@ -191,25 +175,22 @@
             // radPanel6
             // 
             this.radPanel6.Controls.Add(this.radPanel2);
-            this.radPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.radPanel6.Location = new System.Drawing.Point(585, 0);
+            resources.ApplyResources(this.radPanel6, "radPanel6");
             this.radPanel6.Name = "radPanel6";
-            this.radPanel6.Size = new System.Drawing.Size(323, 688);
-            this.radPanel6.TabIndex = 10;
             // 
             // radPanel2
             // 
             this.radPanel2.Controls.Add(this.radPanel5);
             this.radPanel2.Controls.Add(this.radPanel4);
-            this.radPanel2.Controls.Add(this.radPanel3);
-            this.radPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel2.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.radPanel2, "radPanel2");
             this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(323, 688);
-            this.radPanel2.TabIndex = 9;
             // 
             // radPanel5
             // 
+            this.radPanel5.Controls.Add(this.helpBtn);
+            this.radPanel5.Controls.Add(this.btnAmerican);
+            this.radPanel5.Controls.Add(this.btnAlbania);
+            this.radPanel5.Controls.Add(this.label1);
             this.radPanel5.Controls.Add(this.txtPricee);
             this.radPanel5.Controls.Add(this.txtMinHeight);
             this.radPanel5.Controls.Add(this.txtMaxWidth);
@@ -221,71 +202,39 @@
             this.radPanel5.Controls.Add(this.label2);
             this.radPanel5.Controls.Add(this.lblID);
             this.radPanel5.Controls.Add(this.lblUserName);
-            this.radPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel5.Location = new System.Drawing.Point(0, 52);
+            resources.ApplyResources(this.radPanel5, "radPanel5");
             this.radPanel5.Name = "radPanel5";
-            this.radPanel5.Size = new System.Drawing.Size(323, 474);
-            this.radPanel5.TabIndex = 2;
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 357);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 23);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Price";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 278);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 23);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Minimum Height";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 199);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 23);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Maximum Height";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 120);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 23);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Minimum Width";
             // 
             // lblID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(26, 148);
+            resources.ApplyResources(this.lblID, "lblID");
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(0, 22);
-            this.lblID.TabIndex = 5;
-            this.lblID.Visible = false;
             // 
             // lblUserName
             // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Arial Unicode MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Location = new System.Drawing.Point(30, 41);
+            resources.ApplyResources(this.lblUserName, "lblUserName");
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(129, 23);
-            this.lblUserName.TabIndex = 4;
-            this.lblUserName.Text = "Maximum Width";
             // 
             // radPanel4
             // 
@@ -293,137 +242,79 @@
             this.radPanel4.Controls.Add(this.btnDelete);
             this.radPanel4.Controls.Add(this.btnUpdate);
             this.radPanel4.Controls.Add(this.btnSave);
-            this.radPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radPanel4.Location = new System.Drawing.Point(0, 526);
+            resources.ApplyResources(this.radPanel4, "radPanel4");
             this.radPanel4.Name = "radPanel4";
-            this.radPanel4.Size = new System.Drawing.Size(323, 162);
-            this.radPanel4.TabIndex = 2;
             this.radPanel4.ThemeName = "MaterialBlueGrey";
             // 
             // btnClear
             // 
             this.btnClear.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.btnClear, "btnClear");
             this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.btnClear.Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
-            this.btnClear.Location = new System.Drawing.Point(8, 154);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(302, 40);
-            this.btnClear.TabIndex = 3;
-            this.btnClear.Text = "CLEAR";
             this.btnClear.ThemeName = "MaterialBlueGrey";
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnClear.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.eraser__1_;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnClear.GetChildAt(0))).Text = "CLEAR";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnClear.GetChildAt(0))).Text = resources.GetString("resource.Text");
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnClear.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("resource.Alignment")));
             // 
             // btnDelete
             // 
             this.btnDelete.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.btnDelete, "btnDelete");
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.btnDelete.Image = global::PVCWindowsStudio.Properties.Resources.trash;
-            this.btnDelete.Location = new System.Drawing.Point(8, 106);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(302, 40);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "DELETE";
             this.btnDelete.ThemeName = "MaterialBlueGrey";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.trash;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = "DELETE";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = resources.GetString("resource.Text1");
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnDelete.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("resource.Alignment1")));
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.btnUpdate.Image = global::PVCWindowsStudio.Properties.Resources.pencil;
-            this.btnUpdate.Location = new System.Drawing.Point(8, 58);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(302, 40);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.ThemeName = "MaterialBlueGrey";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.pencil;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Text = "UPDATE";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnUpdate.GetChildAt(0))).Text = resources.GetString("resource.Text2");
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnUpdate.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("resource.Alignment2")));
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.BackgroundImage = global::PVCWindowsStudio.Properties.Resources.plus__1_;
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
             this.btnSave.Image = global::PVCWindowsStudio.Properties.Resources.plus__3_;
-            this.btnSave.Location = new System.Drawing.Point(8, 10);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(303, 40);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "SAVE";
             this.btnSave.ThemeName = "MaterialBlueGrey";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Image = global::PVCWindowsStudio.Properties.Resources.plus__3_;
-            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Text = "SAVE";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Text = resources.GetString("resource.Text3");
             ((Telerik.WinControls.Primitives.ImagePrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(0))).ImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(1))).LineLimit = false;
             ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
-            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // radPanel3
-            // 
-            this.radPanel3.Controls.Add(this.label1);
-            this.radPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel3.Location = new System.Drawing.Point(0, 0);
-            this.radPanel3.Name = "radPanel3";
-            // 
-            // 
-            // 
-            this.radPanel3.RootElement.BorderHighlightColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.radPanel3.Size = new System.Drawing.Size(323, 52);
-            this.radPanel3.TabIndex = 2;
-            this.radPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radPanel3.ThemeName = "MaterialBlueGrey";
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HandiWork Management";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(this.btnSave.GetChildAt(0).GetChildAt(1).GetChildAt(1))).Alignment = ((System.Drawing.ContentAlignment)(resources.GetObject("resource.Alignment3")));
             // 
             // handworkGridView1
             // 
             this.handworkGridView1.BackColor = System.Drawing.Color.White;
             this.handworkGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.handworkGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.handworkGridView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            resources.ApplyResources(this.handworkGridView1, "handworkGridView1");
             this.handworkGridView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.handworkGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.handworkGridView1.Location = new System.Drawing.Point(0, 0);
-            this.handworkGridView1.Margin = new System.Windows.Forms.Padding(5);
             // 
             // 
             // 
@@ -434,32 +325,32 @@
             this.handworkGridView1.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewTextBoxColumn1.EnableExpressionEditor = false;
             gridViewTextBoxColumn1.FieldName = "MaxWidth";
-            gridViewTextBoxColumn1.HeaderText = "Maximum Width";
+            resources.ApplyResources(gridViewTextBoxColumn1, "gridViewTextBoxColumn1");
             gridViewTextBoxColumn1.MinWidth = 6;
             gridViewTextBoxColumn1.Name = "MaxWidth";
             gridViewTextBoxColumn1.Width = 106;
             gridViewTextBoxColumn2.EnableExpressionEditor = false;
             gridViewTextBoxColumn2.FieldName = "MinWidth";
-            gridViewTextBoxColumn2.HeaderText = "Minimum Width";
+            resources.ApplyResources(gridViewTextBoxColumn2, "gridViewTextBoxColumn2");
             gridViewTextBoxColumn2.MinWidth = 6;
             gridViewTextBoxColumn2.Name = "MinWidth";
             gridViewTextBoxColumn2.Width = 103;
             gridViewTextBoxColumn3.EnableExpressionEditor = false;
             gridViewTextBoxColumn3.FieldName = "MinHeight";
-            gridViewTextBoxColumn3.HeaderText = "Minimum Height";
+            resources.ApplyResources(gridViewTextBoxColumn3, "gridViewTextBoxColumn3");
             gridViewTextBoxColumn3.MinWidth = 6;
             gridViewTextBoxColumn3.Name = "MinHeight";
             gridViewTextBoxColumn3.Width = 107;
             gridViewTextBoxColumn4.EnableExpressionEditor = false;
             gridViewTextBoxColumn4.FieldName = "MaxHeight";
-            gridViewTextBoxColumn4.HeaderText = "Maximum Height";
+            resources.ApplyResources(gridViewTextBoxColumn4, "gridViewTextBoxColumn4");
             gridViewTextBoxColumn4.MinWidth = 6;
             gridViewTextBoxColumn4.Name = "MaxHeight";
             gridViewTextBoxColumn4.Width = 109;
             gridViewTextBoxColumn5.DataType = typeof(decimal);
             gridViewTextBoxColumn5.EnableExpressionEditor = false;
             gridViewTextBoxColumn5.FieldName = "Price";
-            gridViewTextBoxColumn5.HeaderText = "Price";
+            resources.ApplyResources(gridViewTextBoxColumn5, "gridViewTextBoxColumn5");
             gridViewTextBoxColumn5.MinWidth = 6;
             gridViewTextBoxColumn5.Name = "Price";
             gridViewTextBoxColumn5.Width = 112;
@@ -473,26 +364,49 @@
             this.handworkGridView1.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.handworkGridView1.Name = "handworkGridView1";
             this.handworkGridView1.ReadOnly = true;
-            this.handworkGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.handworkGridView1.Size = new System.Drawing.Size(585, 688);
-            this.handworkGridView1.TabIndex = 0;
             this.handworkGridView1.ThemeName = "MaterialBlueGrey";
             this.handworkGridView1.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.handworkGridView1_CellClick);
             // 
             // radPanel1
             // 
             this.radPanel1.Controls.Add(this.handworkGridView1);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.radPanel1, "radPanel1");
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(585, 688);
-            this.radPanel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(125)))), ((int)(((byte)(139)))));
+            this.label1.Name = "label1";
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.Image = global::PVCWindowsStudio.Properties.Resources.information__1_;
+            resources.ApplyResources(this.helpBtn, "helpBtn");
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.TabStop = false;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
+            // btnAmerican
+            // 
+            this.btnAmerican.Image = global::PVCWindowsStudio.Properties.Resources.united_states__1_;
+            resources.ApplyResources(this.btnAmerican, "btnAmerican");
+            this.btnAmerican.Name = "btnAmerican";
+            this.btnAmerican.TabStop = false;
+            this.btnAmerican.Click += new System.EventHandler(this.btnAmerican_Click);
+            // 
+            // btnAlbania
+            // 
+            this.btnAlbania.Image = global::PVCWindowsStudio.Properties.Resources.albania__1_;
+            resources.ApplyResources(this.btnAlbania, "btnAlbania");
+            this.btnAlbania.Name = "btnAlbania";
+            this.btnAlbania.TabStop = false;
+            this.btnAlbania.Click += new System.EventHandler(this.btnAlbania_Click_1);
             // 
             // HandiWorkForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 688);
             this.Controls.Add(this.radPanel1);
             this.Controls.Add(this.radPanel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -501,7 +415,6 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "HandiWorkForm";
             this.ThemeName = "MaterialBlueGrey";
             this.Load += new System.EventHandler(this.HandiWorkForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtMinHeight)).EndInit();
@@ -523,12 +436,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel3)).EndInit();
-            this.radPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.handworkGridView1.MasterTemplate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.handworkGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -553,13 +467,15 @@
         private Telerik.WinControls.UI.RadButton btnDelete;
         private Telerik.WinControls.UI.RadButton btnUpdate;
         private Telerik.WinControls.UI.RadButton btnSave;
-        private Telerik.WinControls.UI.RadPanel radPanel3;
-        private System.Windows.Forms.Label label1;
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private Telerik.WinControls.UI.RadMaskedEditBox txtMaxHeight;
         private Telerik.WinControls.UI.RadMaskedEditBox txtMinWidth;
         private Telerik.WinControls.UI.RadMaskedEditBox txtMaxWidth;
         private Telerik.WinControls.UI.RadMaskedEditBox txtMinHeight;
         private Telerik.WinControls.UI.RadMaskedEditBox txtPricee;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox helpBtn;
+        private System.Windows.Forms.PictureBox btnAmerican;
+        private System.Windows.Forms.PictureBox btnAlbania;
     }
 }

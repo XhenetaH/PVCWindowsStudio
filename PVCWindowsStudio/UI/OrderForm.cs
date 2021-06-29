@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -108,7 +109,7 @@ namespace PVCWindowsStudio.UI
                     else
                         order.TotalPrice = Math.Round(order.TotalPrice + ((discount / 100) * order.TotalPrice));
                 }
-                order.LUB = 1;
+                order.LUB = UserSession.CurrentUser.UserID;
 
                 if (orderBll.Update(order))
                 {
@@ -174,6 +175,27 @@ namespace PVCWindowsStudio.UI
             }
             else
                 RadMessageBox.Show("Please select an order!");
+        }
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Orders.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

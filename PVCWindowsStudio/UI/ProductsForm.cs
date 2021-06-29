@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,7 +68,7 @@ namespace PVCWindowsStudio.UI
                     product.Name = txtName.Text;
                     product.Other = txtDescription.Text;
                     product.Picture = ConvertFormImage(productPictureBox.Image);
-                    product.InsertBy = 1;
+                    product.InsertBy = UserSession.CurrentUser.UserID;
 
                     if (productBll.Insert(product))
                     {
@@ -130,7 +131,7 @@ namespace PVCWindowsStudio.UI
                         product.Name = txtName.Text;
                         product.Other = txtDescription.Text;
                         product.Picture = ConvertFormImage(productPictureBox.Image);
-                        product.LUB = 1;
+                        product.LUB = UserSession.CurrentUser.UserID;
 
                         if (productBll.Update(product))
                         {
@@ -193,6 +194,28 @@ namespace PVCWindowsStudio.UI
 
                 }
             }
+        }
+
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Products.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

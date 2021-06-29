@@ -1,5 +1,6 @@
 ﻿using PVCWindowsStudio.BLL;
 using PVCWindowsStudio.BO;
+using PVCWindowsStudio.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -156,7 +157,7 @@ namespace PVCWindowsStudio.UI
                         client.PhoneNumber = txtPhoneNr.Text;
                         client.Address = txtAddress.Text;
                         client.Email = txtEmail.Text;
-                        client.InsertBy = 1;
+                        client.InsertBy = UserSession.CurrentUser.UserID;
 
                         clientBll.Insert(client);
                         clientID = clientBll.GetID();
@@ -178,7 +179,7 @@ namespace PVCWindowsStudio.UI
                         order.Discount = Convert.ToDecimal(txtDiscount.Text);
                     order.DiscountType = discountCmb.Text;
                     order.TotalPrice = Convert.ToDecimal(txtTotal.Text);
-                    order.InsertBy = 1;
+                    order.InsertBy = UserSession.CurrentUser.UserID;
                     if (orderBll.Insert(order))
                     {
                         
@@ -197,7 +198,8 @@ namespace PVCWindowsStudio.UI
                         details.Height = int.Parse(calculatorGridView.Rows[i].Cells["Height"].Value.ToString());
                         details.Price = Convert.ToDecimal(calculatorGridView.Rows[i].Cells["Price"].Value);
                         details.Total = Convert.ToDecimal(calculatorGridView.Rows[i].Cells["Total"].Value);
-                        details.InsertBy = 1;
+                        details.HandWorkPrice = Convert.ToDecimal(calculatorGridView.Rows[i].Cells["HandWorkPrice"].Value);
+                        details.InsertBy = UserSession.CurrentUser.UserID;
 
                         detailsBll.Insert(details);
                     }
@@ -268,6 +270,7 @@ namespace PVCWindowsStudio.UI
                 var newRow = e.NewItems[0] as GridViewDataRowInfo;
                 newRow.Cells["Price"].Value = CalcPrice(int.Parse(newRow.Cells["Product"].Value.ToString()), int.Parse(ddlProfile.SelectedValue.ToString()), int.Parse(newRow.Cells["Blind"].Value.ToString()), int.Parse(ddlWindowPane.SelectedValue.ToString()), Convert.ToDecimal(newRow.Cells["Width"].Value.ToString()), Convert.ToDecimal(newRow.Cells["Height"].Value.ToString()));
                 newRow.Cells["Total"].Value = Convert.ToDecimal(newRow.Cells["Price"].Value) * int.Parse(newRow.Cells["Quantity"].Value.ToString());
+                newRow.Cells["HandWorkPrice"].Value = Convert.ToDecimal(workBll.GetPrice(Convert.ToDecimal(newRow.Cells["Width"].Value.ToString()), Convert.ToDecimal(newRow.Cells["Height"].Value.ToString())));
             }
             
             TotalPriceCalc();
@@ -391,6 +394,7 @@ namespace PVCWindowsStudio.UI
                         {
                             currentRow.Cells["Price"].Value = CalcPrice(int.Parse(currentRow.Cells["Product"].Value.ToString()), int.Parse(ddlProfile.SelectedValue.ToString()), int.Parse(currentRow.Cells["Blind"].Value.ToString()), int.Parse(ddlWindowPane.SelectedValue.ToString()), Convert.ToDecimal(e.Value.ToString()), Convert.ToDecimal(currentRow.Cells["Height"].Value.ToString()));
                             currentRow.Cells["Total"].Value = Convert.ToDecimal(currentRow.Cells["Price"].Value) * int.Parse(currentRow.Cells["Quantity"].Value.ToString());
+                            currentRow.Cells["HandWorkPrice"].Value = Convert.ToDecimal(workBll.GetPrice(Convert.ToDecimal(e.Value.ToString()), Convert.ToDecimal(currentRow.Cells["Height"].Value.ToString())));
                         }
                     }
                     else
@@ -414,6 +418,7 @@ namespace PVCWindowsStudio.UI
                         {
                             currentRow.Cells["Price"].Value = CalcPrice(int.Parse(currentRow.Cells["Product"].Value.ToString()), int.Parse(ddlProfile.SelectedValue.ToString()), int.Parse(currentRow.Cells["Blind"].Value.ToString()), int.Parse(ddlWindowPane.SelectedValue.ToString()), Convert.ToDecimal(currentRow.Cells["Width"].Value.ToString()), Convert.ToDecimal(e.Value.ToString()));
                             currentRow.Cells["Total"].Value = Convert.ToDecimal(currentRow.Cells["Price"].Value) * int.Parse(currentRow.Cells["Quantity"].Value.ToString());
+                            currentRow.Cells["HandWorkPrice"].Value = Convert.ToDecimal(workBll.GetPrice(Convert.ToDecimal(currentRow.Cells["Height"].Value.ToString()),Convert.ToDecimal(e.Value.ToString())));
 
                         }
                     }
@@ -627,6 +632,27 @@ namespace PVCWindowsStudio.UI
                 else RadMessageBox.Show("Something went wrong!");
             }
 
+        }
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Calculator.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

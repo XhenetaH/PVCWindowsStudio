@@ -35,6 +35,11 @@ namespace PVCWindowsStudio.BLL
         {
             return dal.GetPrice(width, height);
         }
+
+        public decimal GetPriceByDate(int month, int year)
+        {
+            return dal.GetPriceByDate(month, year);
+        }
         public List<HandiWork> GetAll()
         {
             return dal.GetAll();

@@ -31,7 +31,7 @@ namespace PVCWindowsStudio.UI
             {
                 material.Name = txtName.Text;
                 material.Other = txtDescription.Text;
-                material.InsertBy = 1;
+                material.InsertBy = UserSession.CurrentUser.UserID;
                 if (materialBll.Insert(material))
                 {
                     Clear();
@@ -94,7 +94,7 @@ namespace PVCWindowsStudio.UI
                     material.MaterialID = int.Parse(lblID.Text);
                     material.Name = txtName.Text;
                     material.Other = txtDescription.Text;
-                    material.LUB = 1;
+                    material.LUB = UserSession.CurrentUser.UserID;
                     if (materialBll.Update(material))
                     {
                         RadMessageBox.Show("Material is updated successfully");
@@ -149,6 +149,33 @@ namespace PVCWindowsStudio.UI
                     txtDescription.Text = material.Other;
                 }
             }
+        }
+
+        private void radPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "C:\\Users\\Lenovo\\Documents\\My HelpAndManual Projects\\NewProject.chm", HelpNavigator.Topic, "Materials.htm");
+
+        }
+
+        private void btnAmerican_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "en");
+            Application.Restart();
+        }
+
+        private void btnAlbania_Click_1(object sender, EventArgs e)
+        {
+            ChangeLanguage change = new ChangeLanguage();
+            change.UpdateConfig("language", "sq");
+            Application.Restart();
         }
     }
 }

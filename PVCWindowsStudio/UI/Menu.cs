@@ -34,125 +34,22 @@ namespace PVCWindowsStudio.UI
             activeForm.Left = (this.ClientSize.Width - activeForm.Width) / 2;
             activeForm.Top = (this.ClientSize.Height - activeForm.Height) / 2;
             activeForm.Show();
+            panelChildForm.Visible = true;
         }
-        private void Menu_Load(object sender, EventArgs e)
+        private void Dashboard2_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void radMenuItem1_Click(object sender, EventArgs e)
-        {
-            openChildForm(new MaterialsForm());
+            lblUserName.Text = UserSession.CurrentUser.UserName;
+            lblUserStatus.Text = "Status: " + UserSession.CurrentUser.Role.Name;
         }
 
-        private void radMenuItem5_Click(object sender, EventArgs e)
+        private void dashboard2MenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new BlindsForm());
+            panelChildForm.Visible = false;
         }
 
-        private void radMenuItem2_Click(object sender, EventArgs e)
+        private void calculatorMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new WindowPanesForm());
-        }
-
-        private void radMenuItem3_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ProfilesForm());
-        }
-
-        private void radMenuItem4_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ProductsForm());
-        }
-
-        private void radMenuItem6_Click(object sender, EventArgs e)
-        {
-            openChildForm(new UsersForm());
-        }
-
-        private void radMenuItem7_Click(object sender, EventArgs e)
-        {
-            openChildForm(new RolesForm());
-        }
-
-        private void Menu_Shown(object sender, EventArgs e)
-        {
-            Form background = new Form();
-            using (LogIn loginFrm = new LogIn())
-            {
-                background.StartPosition = FormStartPosition.Manual;
-                background.FormBorderStyle = FormBorderStyle.None;
-                background.Opacity = .70d;
-                background.BackColor = Color.Black;
-                background.WindowState = FormWindowState.Maximized;
-                background.TopMost = true;
-                background.Location = this.Location;
-                background.ShowInTaskbar = false;
-                background.Show();
-                loginFrm.Owner = background;
-
-                if (loginFrm.ShowDialog() == DialogResult.Yes)
-                {                    
-                    background.Dispose();
-                    if (UserSession.CurrentUser.Role.Name == "Admin")
-                    {
-                        materialsManagMenuItem.Visibility = ElementVisibility.Visible;
-                        productsManagMenuItem.Visibility = ElementVisibility.Visible;
-                        pricelistMenuItem.Visibility = ElementVisibility.Visible;
-                        usersManagMenuItem.Visibility = ElementVisibility.Visible;
-                    }
-                }
-                else
-                    Application.Exit();
-            }
-
-        }
-
-        
-
-        private void materialMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new MaterialsForm());
-        }
-
-        private void paneMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new WindowPanesForm());
-        }
-
-        private void blindMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new BlindsForm());
-        }
-
-        private void profileMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ProfilesForm());
-        }
-
-        private void productItemMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new ProductItemsForm());
-        }
-
-        private void formulaMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FormulaForm());
-        }
-
-        private void userMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new UsersForm());
-        }
-
-        private void roleMenuItem_Click(object sender, EventArgs e)
-        {
-            openChildForm(new RolesForm());
-        }
-
-        private void pricelistMenuItem1_Click(object sender, EventArgs e)
-        {
-            openChildForm(new PriceListForm());
+            openChildForm(new CalculatorForm());
         }
 
         private void orderMenuItem_Click(object sender, EventArgs e)
@@ -165,9 +62,21 @@ namespace PVCWindowsStudio.UI
             openChildForm(new OrderDetailsForm());
         }
 
-        private void calculatorMenuItem_Click(object sender, EventArgs e)
+        private void invoicesMenuItem_Click(object sender, EventArgs e)
         {
-            openChildForm(new CalculatorForm());
+            openChildForm(new InvoiceForm());
+        }
+
+        private void clientsMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ClientsForm());
+        }
+
+        private void radMenuItem1_Click(object sender, EventArgs e)
+        {
+            LogInForm login = new LogInForm();
+            login.Show();
+            this.Hide();
         }
     }
 }

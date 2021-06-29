@@ -19,7 +19,7 @@ namespace PVCWindowsStudio.BO
         public decimal Height { get; set; }
         public decimal Price { get; set; }
         public decimal Total { get; set; }
-
+        public decimal HandWorkPrice { get; set; }
         public virtual Products Product { get; set; }
         public virtual Profiles Profile { get; set; }
         public virtual Blinds Blind { get; set; }

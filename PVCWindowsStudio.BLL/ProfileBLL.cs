@@ -31,7 +31,10 @@ namespace PVCWindowsStudio.BLL
         {
             throw new NotImplementedException();
         }
-
+        public List<Profiles> Get()
+        {
+            return dal.Get();
+        }
         public List<Profiles> GetAll()
         {
             return dal.GetAll();
