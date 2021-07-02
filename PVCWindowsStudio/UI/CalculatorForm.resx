@@ -1114,28 +1114,28 @@
   <data name="calculatorGridView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 12, 12, 12</value>
   </data>
-  <data name="gridViewMultiComboBoxColumn2.HeaderText" xml:space="preserve">
+  <data name="gridViewMultiComboBoxColumn1.HeaderText" xml:space="preserve">
     <value>Product</value>
   </data>
-  <data name="gridViewTextBoxColumn11.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn3.HeaderText" xml:space="preserve">
     <value>Width</value>
   </data>
-  <data name="gridViewTextBoxColumn12.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn4.HeaderText" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="gridViewTextBoxColumn13.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn5.HeaderText" xml:space="preserve">
     <value>Quantity</value>
   </data>
-  <data name="gridViewComboBoxColumn2.HeaderText" xml:space="preserve">
+  <data name="gridViewComboBoxColumn1.HeaderText" xml:space="preserve">
     <value>Blind</value>
   </data>
-  <data name="gridViewTextBoxColumn14.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn6.HeaderText" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="gridViewTextBoxColumn15.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn7.HeaderText" xml:space="preserve">
     <value>Total</value>
   </data>
-  <data name="gridViewTextBoxColumn16.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn8.HeaderText" xml:space="preserve">
     <value>HandWorkPrice</value>
   </data>
   <data name="calculatorGridView.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
@@ -1183,6 +1183,9 @@
   <data name="&gt;&gt;radPanel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>sq</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

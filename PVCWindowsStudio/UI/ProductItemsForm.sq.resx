@@ -117,20 +117,57 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gridViewImageColumn1.HeaderText" xml:space="preserve">
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>NDRYSHO</value>
+  </data>
+  <data name="resource.Text" xml:space="preserve">
+    <value>NDRYSHO</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>RUAJ</value>
+  </data>
+  <data name="resource.Text1" xml:space="preserve">
+    <value>RUAJ</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>PASTRO</value>
+  </data>
+  <data name="resource.Text2" xml:space="preserve">
+    <value>PASTRO</value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>FSHIJE</value>
+  </data>
+  <data name="resource.Text3" xml:space="preserve">
+    <value>FSHIJE</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblUserName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 23</value>
+  </data>
+  <data name="lblUserName.Text" xml:space="preserve">
+    <value>Materiali</value>
+  </data>
+  <data name="gridViewImageColumn2.HeaderText" xml:space="preserve">
     <value>Imazhi</value>
   </data>
-  <data name="gridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn7.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="gridViewTextBoxColumn8.HeaderText" xml:space="preserve">
     <value>Emri</value>
   </data>
-  <data name="gridViewTextBoxColumn3.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn9.HeaderText" xml:space="preserve">
     <value>NR. Produktit</value>
   </data>
-  <data name="gridViewTextBoxColumn4.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn10.HeaderText" xml:space="preserve">
     <value>Emri Produktit</value>
   </data>
-  <data name="gridViewTextBoxColumn5.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn11.HeaderText" xml:space="preserve">
     <value>Emri Materialit</value>
+  </data>
+  <data name="gridViewTextBoxColumn12.HeaderText" xml:space="preserve">
+    <value>Formula</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Menaxhimi i pjesëve te Produktit</value>

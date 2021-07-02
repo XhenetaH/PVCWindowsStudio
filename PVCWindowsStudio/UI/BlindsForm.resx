@@ -159,17 +159,17 @@
   <data name="blindsGrindView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="gridViewTextBoxColumn5.HeaderText" xml:space="preserve">
+  <data name="gridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>Emri</value>
   </data>
-  <data name="gridViewTextBoxColumn6.HeaderText" xml:space="preserve">
-    <value>Color</value>
+  <data name="gridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Ngjyra</value>
   </data>
-  <data name="gridViewTextBoxColumn7.HeaderText" xml:space="preserve">
-    <value>Price</value>
+  <data name="gridViewTextBoxColumn3.HeaderText" xml:space="preserve">
+    <value>Çmimi</value>
   </data>
-  <data name="gridViewTextBoxColumn8.HeaderText" xml:space="preserve">
-    <value>Other</value>
+  <data name="gridViewTextBoxColumn4.HeaderText" xml:space="preserve">
+    <value>Përshkrimi</value>
   </data>
   <data name="blindsGrindView.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVCWindowsStudio.DAL", "PVC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVCWindowsStudio.BO", "PVCWindowsStudio.BO\PVCWindowsStudio.BO.csproj", "{91D18322-6D21-43D0-A719-D39779E7B75B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PVCWindowsStudioSetup", "PVCWindowsStudioSetup\PVCWindowsStudioSetup.vdproj", "{0CC93C09-5E64-4985-96A3-43B1D7E9327C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,8 @@ Global
 		{91D18322-6D21-43D0-A719-D39779E7B75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91D18322-6D21-43D0-A719-D39779E7B75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91D18322-6D21-43D0-A719-D39779E7B75B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC93C09-5E64-4985-96A3-43B1D7E9327C}.Debug|Any CPU.ActiveCfg = Debug
+		{0CC93C09-5E64-4985-96A3-43B1D7E9327C}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

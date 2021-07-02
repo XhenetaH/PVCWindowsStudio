@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule3 = new Telerik.WinControls.UI.RadValidationRule();
-            Telerik.WinControls.UI.RadValidationRule radValidationRule4 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule1 = new Telerik.WinControls.UI.RadValidationRule();
+            Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMenu));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.radValidationProvider1 = new Telerik.WinControls.UI.RadValidationProvider(this.components);
             this.materialBlueGreyTheme1 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
             this.radPanel6 = new Telerik.WinControls.UI.RadPanel();
@@ -72,6 +72,9 @@
             this.clientsMenuItem = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radPanel7 = new Telerik.WinControls.UI.RadPanel();
+            this.helpBtn = new System.Windows.Forms.PictureBox();
+            this.btnAmerican = new System.Windows.Forms.PictureBox();
+            this.btnAlbania = new System.Windows.Forms.PictureBox();
             this.lblUserStatus = new System.Windows.Forms.Label();
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.lblNewProduct = new System.Windows.Forms.Label();
@@ -100,15 +103,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
             this.materialBlueGreyTheme2 = new Telerik.WinControls.Themes.MaterialBlueGreyTheme();
-            this.helpBtn = new System.Windows.Forms.PictureBox();
-            this.btnAmerican = new System.Windows.Forms.PictureBox();
-            this.btnAlbania = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.radValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel6)).BeginInit();
             this.radPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).BeginInit();
             this.radPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPictureBox4)).BeginInit();
@@ -127,24 +130,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radValidationProvider1
             // 
             this.radValidationProvider1.ValidationMode = Telerik.WinControls.UI.ValidationMode.Programmatically;
-            radValidationRule3.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule3.ToolTipText = "Name can\'t be empty!";
-            radValidationRule3.Value = "";
-            radValidationRule4.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
-            radValidationRule4.ToolTipText = "Last Name can\'t be empty!";
-            radValidationRule4.Value = "";
+            radValidationRule1.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule1.ToolTipText = "Name can\'t be empty!";
+            radValidationRule1.Value = "";
+            radValidationRule2.Operator = Telerik.WinControls.Data.FilterOperator.IsNotLike;
+            radValidationRule2.ToolTipText = "Last Name can\'t be empty!";
+            radValidationRule2.Value = "";
             this.radValidationProvider1.ValidationRules.AddRange(new Telerik.WinControls.Data.FilterDescriptor[] {
-            radValidationRule3,
-            radValidationRule4});
+            radValidationRule1,
+            radValidationRule2});
             // 
             // radPanel6
             // 
@@ -382,6 +382,30 @@
             this.radPanel7.Name = "radPanel7";
             this.radPanel7.ThemeName = "MaterialBlueGrey";
             // 
+            // helpBtn
+            // 
+            resources.ApplyResources(this.helpBtn, "helpBtn");
+            this.helpBtn.Image = global::PVCWindowsStudio.Properties.Resources.information__1_;
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.TabStop = false;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click_1);
+            // 
+            // btnAmerican
+            // 
+            resources.ApplyResources(this.btnAmerican, "btnAmerican");
+            this.btnAmerican.Image = global::PVCWindowsStudio.Properties.Resources.united_states__1_;
+            this.btnAmerican.Name = "btnAmerican";
+            this.btnAmerican.TabStop = false;
+            this.btnAmerican.Click += new System.EventHandler(this.btnAmerican_Click_1);
+            // 
+            // btnAlbania
+            // 
+            resources.ApplyResources(this.btnAlbania, "btnAlbania");
+            this.btnAlbania.Image = global::PVCWindowsStudio.Properties.Resources.albania__1_;
+            this.btnAlbania.Name = "btnAlbania";
+            this.btnAlbania.TabStop = false;
+            this.btnAlbania.Click += new System.EventHandler(this.btnAlbania_Click_1);
+            // 
             // lblUserStatus
             // 
             resources.ApplyResources(this.lblUserStatus, "lblUserStatus");
@@ -434,35 +458,35 @@
             // chart3
             // 
             resources.ApplyResources(this.chart3, "chart3");
-            chartArea4.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart3.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart3.Legends.Add(legend1);
             this.chart3.Name = "chart3";
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
-            series4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            series4.ChartArea = "ChartArea1";
-            series4.CustomProperties = "DrawingStyle=Wedge, EmptyPointValue=Zero";
-            series4.Legend = "Legend1";
-            series4.MarkerColor = System.Drawing.Color.Red;
-            series4.Name = "Materials";
-            this.chart3.Series.Add(series4);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.HorizontalCenter;
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            series1.ChartArea = "ChartArea1";
+            series1.CustomProperties = "DrawingStyle=Wedge, EmptyPointValue=Zero";
+            series1.Legend = "Legend1";
+            series1.MarkerColor = System.Drawing.Color.Red;
+            series1.Name = "Materials";
+            this.chart3.Series.Add(series1);
             this.chart3.Click += new System.EventHandler(this.chart3_Click);
             // 
             // chart2
             // 
             resources.ApplyResources(this.chart2, "chart2");
-            chartArea5.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart2.Legends.Add(legend5);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Name = "chart2";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            series5.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.chart2.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chart2.Series.Add(series2);
             // 
             // radPanel4
             // 
@@ -572,20 +596,20 @@
             // chart1
             // 
             resources.ApplyResources(this.chart1, "chart1");
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Name = "chart1";
-            series6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series6.BackSecondaryColor = System.Drawing.Color.Lime;
-            series6.BorderColor = System.Drawing.Color.Red;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series6.Legend = "Legend1";
-            series6.Name = "Profit";
-            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            this.chart1.Series.Add(series6);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series3.BackSecondaryColor = System.Drawing.Color.Lime;
+            series3.BorderColor = System.Drawing.Color.Red;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series3.Legend = "Legend1";
+            series3.Name = "Profit";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            this.chart1.Series.Add(series3);
             // 
             // pictureBox2
             // 
@@ -599,37 +623,12 @@
             resources.ApplyResources(this.radPanel2, "radPanel2");
             this.radPanel2.Name = "radPanel2";
             // 
-            // helpBtn
-            // 
-            resources.ApplyResources(this.helpBtn, "helpBtn");
-            this.helpBtn.Image = global::PVCWindowsStudio.Properties.Resources.information__1_;
-            this.helpBtn.Name = "helpBtn";
-            this.helpBtn.TabStop = false;
-            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click_1);
-            // 
-            // btnAmerican
-            // 
-            resources.ApplyResources(this.btnAmerican, "btnAmerican");
-            this.btnAmerican.Image = global::PVCWindowsStudio.Properties.Resources.united_states__1_;
-            this.btnAmerican.Name = "btnAmerican";
-            this.btnAmerican.TabStop = false;
-            this.btnAmerican.Click += new System.EventHandler(this.btnAmerican_Click_1);
-            // 
-            // btnAlbania
-            // 
-            resources.ApplyResources(this.btnAlbania, "btnAlbania");
-            this.btnAlbania.Image = global::PVCWindowsStudio.Properties.Resources.albania__1_;
-            this.btnAlbania.Name = "btnAlbania";
-            this.btnAlbania.TabStop = false;
-            this.btnAlbania.Click += new System.EventHandler(this.btnAlbania_Click_1);
-            // 
             // AdminMenu
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.radPanel6);
             this.Controls.Add(this.radPanel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminMenu";
             // 
             // 
@@ -646,6 +645,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.radPanel7)).EndInit();
             this.radPanel7.ResumeLayout(false);
             this.radPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             this.radPanel1.PerformLayout();
@@ -668,9 +670,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.helpBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAmerican)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAlbania)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

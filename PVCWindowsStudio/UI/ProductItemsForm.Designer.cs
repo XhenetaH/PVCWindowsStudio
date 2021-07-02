@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductItemsForm));
+            Telerik.WinControls.UI.RadListDataItem radListDataItem3 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.RadValidationRule radValidationRule2 = new Telerik.WinControls.UI.RadValidationRule();
             Telerik.WinControls.UI.RadListDataItem radListDataItem1 = new Telerik.WinControls.UI.RadListDataItem();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
@@ -107,10 +107,11 @@
             // 
             // ddlFormula
             // 
+            resources.ApplyResources(this.ddlFormula, "ddlFormula");
             this.ddlFormula.DropDownAnimationEnabled = true;
             radListDataItem3.Text = "Choose Role";
+            resources.ApplyResources(radListDataItem3, "radListDataItem3");
             this.ddlFormula.Items.Add(radListDataItem3);
-            resources.ApplyResources(this.ddlFormula, "ddlFormula");
             this.ddlFormula.Name = "ddlFormula";
             this.ddlFormula.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.ddlFormula, radValidationRule2);
@@ -207,26 +208,27 @@
             // 
             // ddlMaterial
             // 
+            resources.ApplyResources(this.ddlMaterial, "ddlMaterial");
             this.ddlMaterial.DropDownAnimationEnabled = true;
             radListDataItem1.Text = "Choose Role";
+            resources.ApplyResources(radListDataItem1, "radListDataItem1");
             this.ddlMaterial.Items.Add(radListDataItem1);
-            resources.ApplyResources(this.ddlMaterial, "ddlMaterial");
             this.ddlMaterial.Name = "ddlMaterial";
             this.ddlMaterial.ThemeName = "MaterialBlueGrey";
             this.radValidationProvider1.SetValidationRule(this.ddlMaterial, null);
             // 
             // radPanel5
             // 
-            this.radPanel5.Controls.Add(this.productsradGridView);
             resources.ApplyResources(this.radPanel5, "radPanel5");
+            this.radPanel5.Controls.Add(this.productsradGridView);
             this.radPanel5.Name = "radPanel5";
             this.radPanel5.ThemeName = "MaterialBlueGrey";
             // 
             // productsradGridView
             // 
+            resources.ApplyResources(this.productsradGridView, "productsradGridView");
             this.productsradGridView.BackColor = System.Drawing.Color.White;
             this.productsradGridView.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.productsradGridView, "productsradGridView");
             this.productsradGridView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             // 
             // 
@@ -245,22 +247,23 @@
             this.productsradGridView.MasterTemplate.AllowSearchRow = true;
             this.productsradGridView.MasterTemplate.AutoGenerateColumns = false;
             this.productsradGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.productsradGridView.MasterTemplate.Caption = resources.GetString("productsradGridView.MasterTemplate.Caption");
             gridViewImageColumn2.EnableExpressionEditor = false;
-            gridViewImageColumn2.FieldName = "Picture";
             resources.ApplyResources(gridViewImageColumn2, "gridViewImageColumn2");
+            gridViewImageColumn2.FieldName = "Picture";
             gridViewImageColumn2.ImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             gridViewImageColumn2.MinWidth = 6;
             gridViewImageColumn2.Name = "Picture";
             gridViewImageColumn2.Width = 231;
             gridViewTextBoxColumn7.EnableExpressionEditor = false;
-            gridViewTextBoxColumn7.FieldName = "ProductID";
             resources.ApplyResources(gridViewTextBoxColumn7, "gridViewTextBoxColumn7");
+            gridViewTextBoxColumn7.FieldName = "ProductID";
             gridViewTextBoxColumn7.MinWidth = 6;
             gridViewTextBoxColumn7.Name = "ProductID";
             gridViewTextBoxColumn7.Width = 62;
             gridViewTextBoxColumn8.EnableExpressionEditor = false;
-            gridViewTextBoxColumn8.FieldName = "Name";
             resources.ApplyResources(gridViewTextBoxColumn8, "gridViewTextBoxColumn8");
+            gridViewTextBoxColumn8.FieldName = "Name";
             gridViewTextBoxColumn8.MinWidth = 6;
             gridViewTextBoxColumn8.Name = "Name";
             gridViewTextBoxColumn8.Width = 125;
@@ -277,22 +280,22 @@
             // 
             // radPanel2
             // 
-            this.radPanel2.Controls.Add(this.radPanel8);
             resources.ApplyResources(this.radPanel2, "radPanel2");
+            this.radPanel2.Controls.Add(this.radPanel8);
             this.radPanel2.Name = "radPanel2";
             // 
             // radPanel8
             // 
-            this.radPanel8.Controls.Add(this.productitemsGridView);
             resources.ApplyResources(this.radPanel8, "radPanel8");
+            this.radPanel8.Controls.Add(this.productitemsGridView);
             this.radPanel8.Name = "radPanel8";
             this.radPanel8.ThemeName = "MaterialBlueGrey";
             // 
             // productitemsGridView
             // 
+            resources.ApplyResources(this.productitemsGridView, "productitemsGridView");
             this.productitemsGridView.BackColor = System.Drawing.Color.White;
             this.productitemsGridView.Cursor = System.Windows.Forms.Cursors.Default;
-            resources.ApplyResources(this.productitemsGridView, "productitemsGridView");
             this.productitemsGridView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             // 
             // 
@@ -303,27 +306,28 @@
             this.productitemsGridView.MasterTemplate.AllowEditRow = false;
             this.productitemsGridView.MasterTemplate.AllowSearchRow = true;
             this.productitemsGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            this.productitemsGridView.MasterTemplate.Caption = resources.GetString("productitemsGridView.MasterTemplate.Caption");
             gridViewTextBoxColumn9.EnableExpressionEditor = false;
-            gridViewTextBoxColumn9.FieldName = "Products.ProductID";
             resources.ApplyResources(gridViewTextBoxColumn9, "gridViewTextBoxColumn9");
+            gridViewTextBoxColumn9.FieldName = "Products.ProductID";
             gridViewTextBoxColumn9.MinWidth = 10;
             gridViewTextBoxColumn9.Name = "ProductID";
             gridViewTextBoxColumn9.Width = 112;
             gridViewTextBoxColumn10.EnableExpressionEditor = false;
-            gridViewTextBoxColumn10.FieldName = "Products.Name";
             resources.ApplyResources(gridViewTextBoxColumn10, "gridViewTextBoxColumn10");
+            gridViewTextBoxColumn10.FieldName = "Products.Name";
             gridViewTextBoxColumn10.MinWidth = 6;
             gridViewTextBoxColumn10.Name = "ProductName";
             gridViewTextBoxColumn10.Width = 260;
             gridViewTextBoxColumn11.EnableExpressionEditor = false;
-            gridViewTextBoxColumn11.FieldName = "Materials.Name";
             resources.ApplyResources(gridViewTextBoxColumn11, "gridViewTextBoxColumn11");
+            gridViewTextBoxColumn11.FieldName = "Materials.Name";
             gridViewTextBoxColumn11.MinWidth = 10;
             gridViewTextBoxColumn11.Name = "MaterialName";
             gridViewTextBoxColumn11.Width = 254;
             gridViewTextBoxColumn12.EnableExpressionEditor = false;
-            gridViewTextBoxColumn12.FieldName = "Formula.FormulaType";
             resources.ApplyResources(gridViewTextBoxColumn12, "gridViewTextBoxColumn12");
+            gridViewTextBoxColumn12.FieldName = "Formula.FormulaType";
             gridViewTextBoxColumn12.MinWidth = 10;
             gridViewTextBoxColumn12.Name = "Formula";
             gridViewTextBoxColumn12.Width = 213;
@@ -342,31 +346,32 @@
             // 
             // radPanel1
             // 
+            resources.ApplyResources(this.radPanel1, "radPanel1");
             this.radPanel1.Controls.Add(this.radPanel5);
             this.radPanel1.Controls.Add(this.radPanel4);
-            resources.ApplyResources(this.radPanel1, "radPanel1");
             this.radPanel1.Name = "radPanel1";
             // 
             // radPanel4
             // 
+            resources.ApplyResources(this.radPanel4, "radPanel4");
             this.radPanel4.Controls.Add(this.btnClear);
             this.radPanel4.Controls.Add(this.btnDelete);
             this.radPanel4.Controls.Add(this.btnUpdate);
             this.radPanel4.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.radPanel4, "radPanel4");
             this.radPanel4.Name = "radPanel4";
             this.radPanel4.ThemeName = "MaterialBlueGrey";
             // 
             // radPanel6
             // 
+            resources.ApplyResources(this.radPanel6, "radPanel6");
             this.radPanel6.Controls.Add(this.radPanel9);
             this.radPanel6.Controls.Add(this.radPanel7);
-            resources.ApplyResources(this.radPanel6, "radPanel6");
             this.radPanel6.Name = "radPanel6";
             this.radPanel6.ThemeName = "MaterialBlueGrey";
             // 
             // radPanel9
             // 
+            resources.ApplyResources(this.radPanel9, "radPanel9");
             this.radPanel9.Controls.Add(this.btnAddFormula);
             this.radPanel9.Controls.Add(this.lblProductItemID);
             this.radPanel9.Controls.Add(this.lblproductID);
@@ -375,7 +380,6 @@
             this.radPanel9.Controls.Add(this.label2);
             this.radPanel9.Controls.Add(this.ddlMaterial);
             this.radPanel9.Controls.Add(this.label1);
-            resources.ApplyResources(this.radPanel9, "radPanel9");
             this.radPanel9.Name = "radPanel9";
             this.radPanel9.ThemeName = "MaterialBlueGrey";
             // 
@@ -405,32 +409,32 @@
             // 
             // radPanel7
             // 
+            resources.ApplyResources(this.radPanel7, "radPanel7");
             this.radPanel7.Controls.Add(this.helpBtn);
             this.radPanel7.Controls.Add(this.btnAmerican);
             this.radPanel7.Controls.Add(this.btnAlbania);
             this.radPanel7.Controls.Add(this.productPictureBox);
-            resources.ApplyResources(this.radPanel7, "radPanel7");
             this.radPanel7.Name = "radPanel7";
             this.radPanel7.ThemeName = "MaterialBlueGrey";
             // 
             // helpBtn
             // 
-            this.helpBtn.Image = global::PVCWindowsStudio.Properties.Resources.information__1_;
             resources.ApplyResources(this.helpBtn, "helpBtn");
+            this.helpBtn.Image = global::PVCWindowsStudio.Properties.Resources.information__1_;
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.TabStop = false;
             // 
             // btnAmerican
             // 
-            this.btnAmerican.Image = global::PVCWindowsStudio.Properties.Resources.united_states__1_;
             resources.ApplyResources(this.btnAmerican, "btnAmerican");
+            this.btnAmerican.Image = global::PVCWindowsStudio.Properties.Resources.united_states__1_;
             this.btnAmerican.Name = "btnAmerican";
             this.btnAmerican.TabStop = false;
             // 
             // btnAlbania
             // 
-            this.btnAlbania.Image = global::PVCWindowsStudio.Properties.Resources.albania__1_;
             resources.ApplyResources(this.btnAlbania, "btnAlbania");
+            this.btnAlbania.Image = global::PVCWindowsStudio.Properties.Resources.albania__1_;
             this.btnAlbania.Name = "btnAlbania";
             this.btnAlbania.TabStop = false;
             // 
